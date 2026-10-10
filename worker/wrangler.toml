@@ -1,0 +1,29 @@
+name = "elsewhere-pipeline-desk"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+[vars]
+# Your GitHub Pages origin (no path), plus localhost for testing.
+ALLOWED_ORIGINS = "https://YOURNAME.github.io,http://localhost:8000"
+# Where the Worker fetches the seed board the first time the live board is empty.
+PAGES_ORIGIN = "https://YOURNAME.github.io/elsewhere-pipeline-desk"
+# The Elsewhere IC tracker (the long id in the docs.google.com URL).
+TRACKER_DOC_ID = "1ozn4owNZPjfr92x-NKvQKDx-AVFe4dkNFKZdlttP8iw"
+# Leave unset to auto-pick the newest Opus your key can call.
+# MODEL = "claude-opus-5"
+MAX_TOKENS = "2000"
+
+# Live board storage. Create with:  npx wrangler kv namespace create BOARD
+# then paste the id it prints below.
+[[kv_namespaces]]
+binding = "BOARD"
+id = "61f35e14de1b42dc81db1e43441f8b28"
+
+# Secrets (never in this file):
+#   npx wrangler secret put ANTHROPIC_API_KEY
+#   npx wrangler secret put ACCESS_CODE
+#   and ONE of:
+#   npx wrangler secret put GOOGLE_SA_KEY                 # paste the whole service-account JSON
+#   npx wrangler secret put GOOGLE_OAUTH_CLIENT_ID
+#   npx wrangler secret put GOOGLE_OAUTH_CLIENT_SECRET
+#   npx wrangler secret put GOOGLE_OAUTH_REFRESH_TOKEN

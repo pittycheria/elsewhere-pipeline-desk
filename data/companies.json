@@ -1,0 +1,2510 @@
+{
+ "updated": "2026-10-10",
+ "count": 50,
+ "rubric": {
+  "title": "Rubric (v3, POV-aligned)",
+  "factors": [
+   {
+    "name": "A: Product pull, no sales machine",
+    "weight": "20%",
+    "earns": "Inbound, PLG, open-source, marketplace or channel-driven growth with a tiny or absent sales team; real customer logos acquired without S&M. This is the gap Elsewhere's operating bench monetizes and the single strongest signal in their portfolio.",
+    "loses": "Outbound-built growth; POC-dependent selling; channel dependency on a single partner; growth that needs paid acquisition to continue."
+   },
+   {
+    "name": "B: Fund III financial fit",
+    "weight": "20%",
+    "earns": "$5M+ ARR (or a secondary-heavy structure that makes a $20-50M majority check price sanely); Rule of 40; recurring revenue quality (GRR first, NRR second); capital efficiency; evidence quality (company-stated or filed beats podcast beats third-party models).",
+    "loses": "Below $5M ARR without a secondary; services or one-time revenue in 'ARR'; founder-attested numbers with no corroboration; contradicted numbers; single-customer concentration above 25%."
+   },
+   {
+    "name": "C: Operator-transplant readiness",
+    "weight": "20%",
+    "earns": "Founder will become CPO/CTO under an installed CEO, or accept an OA Executive Chair; GTM gap is one an infra/security/MSP bench can fill; founders who have exited before; explicit transition plans.",
+    "loses": "Founder wants capital not a partner; 'prefer to retain control'; key-person risk without a transition path; a founder who wants to keep selling the way they sell today."
+   },
+   {
+    "name": "D: Sector + AI-era durability",
+    "weight": "20%",
+    "earns": "Portfolio-proven sectors in priority order: IT infrastructure/DevOps/monitoring > security > healthcare IT with a bench operator > business applications. AI makes the product more necessary (proprietary data, identity/data-layer control, agent-era tooling). Consolidating category with active acquirers.",
+    "loses": "Core capability is what LLMs commoditize; same feature shipping free or bundled by a platform the customer already pays; buyer budgets contracting; capital asymmetry vs funded rivals; no right-to-win beyond the current catalyst."
+   },
+   {
+    "name": "E: Deal shape + exit path",
+    "weight": "20%",
+    "earns": "Bootstrapped or stale/small VC that wants cleanup; majority available; lower-middle-market sell-side bankers (Cascadia, FirstCapital, Vista Point, GrowthPoint, Lincoln, Capstone) are normal counterparties; NA/Europe/Israel HQ with willingness to build a US/Austin presence; a nameable upmarket sponsor (Sumeru, Brighton Park, Francisco, Updata) or strategic at $100-250M in 3-5 years.",
+    "loses": "VC-shaped rounds (Series A/B, minority-only); strategic auctions run to bundlers; external price anchors (term sheets, SAFE caps); heavy preference stacks or founders under 25%; governance vacuum (no board, CFO, succession); geography outside the box."
+   }
+  ],
+  "rules": "Score = simple average of A-E. Calibration: 75+ chase now; 65-74 real interest with one named blocker; 55-64 only on a specific condition; below 55 pass with the revisit trigger written down. Any factor at 30 or below caps the total at 65, because one broken leg kills these deals in practice. New facts move scores; the rubric does not bend."
+ },
+ "pov": "Elsewhere Partners is an operating-team transplant business that uses capital as the entry ticket. They buy a time-tested software product (often 7-25 years old) with proven customer pull and a stale or absent go-to-market, install a CEO or Executive Chair from their infrastructure-software bench (SolarWinds, SailPoint, AlienVault alumni), often move HQ to Texas, build a US sales motion, and sell to an upmarket sponsor (Sumeru, Brighton Park, Francisco, Updata) or strategic in 3-5 years at $100-250M. CEO changed in 12 of 21 deals. They are the sole investor in most deals, label them Series A but take control in substance, and buy through lower-middle-market bankers (Cascadia, FirstCapital, Vista Point, GrowthPoint, Lincoln, Capstone). Fund III writes $20-50M majority checks, so the practical ARR floor is about $5M unless a founder secondary is doing the work. Sector results: IT infrastructure/DevOps/monitoring best, then security, then healthcare IT with a bench operator; business applications are their weak vintage. Prior VC is fine when stale and small; live momentum rounds, term sheets, SAFE caps and strategic auctions are disqualifiers. The single strongest signal in their book is product pull without a sales machine.",
+ "calibration": "CALIBRATION ANCHORS: DarkOwl A75 B90 C75 D85 E80 = 81; MSP Process A90 B55 C85 D80 E70 = 76; Encompaas A80 B70 C60 D85 E75 = 74; Polixis A75 B65 C85 D70 E70 = 73 (verified); CyberDrain A92 B50 C80 D58 E72 = 70 (verified); AlertOps A85 B50 C80 D60 E75 = 70; Competera A70 B75 C40 D65 E25 = 55; DefectDojo A70 B50 C45 D40 E65 = 54 (verified); Espresso AI A60 B40 C55 D30 E40 = 45 (verified); Phin Security A40 B45 C40 D40 E20 = 37",
+ "companies": [
+  {
+   "id": "darkowl",
+   "name": "DarkOwl",
+   "rank": 1,
+   "score": 81,
+   "week": "8/6",
+   "hq": "Denver, CO",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 75,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 90,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 75,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 85,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 80,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: 200 customers +15/qtr with an 'underdeveloped sales motion' = the exact gap they monetize. B: $10M +50% profitable. C: founders open, Five Elms cleanup, overlay model. D: proprietary data AI needs. E: LMM banker, nameable exits (Recorded Future-type strategics, upmarket PE).",
+   "archetype": "2: founder stays + OA overlay; 4: stale-VC cleanup (Five Elms)",
+   "founderTransition": "Founders open to GTM partner; overlay model fits",
+   "checkAbsorbability": "$10M ARR absorbs $20-50M easily",
+   "what": "Continuously crawls dark web / Tor / Telegram and structures it into searchable intelligence, indexed for AI/LLM consumption",
+   "financials": "$10M ARR +50%, profitable, mid-80s GRR / 100% NRR, ACV $45K, raised $15.6M (Five Elms 40%)",
+   "aiTailwinds": "Proprietary darknet corpus (Tor, I2P, ZeroNet, Telegram) indexed for LLM consumption is exactly the data layer AI security products need and cannot scrape themselves. Every threat-intel, fraud and TPRM vendor building an AI feature is a potential data customer. 200 customers adding 15 a quarter with an \"underdeveloped sales motion\" is the Elsewhere gap. Profitable at $10M.",
+   "aiHeadwinds": "Flare ($100M raised) and CACI DarkBlue are better funded. LLMs lower the cost of summarising darknet content, so the moat is collection breadth and freshness, not analysis. Five Elms at 40% with a banker process starting means the deal will be framed before Elsewhere sees it; mid-80s GRR is adequate, not strong.",
+   "financialProfile": "$10M +50% profitable; mid-80s GRR, 100% NRR; above the floor with room",
+   "sectorFit": "Data-layer pick-and-shovel for AI security; Denver, founder-led",
+   "dealDynamics": "Founders majority, Five Elms 40% wanting out, banker selected end of August, process by year end; Denver",
+   "read": "Second priority. Meet before the banker frames it",
+   "unverified": []
+  },
+  {
+   "id": "msp-process",
+   "name": "MSP Process",
+   "rank": 2,
+   "score": 76,
+   "week": "8/21",
+   "hq": "New Orleans, LA",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 90,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 55,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 85,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 80,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 70,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: entirely organic/inbound, 700 MSPs, no outbound - the purest pull signal in the pipeline. B: ~$4.7M post-acq, doubling, CFBE but below floor. C: Leonard has sold to both an MSP consolidator and a tooling consolidator. D: DefensX twin (MSP-channel security), AI-native. E: bootstrapped, no process; Kaseya/ConnectWise/ScalePad nameable.",
+   "archetype": "1/DefensX comp: MSP-channel security, product pull, no sales machine",
+   "founderTransition": "Leonard has sold twice - transition-savvy; CEO/COO veto to unpack",
+   "checkAbsorbability": "$4M (+$0.7M acq, doubling) - borderline for Fund III",
+   "what": "AI voice/chat agent answering MSP service-desk calls, verifying caller identity via client MFA before opening PSA tickets - closes the vishing gap",
+   "financials": "~$4M ARR +100%, CFBE, Ro40 100+, bootstrapped, ~700 MSP customers, CEO owns ~66%",
+   "aiTailwinds": "AI voice and chat agents handling MSP service-desk intake with MFA-based caller verification sits directly on the vishing and social-engineering wave; every AI advance makes the identity-verification gap worse for MSPs and the product more necessary. 700 MSPs entirely inbound with zero outbound is the purest pull signal on the board. DefensX twin for the MSP channel.",
+   "aiHeadwinds": "~$4M is below the floor. Thread, CyberQP and Traceless compete on adjacent slices, and ConnectWise or Kaseya could bundle verification into the PSA. The current acquisition (~$700k ARR) and financial-reporting cleanup mean the numbers are in motion.",
+   "financialProfile": "~$4M +100% CFBE, Rule of 40 100+; below floor but doubling",
+   "sectorFit": "Rides the AI wave rather than fighting it; help-desk identity is a real emerging",
+   "dealDynamics": "Bootstrapped, CEO owns ~66% with mutual veto with COO, targeting $5M before a raise but open earlier; Kaseya, ConnectWise, ScalePad nameable buyers",
+   "read": "Fourth priority. Demo already being set up - push for GRR/NRR and organic vs acquired split",
+   "unverified": []
+  },
+  {
+   "id": "encompaas",
+   "name": "Encompaas",
+   "rank": 3,
+   "score": 74,
+   "week": "8/14",
+   "hq": "Sydney, AU",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 80,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 70,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 60,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 85,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 75,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: partner-driven growth (Accenture), founder-led sales. B: $5M at floor, Ro40 70, anecdotal. C: founder's US-CEO willingness unknown; AU to US HQ build. D: AI data infra bullseye. E: LMM process planned Q1-27, HNW cleanup = secondary; exit to data-mgmt strategics/PE nameable.",
+   "archetype": "1: aged product, GTM gap (US build via Accenture)",
+   "founderTransition": "Unknown - AU founder since 2012; ask about US CEO",
+   "checkAbsorbability": "$5M at floor; secondary-heavy ask makes it work",
+   "what": "Classifies and governs unstructured enterprise data into an AI-queryable layer with compliance audit trail; deploys in customer's Microsoft tenant",
+   "financials": "$5M ARR +70%, NRR 100%+, GM 80%, CFBE, Ro40 70, ACV $200-500K, raised $14M",
+   "aiTailwinds": "Classifying and governing unstructured data into an AI-queryable layer with a compliance audit trail is the exact centre of the enterprise-AI-adoption thesis: agents need one governed source, and EU AI Act lineage requirements make it mandatory for regulated G2000. Accenture is the US growth lever, Microsoft-tenant deployment removes the data-residency objection, $200-500K ACV paid annually in advance.",
+   "aiHeadwinds": "Microsoft Purview is native, adjacent and free at the tenant level; OpenText, Egnyte and Alation sit on either side. ~15-20 customers is a thin base for $5M, and every financial figure is anecdotal. Australia HQ means a US build from scratch.",
+   "financialProfile": "$5M +70%, NRR 100%+, GM 80%, CFBE, Rule of 40 70; at the floor on anecdotal numbers",
+   "sectorFit": "Exact centre of the enterprise-AI-adoption thesis",
+   "dealDynamics": "Flexible structure, $15-20M primary plus substantial secondary for HNW/angel cleanup, process late Jan/early Feb 2027; Sydney",
+   "read": "Highest priority. Get ahead of the Q1-27 process; verify anecdotal numbers + Accenture-sourced pipeline",
+   "unverified": []
+  },
+  {
+   "id": "polixis",
+   "name": "Polixis",
+   "rank": 4,
+   "score": 73,
+   "week": "Tommy 9/28",
+   "hq": "Geneva, Switzerland",
+   "state": "verified",
+   "verifiedDate": "2026-09-28",
+   "verifiedNote": "Independent verification pass 2026-09-28.",
+   "factors": {
+    "A": {
+     "score": 75,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 65,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 85,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 70,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 70,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: A four-person sales team across London, Geneva and Zurich carrying $5.1M growing 100% is product pull with almost no sales machine, which is the single strongest Elsewhere signal. Four named customer testimonials with titles beat a logo wall, and one (BCP Bank CCO) states they won a competitive parallel bake-off. Five named OEM platform integrations are real embedded distribution the pitch under-sells. Marked down because all 200+ logos are self-reported with no case studies or press, and \"Rothschild\" is Edmond de Rothschild, a different institution. B: Above the floor with a Rule of 40 of 150 that would be an extreme outlier if true. The unit economics are internally plausible at ~$84k revenue per head with 40+ staff on Armenian salaries. Two problems: the 2023 Swiss balance sheet shows CHF 134k net assets against CHF 1.35M of liabilities, which means the economics sit in Armenia, are swept to the owner annually, or are overstated; and 100% growth alongside 50% EBITDA are in tension unless the Western sales presence really is that thin. C: The best C on the board. The founder has described the Elsewhere model back to them unprompted: majority, operator takes the company, founder goes to product, no earnout. Held below 90 only because he is the sole shareholder with no one forcing a deal, has never sold a company, and his own site claims employee ownership the register contradicts. D: Not a core Elsewhere sector, which caps it, but the durability logic is genuinely strong. Entity resolution against registry data is a data-acquisition problem, not a reasoning problem, and AML is a regime where provenance and audit trail are required, so probabilistic output is not defensible. AMLA standards due July 2026 and the AMLD6 UBO threshold change give a dated demand catalyst inside the hold period. The weakness is that the corpus is assembled from public sources by their own admission. E: Bootstrapped with a sole shareholder is the cleanest cap table the board has seen, geography is in the box, and the exit path is the best documented anywhere in the portfolio: three disclosed strategic comps at 11.6x to 19.5x revenue, plus TPG/Sayari as a structural precedent for exactly this deal. Held at 70 by the absence of a confirmed banker, untested founder motivation, and the employee-equity ambiguity",
+   "archetype": "Clean 2 plus a founder-authored operator transplant. Bootstrapped niche leader, founder stays on product, partner runs the company",
+   "founderTransition": "Strongest on the board. Founder states he wants operational responsibility handed over while he focuses on product and innovation, and rejects earnout structures. Sole shareholder, so no board or investor is forcing it, and he has never sold anything",
+   "checkAbsorbability": "$5.1M supports a $20-50M cheque at 4-10x ARR, a wide discount to every strategic comp in the category",
+   "what": "ARDIS platform (not \"RAAY\" as the pitch states): sanctions, PEPs, RCAs, adverse media, UBO and corporate ownership resolved into one entity-matched graph. Claims 1.9M sanctioned entities, 13M PEP/RCA profiles, 637M corporates and UBOs across 249 jurisdictions, adverse media in 100+ languages. Delivered by REST API, bulk feeds, a graph endpoint, SDKs and an MCP interface. Sister products PEP&REP, CheckMate, Graph AI, AiDA",
+   "financials": "$5.1M ARR +100%, ~80% ARR / 20% recurring services, 95% GRR, ~50% EBITDA, Rule of 40 of 150 (all founder-stated, nothing public). Bootstrapped; Swiss register confirms Gagik Sargsyan as SOLE shareholder. Polixis SA, CHE-250.050.596, registered Sept 2012, converted Sarl to SA in 2024 (capital CHF 20k to CHF 100k). ~61 FTEs with a 40+ person Yerevan research hub running since 2017",
+   "aiTailwinds": "Founder explicitly wants a partner to take operational responsibility while he moves to product, explicitly rejects a pure financial buyer or earnout, offering 60/40 majority. Dated regulatory catalyst inside the hold period: EU AMLA operational July 2025, 23 technical standards due 10 July 2026, AMLR and AMLD6 apply 10 July 2027, and the UBO threshold moving from \"more than 25%\" to \"25% or more\" forces an EU-wide re-screen of ownership data. Emerging-markets depth (Russia, CIS, Caucasus, MENA) from an Armenian research team is genuinely hard for Moody's or LSEG to replicate and is corroborated on the record by Bank Audi's CCO. Five named OEM integrations (WealthArc, AquaValley BankVista, SpeciTec, Etops, BIGTXN) give embedded distribution. Shipping MCP positions the graph as what agents call rather than what they replace. AML is a defensibility regime: regulators want provenance and audit trail, and a probabilistic model output is not a defensible answer",
+   "aiHeadwinds": "The corpus is built \"exclusively from publicly available sources\" by their own account, so a well-funded competitor could re-scrape it; the 637M-entity graph and the emerging-markets depth are the only real moat. LLMs do commoditize the screening interface and adverse-media summarisation. No published false-positive rate, methodology or third-party benchmark anywhere. Their own marketing says the data is \"curated and maintained in-house\", which is the language of the manual model the pitch claims to be displacing",
+   "financialProfile": "Above the floor with exceptional stated margins, but the only hard number found (2023 Swiss balance sheet: CHF 134k net assets against CHF 1.35M third-party liabilities) does not look like the home entity of a $5.1M, 50%-margin business",
+   "sectorFit": "AML/KYC risk data; regulator-driven, consolidating, strong priced exit comps",
+   "dealDynamics": "Bootstrapped, sole shareholder, no VC to clean up, wants 60/40 growth buyout with $3-5M primary. Switzerland is in the box. Best exit comps on the board: Moody's/Bureau van Dijk at ~11.6x revenue, Moody's/RDC at ~12.7x, Nasdaq/Verafin at ~19.5x, and TPG/Sayari ($235M strategic majority growth investment) is the exact deal shape. No banker confirmed and no evidence AGC holds a mandate",
+   "read": "Best new name in over a month and the first since DarkOwl that reads like an Elsewhere deal the founder designed himself. Three gating items before anything else: consolidated GROUP accounts plus a QofE, because the Geneva SA alone does not look like the operating entity; the OEM versus direct split of ARR, because embedded data supply into platforms is a materially better revenue shape than selling to Geneva private banks and would make the 95% GRR credible; and resolution of the \"100% employee-owned\" claim on their own site against a register naming Sargsyan as sole shareholder, which is a change-of-control landmine. Then establish whether AGC actually has a mandate or this is an unmandated conference introduction, because with no investor and no liquidity clock, founder motivation is the whole execution risk",
+   "unverified": [
+    "$5.1M ARR, 100% growth, 50% EBITDA, 95% GRR, Rule of 40 of 150 (nothing public; ZoomInfo estimates under $5M)",
+    "All customer logos are self-reported from their own site with no case studies or press: Societe Generale, Bordier, Bedrock, Grant Thornton",
+    "The 2023 Swiss balance sheet (CHF 134k net assets) versus the stated financial profile",
+    "\"100% employee-owned\" on their own About page versus the register naming Sargsyan sole shareholder",
+    "Whether AGC Partners actually holds a mandate, or this is an unmandated conference introduction",
+    "The \"highly automated production model\" claim, which their own marketing does not make",
+    "Product is ARDIS, not RAAY as the pitch states",
+    "\"Rothschild\" is Edmond de Rothschild, a separate institution from Rothschild & Co"
+   ]
+  },
+  {
+   "id": "cyberdrain",
+   "name": "CyberDrain",
+   "rank": 5,
+   "score": 70,
+   "week": "Tommy 9/2",
+   "hq": "Rotterdam, NL (CEO Austin)",
+   "state": "verified",
+   "verifiedDate": "2026-09-04",
+   "verifiedNote": "Independent research pass completed in session (Sept 2026)",
+   "factors": {
+    "A": {
+     "score": 92,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 50,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 80,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 58,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 72,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: MSP count trajectory confirmed (300 in 2021 to 11,000+ Mar-26), 11,119 Discord members, zero S&M, Microsoft #IntuneForMSPs partner after technical assessment. B: $5M ARR NOT FOUND; implies ~4,200 paying hosted at EUR 99 (~1/3 conversion) - aggressive; growth unstated; billing via GitHub Sponsors. C: transition explicit, but Dustin still lists Clear Guidance + Beltex as active; Kelvin sole director and community face. D: Inforcer $50M Series C (Insight, Jul-26, $110M in 18 mo), Nerdio MSP base doubled; Lighthouse free; Microsoft co-opting rather than competing is a plus. E: bootstrapped, pre-agreed path; NinjaOne is an integration + sponsorship, NOT an OEM; no SOC 2, ISO 27001 'pursuing'.",
+   "archetype": "1: community-grown product, zero GTM, founders exiting",
+   "founderTransition": "Explicit: Dustin exits now, Kelvin transitions; Dustin's other roles and Kelvin key-person are the risks",
+   "checkAbsorbability": "~40% at $5M ARR = $10-15M; two-step to full sale at $10M",
+   "what": "Open-source multi-tenant Microsoft 365 management for MSPs (CIPP); automates tenant onboarding, licensing, security baselines, conditional access, compliance; beta MCP server for AI-driven management",
+   "financials": "Pitch: ~$5M ARR, 'solid' growth, GM ~80s, EBITDA >50%, 10 FTEs. Public: team of 8 (Sep-25); no revenue estimate exists; 11,000+ MSPs using CIPP (Mar-26), mostly free self-host; hosted tier EUR 99/mo via GitHub Sponsors",
+   "aiTailwinds": "Open-source CIPP is the default free answer for MSP multi-tenant Microsoft 365 management: 50M+ Docker pulls, 7-8k Discord, 150+ contributors, zero S&M. Microsoft conceded this category to ISVs (#IntuneForMSPs, CIPP admitted March 2026; Lighthouse changelog dead since May 2025). The MCP server (v10.5, June 2026) makes CIPP the layer AI agents call. Tenant-level Microsoft eligibility enforcement from November 2026 is a dated demand catalyst. GDAP created the problem CIPP sells into.",
+   "aiHeadwinds": "EUR 99 flat hosted pricing with no per-tenant or per-seat vector, and AGPL means any price rise sends customers to the free self-host. Inforcer ($110M raised in 18 months, Insight) and Nerdio ($500M at $1.2B) are racing up-market on per-user pricing. Billing moved to Stripe with grandfathering ending 1 October, so a repricing is coming. Thousands of stale self-hosted forks holding GDAP credentials are a supply-chain exposure CyberDrain carries without controlling. Kelvin is the distribution and a key-person risk.",
+   "financialProfile": "~$5M ARR implied by ~4,000 hosted subscribers at EUR 99; EBITDA >50% on sub-10 FTEs; growth unstated",
+   "sectorFit": "Home-turf MSP infra, but Inforcer/Nerdio funded and Lighthouse free",
+   "dealDynamics": "Bootstrapped, pre-agreed path to full sale at ~$10M ARR, ~40% now (20% secondary, 20% primary); Kelvin in Austin mid-October; neither founder wants to run it long term",
+   "read": "Was 76 on the pitch; 70 after verification. Still archetype 1 and still worth the October meeting. Nail down: paying hosted count and growth, the NinjaOne contract (integration vs revenue), Dustin's time allocation, ISO/SOC 2 timeline",
+   "unverified": []
+  },
+  {
+   "id": "alertops",
+   "name": "AlertOps",
+   "rank": 6,
+   "score": 70,
+   "week": "8/14",
+   "hq": "Bloomingdale, IL",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 85,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 50,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 80,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 60,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 75,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: majority inbound/PLG. B: $3.7M below floor, Ro40 30. C: open to majority, founder. D: ITSM home turf, agentic-SRE absorption risk. E: bootstrapped, Midwest, SolarWinds sniffed.",
+   "archetype": "1: ITSM/infra home turf (Deskpro-adjacent), inbound-led",
+   "founderTransition": "Open to majority - transition-friendly",
+   "checkAbsorbability": "$3.7M below practical floor",
+   "what": "AI incident orchestration across observability/ITSM; correlates fragmented alerts into routed incidents (OpsIQ); PagerDuty displacement",
+   "financials": "$3.7M ARR +30%, breakeven, Ro40 ~30, bootstrapped, 89% GRR / 105% NRR, ACV $30K",
+   "aiTailwinds": "AI incident orchestration that correlates fragmented alerts into routed incidents is more necessary as observability volume grows; mission-critical physical infrastructure (data centres, utilities) is a sticky niche with compliance forcing adoption. Majority inbound/PLG. PagerDuty displacement on price and bundling is a real motion. SolarWinds already sniffed, then bought Squadcast instead, so the buyer is nameable.",
+   "aiHeadwinds": "Agentic SRE and AIOps absorption: Datadog, PagerDuty, incident.io and the observability platforms are shipping AI correlation natively. $3.7M is below the floor at 30% growth. 97% North America.",
+   "financialProfile": "$3.7M +30% breakeven, Rule of 40 ~30, 89% GRR / 105% NRR; below floor",
+   "sectorFit": "Category being absorbed by observability platforms",
+   "dealDynamics": "Bootstrapped, open to majority with the right partner, $5-10M primary flexible on secondary; Illinois",
+   "read": "Worth a meeting on deal shape; thesis must survive the agentic-SRE question",
+   "unverified": []
+  },
+  {
+   "id": "backupta",
+   "name": "Backupta",
+   "rank": 7,
+   "score": 67,
+   "week": "8/21",
+   "hq": "New York, NY (60% France)",
+   "state": "verified",
+   "verifiedDate": "2026-09-04",
+   "verifiedNote": "Independent research pass completed in session (Sept 2026)",
+   "factors": {
+    "A": {
+     "score": 80,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 65,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 45,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 80,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 65,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: 250 customers, greenfield inbound, small sales. B: $6-10M anecdotal vs EUR 751K filed loss. C: founders prefer control - scored, not footnoted. D: identity resilience, Semperis comps. E: angel-only good; Lyvoc entanglement; exit nameable (Semperis, Rubrik).",
+   "archetype": "2: founder-led niche leader; angel-only",
+   "founderTransition": "Founders prefer control; 'open if value beyond money' - test it",
+   "checkAbsorbability": "$6-10M in zone",
+   "what": "Automated backup + granular, dependency-aware restore for Okta / Auth0 / CIAM identity estates (AD, Entra, IGA, HRIS aware)",
+   "financials": "$6-10M ARR +50-70% (anecdotal), CFBE, 1-2 yrs runway, Ro40 50+, angel-only, 250+ customers",
+   "aiTailwinds": "Identity resilience for Okta/Auth0 estates is regulator-driven (DORA, OSFI) and incident-driven; general-purpose backup lacks Okta-native dependency awareness. 250+ customers largely greenfield inbound with a tiny sales team. Semperis bought MightyID (Feb 2026) and Rubrik shipped Okta Recovery, which proves the category and names the buyers.",
+   "aiHeadwinds": "Okta concentration is the whole risk: one vendor roadmap change or a native Okta backup feature removes the wedge. Rubrik and Semperis moving in means the window is consolidating. Founders prefer control. French registry shows a EUR 751K loss and a June 2023 founding, and the Lyvoc spinout (CEO's Okta consultancy sold to PE Sept 2024) needs a clean carve-out.",
+   "financialProfile": "$6-10M anecdotal, +50-70%, CFBE claimed against a filed loss; angel-only",
+   "sectorFit": "Regulated tailwind + real logos; Okta concentration is THE question",
+   "dealDynamics": "90%+ employee/founder owned, COO open to capital if the partner brings value; founders historically bootstrapped and control-minded; NYC/Paris",
+   "read": "Was 76, now 70 post deep-dive. Lyvoc spinout (CEO's Okta consultancy, sold to PE Sept-24 - confirm carve-out/equity); founded Jun-23 per French registry, not 2022; Rubrik Okta Recovery GA Dec-25 and Semperis bought MightyID Feb-26 = window consolidating. Still worth Oktane intro; cap-table and Lyvoc separation are the first questions",
+   "unverified": []
+  },
+  {
+   "id": "breach-secure-now",
+   "name": "Breach Secure Now",
+   "rank": 8,
+   "score": 65,
+   "week": "8/21",
+   "hq": "Morristown, NJ",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 70,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 55,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 85,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 45,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 70,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: 2,327 MSPs = channel pull. B: $15.9M in zone, 14.6% growth, Ro40 19. C: founder selling majority - transition built in. D: SAT content commoditizing, KnowBe4. E: Capstone LMM process is their normal counterparty; Kaseya/KnowBe4 nameable.",
+   "archetype": "1: aged MSP-channel product, founder selling; LMM banker",
+   "founderTransition": "Founder selling majority - transition built in",
+   "checkAbsorbability": "$15.9M in zone",
+   "what": "Security awareness / compliance / AI-awareness training for SMBs, sold through 2,327 MSPs, native in Teams",
+   "financials": "$15.9M ARR +14.6%, 96% GRR / 109% NRR, GM 82%, Adj EBITDA 4.7%, Ro40 ~19, bootstrapped",
+   "aiTailwinds": "2,327 MSPs reselling a Teams-native training bundle is a durable channel; AI-awareness training is a new content line every MSP has to offer. 96% GRR, 109% NRR, 82% GM. Capstone is a normal Elsewhere counterparty and Kaseya/KnowBe4 are nameable buyers.",
+   "aiHeadwinds": "Security awareness content is commoditising fast and LLMs make phishing-simulation and training content nearly free to produce; KnowBe4 (Vista) and Kaseya bundle it. 14.6% growth and Rule of 40 ~19 is a mature asset, not a growth one. Phin Security is a funded direct comp in the same channel.",
+   "financialProfile": "$15.9M +14.6%, 96% GRR, 4.7% adjusted EBITDA, Rule of 40 ~19; in band, slow",
+   "sectorFit": "Sticky channel, commoditizing content",
+   "dealDynamics": "Capstone running a full or substantial majority sale; IOI due 9 Sept 2026; Entegration MSP arm sold separately; New Jersey",
+   "read": "Only works as a platform/consolidation play at a disciplined price; IOI deadline forces a fast yes/no",
+   "unverified": []
+  },
+  {
+   "id": "heimdall-data",
+   "name": "Heimdall Data",
+   "rank": 9,
+   "score": 64,
+   "week": "prior",
+   "hq": "Palo Alto, CA",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 70,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 30,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 70,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 90,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 60,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: AWS Marketplace pull, founder-led. B: $2.5M - below what Fund III deploys (red, caps score). C: open to majority, wants SailPoint fix. D: database security consolidating at premium. E: no process; strategic exit nameable; size.",
+   "archetype": "1 in shape, wrong size",
+   "founderTransition": "Founders would need installed CEO/CRO - unknown",
+   "checkAbsorbability": "$2.5M - below what Fund III deploys",
+   "what": "Database PAM on a SQL wire-protocol proxy: JIT access, MFA, per-query masking/blocking, statement-level audit",
+   "financials": "$2.5M ARR, claims $5.5M by YE, ~15 FTEs, breakeven, bootstrapped",
+   "aiTailwinds": "Database access control on a SQL wire-protocol proxy (JIT access, MFA, per-query masking, statement-level audit) is the data-layer control every AI agent and LLM data pipeline will need; database security is consolidating at premium multiples (Delinea, StrongDM, Satori, Cyral, Imperva). AWS Marketplace pull, founder-led, bootstrapped, breakeven. Open to majority and wants a \"SailPoint fix\".",
+   "aiHeadwinds": "$2.5M is well below what Fund III deploys and the $5.5M year-end claim is unproven. ~15 FTEs with no sales motion. The proxy architecture is proven but the hyperscalers and the database vendors can add inline masking and JIT natively.",
+   "financialProfile": "$2.5M, breakeven, bootstrapped, claims $5.5M by year end; far below floor",
+   "sectorFit": "Database security consolidating at premium; proven inline tech",
+   "dealDynamics": "Bootstrapped, no process, open to majority; strategic buyers nameable; Palo Alto",
+   "read": "Reposition-and-sell inside 24 months; push for ARR split + agent-roadmap conversation",
+   "unverified": []
+  },
+  {
+   "id": "safetica",
+   "name": "Safetica",
+   "rank": 10,
+   "score": 61,
+   "week": "8/21",
+   "hq": "San Jose, CA (100 FTEs Czechia)",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 55,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 60,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 60,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 60,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 70,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: channel-heavy, building direct US. B: $11M, growth TBC, 77% GRR history. C: unknown. D: DLP with Purview pressure. E: stale-VC cleanup + secondary = archetype 4.",
+   "archetype": "4: stale-VC cleanup (Impulse since 2014) + secondary",
+   "founderTransition": "CEO Kren; unknown",
+   "checkAbsorbability": "$11M in zone",
+   "what": "Endpoint-first DLP + insider risk with behavioral baselines; fast deployment vs legacy network DLP; AI governance module launching",
+   "financials": "~$11M ARR, claims 40-60% growth (TBC - Dec-24 profile was $6.4M +19%, 77% GRR / 95% NRR), raised $7M (Impulse VC since 2014), burn unknown",
+   "aiTailwinds": "Endpoint-first DLP with behavioural baselines is the right architecture for remote work and AI-leakage (prompts, copy-paste into LLMs), and the AI governance module for LLM app monitoring lands on live demand. 3,500 customers in 50+ countries, Czech engineering cost base, Impulse since 2014 wanting cleanup with a secondary. Pradeep and Simon Hunt gave positive product reads in Dec 2024.",
+   "aiHeadwinds": "Microsoft Purview bundles DLP into E5 and is the default for M365 shops; Forcepoint, Trellix, Digital Guardian and Nightfall compete. Growth went from 19% (Dec 2024 profile) to a claimed 40-60% with no explanation yet, and historical GRR was 77%. US expansion burn is unknown.",
+   "financialProfile": "~$11M, growth 40-60% claimed against 19% a year earlier, 77% GRR history; new CFO refreshing numbers",
+   "sectorFit": "Real AI-era demand, brutal bundling pressure",
+   "dealDynamics": "$10-20M primary plus secondary to clean up Impulse (since 2014); exploring tuck-ins; San Jose HQ, 100 in Czechia",
+   "read": "Wait for the new CFO's refreshed financials (3 wks); the 19%-to-50% growth jump must be explained line by line",
+   "unverified": []
+  },
+  {
+   "id": "screenmeet",
+   "name": "ScreenMeet",
+   "rank": 11,
+   "score": 58,
+   "week": "9/4",
+   "hq": "San Francisco, CA",
+   "state": "verified",
+   "verifiedDate": "2026-09-05",
+   "verifiedNote": "Verified 9/5: founder/exits/funding confirmed; Tanium is a reseller (confirmed); agentic execution not found shipped; SNOW+Tanium autonomous remediation launched without ScreenMeet",
+   "factors": {
+    "A": {
+     "score": 70,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 60,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 70,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 45,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 45,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: Platform-native distribution (ServiceNow Store, AppExchange, Tanium reseller ~1/3 of revenue), word of mouth, tiny sales team; TTEC/Teleperformance/Dropbox/Choice Hotels are real B: In band at ~$13-14.5M but only 18% growth; FCF positive plausible on flat headcount; Inc 5000 rank consistent; scale stats halved unexplained C: Founder on company #4 with two prior trade sales, COO with six exits, wants a transaction by EOY and lists PE growth as an option D: Remote support consolidating (TeamViewer/1E $720M) but total dependency on ServiceNow, Salesforce and Tanium, and ServiceNow+Tanium shipped autonomous remediation together in May 2026 without ScreenMeet; shipped AI is human-in-loop E: Stale 2021 VC table is a cleanup, but an active SolarWinds white-label process plus bankers for a broad process = strategic auction; SF HQ; buyers nameable (SolarWinds/Turn River, TeamViewer, BeyondTrust, GoTo)",
+   "archetype": "4: stale VC cleanup, running as a strategic auction",
+   "founderTransition": "Transition-friendly: serial founder, wants EOY event, PE growth on the menu",
+   "checkAbsorbability": "$13-14.5M ARR absorbs a $20-50M check",
+   "what": "Cloud-native remote support embedded in ServiceNow, Salesforce and Tanium (Tanium resells it as 'Tanium Screen Sharing'), with AI summary/assist; agentic execution-with-approval is roadmap, not shipped",
+   "financials": "Pitch: ~$13M revenue / ~$14.5M ARR EOY +18%, FCF $2.5M last yr, Ro40 35-40, ~42 FTEs, raised $14.2M (Aspenwood, ServiceNow Ventures, Salesforce Ventures; last primary Sep 2021, a secondary since). Public: Inc 5000 #1,643 (2025) consistent with ~$12-14M; no founder ARR statement; marketing agent count halved 50k to 25k mid-2025",
+   "aiTailwinds": "Platform-native distribution inside ServiceNow, Salesforce and Tanium with a tiny sales team is real pull; AI summary and assist on remote sessions ship today, and agentic remediation with approval is a credible roadmap. Founder on company four with two trade sales, COO with six exits, wants a transaction by year end. $2.5M FCF last year.",
+   "aiHeadwinds": "ServiceNow and Tanium shipped autonomous remediation together in May 2026 without ScreenMeet, which is the platform threat made concrete. Total dependency on three platforms. 18% growth. Active SolarWinds white-label process plus bankers for a broader sale means Elsewhere would be the PE alternative in a strategic auction. SF HQ.",
+   "financialProfile": "~$13M revenue / ~$14.5M ARR EOY, +18%, FCF positive, Rule of 40 35-40; in band, slow",
+   "sectorFit": "IT infra - remote support / IT remediation",
+   "dealDynamics": "Stale 2021 VC table (Aspenwood, ServiceNow Ventures, Salesforce Ventures) wanting cleanup; live SolarWinds strategic process; CEO wants to close by year end",
+   "read": "The only one of the four that fits the box on size and founder, and the deal is being run as a strategic sale against SolarWinds. If EP wants it, it has to be as the PE alternative to a white-label deal, priced against 18% growth and platform dependency. Question that decides it: what did ServiceNow and Tanium say about build vs partner after ITOM AI Prime.",
+   "unverified": [
+    "125 direct / ~300 indirect customers",
+    "1/3 revenue via Tanium",
+    "FCF $2.5M",
+    "'world-class' retention",
+    "agentic execution-with-approval shipped"
+   ]
+  },
+  {
+   "id": "datapatrol",
+   "name": "DataPatrol",
+   "rank": 12,
+   "score": 55,
+   "week": "8/14",
+   "hq": "Dubai, UAE",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 65,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 65,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 45,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 55,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 45,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: channel-led, 120 customers. B: Ro40 136 but half revenue non-recurring. C: prefers minority. D: thin layer. E: Dubai, minority.",
+   "archetype": "Security, channel-led; Dubai",
+   "founderTransition": "Prefers minority - against majority model",
+   "checkAbsorbability": "$3.5M ARR ($6.6M rev) - borderline",
+   "what": "Screen watermarking + insider-threat prevention for 'data in view': the gap after login that DLP/DRM/ZTNA miss",
+   "financials": "Rev $6.6M / ARR $3.5M +70%, EBITDA 66% (TBC), FCF 30%, Ro40 136, bootstrapped, 96% GRR / 110% NRR",
+   "aiTailwinds": "Screen watermarking and \"data in view\" protection is a gap DLP, DRM and ZTNA do not cover, and AI screenshot-and-summarise tools make it more relevant. 120 customers, channel-led, bootstrapped, 96% GRR / 110% NRR, Rule of 40 136 on the stated numbers. Government and BFSI verticals are sticky.",
+   "aiHeadwinds": "Thin layer in a bundling market: Teramind, Proofpoint ITM and Safetica all adjacent, and Microsoft Purview could add it. Half the revenue is non-recurring ($6.6M revenue against $3.5M ARR). 65% of revenue outside NA and 50% government, Dubai HQ, prefers minority.",
+   "financialProfile": "$3.5M ARR +70% on $6.6M revenue; EBITDA 66% (TBC); ARR below floor",
+   "sectorFit": "Thin layer in a bundling market; 50% gov, 65% RoW revenue",
+   "dealDynamics": "Bootstrapped, targeting $6M primary, flexible on secondary, prefers minority; Dubai with DC office",
+   "read": "Rev-vs-ARR gap and Middle-East gov mix are the diligence",
+   "unverified": []
+  },
+  {
+   "id": "competera",
+   "name": "Competera",
+   "rank": 13,
+   "score": 55,
+   "week": "7/31",
+   "hq": "San Mateo, CA (Cyprus eng.)",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 70,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 75,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 40,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 65,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 25,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: inbound via pricing community. B: strong. C: wants a VC round. D: vertical app with real AI PMF. E: VC-shaped, $100M+ anchor, term sheets - red.",
+   "archetype": "VC-shaped: $30M Series A, term sheets, $100M+ anchor",
+   "founderTransition": "Founder wants VC round",
+   "checkAbsorbability": "$7.5M in zone",
+   "what": "AI pricing platform for enterprise retail: explainable context-aware neural net recommends prices across full assortments",
+   "financials": "$7.5M ARR +70% (exp. $12-14M YE), GM 80-90%, EBITDA -5%, Ro40 65, raised ~$10M",
+   "aiTailwinds": "Explainable neural-net pricing across full retail assortments is vertical AI with real enterprise PMF: $7.5M growing 70%, GM 80-90%, inbound via the pricing community. Retail pricing is a budget that survives downturns and AI makes the product better, not worse.",
+   "aiHeadwinds": "Wants a $30M Series A at a $100M+ anchor with term sheets in hand: the deal shape is the opposite of Elsewhere's. Revionics (Aptos), Pricefx and the retail-platform vendors can bundle pricing AI. Business applications is Elsewhere's weakest vintage.",
+   "financialProfile": "$7.5M +70%, GM 80-90%, EBITDA -5%, Rule of 40 65; strong",
+   "sectorFit": "Vertical AI with real enterprise PMF",
+   "dealDynamics": "VC-shaped: $30M Series A at $100M+ with term sheets; ~$10M raised; Ukraine/US",
+   "read": "Great company, wrong price. Watch; engage only if the anchor breaks",
+   "unverified": []
+  },
+  {
+   "id": "elastiflow",
+   "name": "ElastiFlow",
+   "rank": 14,
+   "score": 55,
+   "week": "9/25",
+   "hq": "Oakland, CA",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 70,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 55,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 45,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 60,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 45,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: Largely inbound and community-led with OEM distribution and marquee logos; the strongest pull in this batch. B: $6M above the floor and CFBE, but 20% growth and anecdotal 90% GRR. C: Open to a partner but no transition signal and a history of preferring minority. D: Top sector, SolarWinds/Paessler displacement is home turf for the bench, but Datadog/Grafana/Kentik sit above and the OTel expansion is unproven with developers. E: $8M of VC, walked from a minority round, open to strategic; no majority signal and no process.",
+   "archetype": "2 (community-led niche product) with slow growth and a VC overhang",
+   "founderTransition": "Founder-CEO; open to investment or partnership; no handover signal; walked from the last round on terms",
+   "checkAbsorbability": "$6M absorbs a $20-50M cheque",
+   "what": "Network observability platform turning flow and telemetry data into performance and security visibility; new platform ingests OpenTelemetry from APM sources and combines it with network data to tell whether an issue is app or network. Priced on data volume ingested",
+   "financials": "~$6M ARR +20%, ~90% GRR (anecdotal), CFBE, ~$30k ACV, ~120 customers, ~$8M raised (most recently $5M in 2024). Walked from a $15M minority round in April 2025 over terms and burn",
+   "aiTailwinds": "Inbound, community-led motion with OEM partners (Juniper, AMD) and real logos (Volkswagen, P&G, IKEA, Swift). Infra is the top Elsewhere sector and a cloud alternative to SolarWinds and Paessler is squarely on the bench's home turf. CFBE. Open to a strategic partner rather than a round",
+   "aiHeadwinds": "20% growth is slow for the band. Datadog, Grafana and Kentik own the category above. OA read (Denny) says developers do not care about network data, so the OpenTelemetry expansion into DevOps/SRE buyers is unproven. Prior behaviour signals a minority preference. ~$8M of VC on the table",
+   "financialProfile": "Above the floor, CFBE, but 20% growth and anecdotal retention",
+   "sectorFit": "Network observability; infra, community-led, slow growth",
+   "dealDynamics": "~$8M VC, previously minority-preferring, open to \"the right strategic party\"; no process",
+   "read": "Pitch-scored at the conditional line. The pull is real and the sector is right; growth is the problem. Worth the product demo the tracker already proposes, with the AppSignal or platform angle as the thesis. Verify before it goes to Nick",
+   "unverified": [
+    "~120 customers, $30k ACV, ~90% GRR (anecdotal)",
+    "$6M ARR +20%",
+    "Appetite for majority"
+   ]
+  },
+  {
+   "id": "defectdojo",
+   "name": "DefectDojo",
+   "rank": 15,
+   "score": 54,
+   "week": "Sloane 10/8",
+   "hq": "Austin, TX",
+   "state": "verified",
+   "verifiedDate": "2026-10-09",
+   "verifiedNote": "Independent verification pass 2026-10-09.",
+   "factors": {
+    "A": {
+     "score": 70,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 50,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 45,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 40,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 65,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: The open-source funnel is confirmed and large: 50M+ Docker pulls, 4.9k stars, OWASP flagship since 2014, and the company states most Pro customers converted from the free edition. That is product pull with a sales team only now being built, which is the exact gap Elsewhere monetises. Held at 70 because pulls are growing a flat 6M a year rather than accelerating, there are zero named Pro customers and only 17 public reviews, and the v3 move to gate RBAC and SSO drew a paywall backlash from the contributor who wrote the code, which is a direct risk to the only top of funnel they have. B: $4.8M sits just under the floor and the growth claim is the problem. The one public revenue datapoint, $3.9M as of September 2025, implies roughly 23% growth over thirteen months unless it was a trailing-year figure. The pitch says $10.1M raised; every tracker says $7M. Managed AppSec, which went GA in June 2026, is a services line and should be carved out of software ARR. Pricing flipped to self-serve usage nine days ago, which will pull ACV down. C: No signal either way. Founder-led, co-founder CTO, hired a CRO in February to build GTM himself, not raising. Austin is a genuine plus for the Elsewhere bench. This is the factor the CEO meeting exists to resolve. D: Security is proven, but the specific thesis fails. GitHub agentic autofix now fixes any third-party SARIF finding without an aggregator, every major scanner ships fix PRs for its own findings, Checkmarx fixes inside Cursor and Claude Code, and Pixee already fixes DefectDojo findings. Sensei is an orchestration layer over the same frontier models everyone uses, despite November 2025 marketing claiming it was self-contained. The infra-vuln aggregation layer is absorbed; the AppSec layer is being pulled into Wiz, Snyk and Checkmarx; and ArmorCode and Nucleus each have 10x the capital. The open-source low-cost mid-market and public-sector niche does hold for a while. E: Close to on-pattern. Small stale VC at a ~$16M post that would take a 2-3x, Austin HQ, no process, and the best exit documentation in AppSec: Jit ~$70M, Silk $150M, Vulcan $150M, Dazz $450M, all to platforms that are nameable buyers here. Held at 65 because the founder is not in market and the only opening is a possible investor secondary",
+   "archetype": "2 plus 4 on shape (founder-led OSS niche leader, small stale VC wanting liquidity), but the founder has not signalled he wants a partner",
+   "founderTransition": "Unknown, and it is the whole question. Greg Anderson is founder, CEO, OWASP lifer, just hired a CRO to build GTM himself. Co-founder CTO Matt Tesauro. Nothing says he wants an operator; nothing says he does not",
+   "checkAbsorbability": "$4.8M is 1.2-3x the last post-money at a $20-50M cheque; absorbable if the growth is real, but the only public revenue datapoint says it may not be",
+   "what": "Open-source (OWASP flagship, BSD-3) vulnerability management that ingests findings from 200-500 scanners, de-duplicates, and prioritises by EPSS/KEV. Pro tier gates SSO/RBAC, triage rules, upstream connectors, threat intel, and Sensei. Sensei opens fix pull requests (GitHub, GitLab, Bitbucket, ADO) and is an orchestration layer over Anthropic/OpenAI/Bedrock/Vertex models despite Nov 2025 marketing that said no third-party AI. Pricing moved to self-serve $100/month plus $0.15 per finding on 29 Sept 2026, with Sensei at $15 per remediation PR",
+   "financials": "$4.8M ARR +100% claimed, targeting $8M EOY, $45K ACV, 96-98% GRR, burning $60-80K/month, Rule of 40 ~80 (none public). Only public datapoint is $3.9M revenue as of Sept 2025 (Caplight), hard to reconcile with 100% growth unless it was a trailing-year figure. $7M Series A Sept 2024 co-led by Aspenwood and Iolar at ~$16.4M post (Preqin); the pitch's $10.1M total is $3M more than any public tracker shows. 26 FTEs plausible (trackers say 21-23). CRO hired Feb 2026",
+   "aiTailwinds": "50M+ Docker pulls confirmed, 4.9k stars, OWASP flagship since 2014, and the company says most Pro customers started on the free edition: the open-source funnel is real product pull with a sales team only now being built, which is the gap Elsewhere monetises. Austin HQ, no relocation needed. Two small young VC funds two years into a $7M position at a ~$16M post would likely take a 2-3x. Exit comps are exactly the Elsewhere target range and all went to platforms: Jit ~$70M (Torq), Silk $150M (Armis), Vulcan $150M (Tenable), Dazz $450M (Wiz). Nameable buyers: Tenable, Rapid7, Qualys, Snyk, Checkmarx, Wiz/Google. Threat intel, KEV/EPSS pipeline and dedup-then-fix across tools are genuine workflow value. Admitted to Anthropic Cyber Verification Program Oct 2026",
+   "aiHeadwinds": "AI remediation is table stakes: GitHub agentic autofix (public preview July 2026) fixes any third-party SARIF finding inside GitHub without an aggregator; Snyk, Semgrep, Checkmarx, Veracode and Black Duck all ship fix PRs for their own findings; Checkmarx fixes inside Cursor and Claude Code; Pixee already ingests DefectDojo findings and fixes them. Sensei reached GA 28 Sept 2026, docs still say BETA, no language list, no acceptance-rate data, no named customer, and it cannot have driven trailing-year growth. The infra-vuln aggregation layer is already absorbed (Tenable, Microsoft, Qualys, Rapid7, CrowdStrike); the AppSec layer is being pulled into Wiz/Google, Snyk AppRisk and Checkmarx One. Capital asymmetry: ArmorCode $81M, Nucleus ~$86M (pitch says $66M, missed the Feb 2026 Series C). v3 removed RBAC/SSO from open source against a 2024 maintainer commitment and drew a \"paywall\" reaction from the contributor who wrote it; Docker pulls growing a flat ~6M/year. Managed AppSec is a services line inside the revenue",
+   "financialProfile": "Just under the floor with contradicted growth evidence, an unexplained $3M of capital, and a services line mixed into ARR",
+   "sectorFit": "AppSec vulnerability aggregation / ASPM; AI remediation is table stakes, category is being absorbed by platforms (which is also the exit)",
+   "dealDynamics": "Not raising, no banker, no process. Small stale VC that would likely sell. Austin. Only opening is \"secondary from existing investors.\" Founder has shown no majority or handover signal and just hired his own CRO",
+   "read": "Conditional, one point under the line, and the condition is the C factor. Everything Elsewhere likes is here: real open-source pull, Austin, small stale VC, and an exit path where every comp went to a platform at $70-450M. Everything that is weak is the pitch narrative, not the business: Sensei is table stakes and cannot have driven the growth, the category absorption is the exit rather than the risk, and the $3.9M Sept 2025 revenue figure needs reconciling with 100% growth. Take the CEO meeting Sloane wants, and go in with one question that decides it: would Greg take a majority partner who installs a CEO and lets him run product and the OSS community. If yes this is a 60+. If he wants to keep building his own sales team with the CRO he just hired, it is a pass",
+   "unverified": [
+    "$4.8M ARR growing 100%+ (public datapoint of $3.9M at Sept 2025 implies ~23% unless trailing-year)",
+    "$10.1M raised (every tracker shows $7M; the extra $3M and its holder are unexplained)",
+    "Sensei as \"key driver of recent growth\" (fix capability was beta July 2026, GA 28 Sept 2026; cannot have driven trailing-year growth)",
+    "Sensei runs \"entirely within DefectDojo\" with no third-party AI (docs require Anthropic, OpenAI, Bedrock or Vertex keys on-prem)",
+    "100+ customers at $45K ACV, 96-98% GRR, burn, Rule of 40 (nothing public; zero named Pro customers)",
+    "Nucleus at $66M raised (actual ~$86M after the Feb 2026 Series C)",
+    "\"7-0 against competitors this quarter\" (anecdotal)",
+    "10,000 organisations (site banner only, no methodology)"
+   ]
+  },
+  {
+   "id": "cybele-software",
+   "name": "Cybele Software",
+   "rank": 16,
+   "score": 53,
+   "week": "8/14 - REVISED",
+   "hq": "Draper, UT",
+   "state": "verified",
+   "verifiedDate": "2026-09-04",
+   "verifiedNote": "Independent research pass completed in session (Sept 2026)",
+   "factors": {
+    "A": {
+     "score": 40,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 70,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 60,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 40,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 55,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: Oracle-only channel, POC-dependent. D: no right-to-win beyond the wave. Consistent with EP pass.",
+   "archetype": "Business app, coexistence layer; EP passed",
+   "founderTransition": "Wanted $30M; told no in 2023",
+   "checkAbsorbability": "$6M",
+   "what": "Zero-trust VDI / remote app delivery (Thinfinity); VirtualUI webifies legacy Win32 apps; Citrix/VMware refugee play via Oracle channel",
+   "financials": "$6M ARR +70%, EBITDA 32%, Ro40 102, bootstrapped, ACV $50-240K",
+   "aiTailwinds": "Citrix/VMware refugee wave after Broadcom and Cloud Software Group repricing is real and ongoing; VirtualUI webifies legacy Win32 apps, which no browser-isolation vendor does. $6M at 32% EBITDA, bootstrapped, Oracle channel.",
+   "aiHeadwinds": "Commodity Workspace VDI pressure from Windows 365, AVD, Omnissa and Citrix cloud; Oracle is the only channel and selling is POC-dependent; no right-to-win once the migration wave passes. Tommy's fourth meeting leaned out for exactly this reason. The AI story is thin.",
+   "financialProfile": "$6M +70%, EBITDA 32%, Rule of 40 102, ACV $50-240K; strong but channel-concentrated",
+   "sectorFit": "No consistent right-to-win beyond the migration wave; moat being starved by own ",
+   "dealDynamics": "Bootstrapped, open to majority; EP leaned out after four meetings; revisit at $12-15M with a second channel; Delaware/Argentina",
+   "read": "Was 70, now 55. Aligned with EP lean-out; keep warm, revisit at $12-15M with a second channel",
+   "unverified": []
+  },
+  {
+   "id": "nearby-computing",
+   "name": "Nearby Computing",
+   "rank": 17,
+   "score": 52,
+   "week": "9/11",
+   "hq": "Barcelona, Spain",
+   "state": "verified",
+   "verifiedDate": "2026-09-12",
+   "verifiedNote": "Independent verification pass 2026-09-12. All five new names had at least one contradicted claim.",
+   "factors": {
+    "A": {
+     "score": 50,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 55,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 60,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 55,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 40,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: No sales machine, which is the right shape, but the pull is intermediated. Defensible customers reduce to Telefonica Tech (whose parent is a shareholder via Wayra) and Etisalat inside a Lenovo bundle. Akamai and Lenovo are investors presented as customer logos; NATO has no traceable relationship of any kind; Inditex and Orange are logo-wall only. B: $5.2M ARR +125% and Rule of 40 near 100 would be strong, but nothing is corroborated anywhere, last filed accounts are FY2024, and the company has published no news at all since January 2026 including an apparent absence from MWC Barcelona in its home city. C: Potentially open to majority is a real positive and the GTM gap (US build-out) is one the infra bench fills. No CEO transition signal. D: IT infrastructure is the top Elsewhere sector and the Broadcom/VMware telco dislocation is a live window, but the layer is being absorbed from both sides by Nokia, Ericsson, Red Hat and Netcracker above and Nephio/ONAP/ETSI open source below, which Nearby itself contributes to. Rafay, the best-funded independent peer, pivoted out of telco edge into AI/GPU orchestration. E: The cap table is the blocker. Cellnex, Lenovo, Redeia/Elewit, Wayra/Telefonica and Akamai all on the register, plus Catalan public money (Avansca), UPC spin-off rights, and four NearbyOne features co-funded under EU Horizon projects, which raises background IP rights. Five corporate strategics with consent and information rights is a slow path to control. HPE bought Morpheus at an undisclosed price; no priced comps.",
+   "archetype": "Weak fit. Reads like archetype 4 cap-table cleanup, but the holders are five live corporate strategics, not stale VC",
+   "founderTransition": "Potentially open to majority; co-founder CTO is a UPC professor; no CEO succession signal",
+   "checkAbsorbability": "$5.2M absorbs a $20-50M check on paper, but the figure is entirely unverified and consent-heavy to close",
+   "what": "NearbyOne, a Kubernetes-native cloud-to-edge orchestration platform managing infrastructure, connectivity and applications from one control plane; two packaged SKUs, GSMA OPG EWBI implementation, contributed into Linux Foundation Europe NeoNephos",
+   "financials": "$5.2M ARR +125% claimed, EBITDA -23%, burn ~$100k/month (all uncorroborated). Series A was EUR 6.5M in July 2024 led by Walter Ventures with JME, not $7.2M in May led by Akamai. $1.6M June 2026 convertible not found publicly",
+   "aiTailwinds": "Top Elsewhere sector. Broadcom/VMware telco disruption is pushing 50+ estates to migrate. Real product, not a services shell: Gartner Cool Vendor 2023, EU Innovation Radar, open-source contributions to NeoNephos/Katalis",
+   "aiHeadwinds": "Nephio/ONAP/ETSI open source commoditising the function, and Nearby contributes to it. Nokia, Ericsson, Red Hat and Netcracker bundle orchestration into stacks operators already buy. Hyperscaler edge tooling pulls the control plane to the cloud provider. Rafay exited the category for AI/GPU. HPE/Morpheus priced undisclosed",
+   "financialProfile": "At the floor on a claimed number with zero corroboration and a nine-month press blackout",
+   "sectorFit": "Right sector, contested thin layer, no priced exit comps",
+   "dealDynamics": "Five corporate strategics plus regional public money and EU-co-funded IP; open to majority in principle, slow to close in practice",
+   "read": "Best of the 9/11 batch and still below the line. Worth one call, because product pull without a sales machine in the top sector is the right shape. Before any time goes in, get three things: audited FY2024 and FY2025 Registro Mercantil accounts, a customer list separating paying contracts from partners and investors, and the full cap table with consent rights and the EU Horizon background-IP position.",
+   "unverified": [
+    "$5.2M ARR, 125% growth, -23% EBITDA, $100k/month burn (no public corroboration)",
+    "NATO as a customer or programme participant (no trace found)",
+    "Inditex and Orange as paying customers (logo wall only)",
+    "$1.6M convertible debt June 2026",
+    "Headcount 53 and the 28% India presence (no Indian entity visible)",
+    "The $15-20M raise and the before-year-end timeline"
+   ]
+  },
+  {
+   "id": "clearforce",
+   "name": "Clearforce",
+   "rank": 18,
+   "score": 52,
+   "week": "9/25",
+   "hq": "Vienna, VA",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 45,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 40,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 65,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 50,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 60,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: Two sellers plus an SE, enterprise and federal logos but no customer count; outbound and task-order driven. B: $3-4M ARR below the floor; the $8M revenue line is mostly government project work. C: Open to minority, majority or full sale with founder secondary, the clearest handover posture in the batch. D: People-risk analytics is a durable niche with a patented consent model, but Everfox, DTEX and Ontic are better funded and federal budgets are lumpy. E: Stale angel and family-office cap table wanting liquidity, Virginia, any structure on offer; held at 60 because the raise has slipped every year since 2019.",
+   "archetype": "4 (stale cap-table cleanup) with an ActivTrak adjacency",
+   "founderTransition": "Founders and chairman open to any structure including full sale; want secondary",
+   "checkAbsorbability": "$3-4M ARR cannot price a $20-50M cheque alone; the $8M revenue line would need to count",
+   "what": "Behavioural intelligence platform (Resolve) surfacing continuous risk signals on employees and contractors (financial distress, dual employment, fraud) as data-as-a-service, replacing one-time background checks; patented consent model",
+   "financials": "$3-4M ARR, $8M revenue including recurring government project revenue, 100% GRR (anecdotal), 75% GM, profitable this year, ~$13M raised (Centricus 20-25%, board capital ~1/3, Capital Factory, Perot Jane, BlueWing, angels). Active Army contract with a $20M ceiling",
+   "aiTailwinds": "Open to minority, majority or full sale, with secondary for founders and early investors: the cleanest deal-shape statement in this batch. Profitable. Amex, Visa, Southern Company, Valero, Live Nation, US Army as logos. Complementary to ActivTrak (outside-work signals versus in-workplace behaviour)",
+   "aiHeadwinds": "$3-4M of true ARR is below the floor; the rest is government project revenue. Tracked by EP since 2019 with the raise pushed out every call. Everfox (TPG), DTEX, Ontic and Endera compete; federal sales cycles are slow. Two sellers",
+   "financialProfile": "Below the floor on true ARR with government project revenue making up the difference",
+   "sectorFit": "Insider threat and people-risk analytics; government-heavy",
+   "dealDynamics": "Open to majority or full sale; $13M of stale angel and family-office capital wanting liquidity; Virginia in the box",
+   "read": "Pitch-scored conditional. The deal is available in any shape and the ActivTrak adjacency is real, but the recurring software base is too small and the company has been \"approaching a raise\" for seven years. Keep warm; verify ARR composition before any time goes in",
+   "unverified": [
+    "Customer count",
+    "100% GRR",
+    "ARR versus project-revenue split",
+    "Timing of any transaction"
+   ]
+  },
+  {
+   "id": "robopack",
+   "name": "Robopack",
+   "rank": 19,
+   "score": 52,
+   "week": "10/9",
+   "hq": "Copenhagen, Denmark",
+   "state": "verified",
+   "verifiedDate": "2026-10-09",
+   "verifiedNote": "Independent verification pass 2026-10-09.",
+   "factors": {
+    "A": {
+     "score": 60,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 45,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 50,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 40,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 65,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: 100% inbound through resellers, MVPs and events is confirmed in shape, and the site carries real enterprise logos. Held at 60 because \"3,000 customers\" has no public support and the free tier inflates it, Chevron and the Solomon Islands central bank are not found anywhere, and seven G2 reviews against Patch My PC's 736 is a thin engagement footprint for a claimed base that size. B: The investor contradicts the pitch. VIA's portfolio page says ~DKK 50M revenue (~$7.5M), not $12M. Danish filings show the operating entity's gross profit grew about 5% a year from 2020 to 2025 at roughly 30% EBIT, with equity falling DKK 28M while earning DKK 38M, which means profits were distributed, not reinvested at 8-9%. Robopack ApS is loss-making with negative equity. Contradicted numbers are an explicit rubric penalty; $7.5M is still above the floor. C: The pitch names Ronnie Tynell as founder and CEO. The CEO is Andreas Spiegelhauer; Tynell holds 10-15% through Tynell Holding and ceased as a director on 31 March 2026. \"US GTM support over large primary\" is the right ask, but it is not clear whose ask it is. D: Top Elsewhere sector, but Microsoft shipped the feature. Intune EAM auto-update GA June 2026, free in E5 from July 2026, ring-based rollout in preview September 2026. Patch My PC is bootstrapped at 3-4x the scale with a vendor-tested catalog. Robopack's catalog is a WinGet wrapper. What remains is MSP multi-tenancy, custom packaging, SCCM hybrids and E3 shops. E: The most on-pattern factor. VIA has held since 2016, moved the stake into a EUR 13M continuation vehicle in May 2024 backed by secondaries buyers, and will want out by 2027-29. BidCo articles amended in May and a board resignation in July read like a process being prepared. Denmark is in the box, and 1E at 9.4x ARR is a real priced comp. Held at 65 because there are at least five holding companies on the register, not two founders",
+   "archetype": "4 (PE continuation-vehicle cleanup) with inbound pull, in a category the platform just absorbed",
+   "founderTransition": "Pitch names the wrong CEO. Tynell is a 10-15% holder who stepped off the board; Spiegelhauer runs it. \"Wants US GTM help over capital\" is the right posture, but nobody has said who would accept an installed operator",
+   "checkAbsorbability": "$7.5M (VIA's figure) absorbs a $20-50M cheque; $12M would absorb it easily but is not supported by filings",
+   "what": "Automated application packaging and third-party patching for Microsoft Intune and SCCM: 30,000+ app catalog sourced from WinGet and the Microsoft Store, 30-minute version checks, phased rollout waves, MSI/EXE to IntuneWin packaging, sandbox testing, multi-tenant console (Tenant Manager). Free under 50 devices, then from EUR 3.45 per device per year",
+   "financials": "~$12M ARR +30-40%, 99% GRR, 8-9% profit reinvested (pitch). VIA Equity's own portfolio page says revenue ~DKK 50M (~$7.5M). Danish filings: operating entity gross profit grew ~5% CAGR 2020-2025 at ~30% EBIT with roughly DKK 66M distributed over three years, not reinvested. Robopack ApS itself is loss-making with negative equity. \"Merger\" with SoftwareCentral in April 2026 was a rename of entities VIA has co-owned since 2016",
+   "aiTailwinds": "Real inbound motion in the top Elsewhere sector: reseller channel, MVP programme, event presence, Toyota/Hyatt/Adidas/Amgen/EA/Air Canada on the site. Microsoft names Robopack (with Rimo3) as a ConfigMgr-to-Intune migration partner on Tech Community. VIA has held since 2016 and now sits in a EUR 13M secondaries-backed continuation vehicle, so there is a motivated seller and a cap table that wants cleaning. Denmark is in the box. TeamViewer paid 9.4x ARR for 1E in Dec 2024",
+   "aiHeadwinds": "Microsoft shipped it: Intune Enterprise App Management auto-update went GA June 2026, Intune Suite including EAM was bundled free into M365 E5 from July 2026, and ring-based Deployment Plans entered preview September 2026. Patch My PC is 3-4x larger (10,400 customers, 150+ staff, 736 G2 reviews against Robopack's 7), bootstrapped, with a vendor-sourced tested catalog versus Robopack's WinGet wrapper. The Microsoft \"co-sell\" is a free-migration referral Robopack funds itself, shared with a competitor, and revocable. Durable TAM narrows to mid-market, MSPs and SCCM hybrids",
+   "financialProfile": "Investor's own site says ~$7.5M against a $12M pitch; filed growth ~5% not 30-40%; margin ~30% distributed, not 8-9% reinvested",
+   "sectorFit": "Intune/SCCM app packaging and patching; Microsoft shipped the core feature natively in 2026",
+   "dealDynamics": "VIA (25-33%) in a continuation vehicle wanting exit by 2027-29; five-plus holding companies; articles amended May 2026 and a board exit July 2026 suggest a process is being prepared. Ronnie Tynell holds 10-15%, is not CEO, and left the board in March 2026; the CEO is Andreas Spiegelhauer",
+   "read": "Conditional, and lower than it looked on paper. The deal shape is on-pattern: a Danish PE fund ten years into a hold, in a continuation vehicle, with a product that sells itself. But three things cut it to the low 50s. The $12M ARR is contradicted by VIA's own site and by filed accounts showing 5% growth and 30% margins paid out as dividends. Microsoft shipped auto-update patching natively in June and bundled it into E5 in July. And the founder story is wrong: Tynell is a minority holder who left the board; the CEO is Spiegelhauer. Before any time goes in, get an entity-level ARR bridge reconciling the pitch to VIA's DKK 50M and the Danish filings, and a straight answer on which decision-maker would accept an operator",
+   "unverified": [
+    "$12M ARR, 30-40% growth, 99% GRR, 8-9% margin reinvested (VIA says ~DKK 50M; filings show ~5% growth and ~30% EBIT distributed)",
+    "3,000 active customers (no public source; free tier under 50 devices inflates the count)",
+    "Chevron and Central Bank of the Solomon Islands as customers (not found)",
+    "Ronnie Tynell as CEO (Andreas Spiegelhauer is CEO; Tynell left the board March 2026)",
+    "\"Two founders own the rest\" (five-plus holders; Tynell 10-15%)",
+    "Microsoft \"subsidizes\" migrations (it is a free-migration referral Robopack funds, shared with Rimo3)",
+    "4 US sales staff and Robopack Inc. operations (DC address is a virtual-office building)",
+    "9/10 win rate against Patch My PC"
+   ]
+  },
+  {
+   "id": "camptek",
+   "name": "Camptek (Eli)",
+   "rank": 20,
+   "score": 50,
+   "week": "prior",
+   "hq": "Portland, ME",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 45,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 40,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 70,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 40,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 55,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: direct sales, services heritage. B: below floor, GM says services. C: open to majority; Perry-type healthcare operator exists. D: Epic/Waystar bundling.",
+   "archetype": "Healthcare services-heavy; below floor",
+   "founderTransition": "Open to majority",
+   "checkAbsorbability": "$3.5M below floor",
+   "what": "Healthcare RCM automation + 'Eli' AI coworker learning institution rules to autonomously process/appeal claims",
+   "financials": "$3.5M ARR +30%, GM 60-65%, ~4% margin, 11 FTEs, bootstrapped",
+   "aiTailwinds": "Healthcare RCM automation with an AI coworker (\"Eli\") that learns institution-specific rules to process and appeal claims is a real labour-replacement wedge; open to majority; a Perry-type healthcare operator exists on the Elsewhere bench. Bootstrapped and slightly profitable.",
+   "aiHeadwinds": "Epic and Waystar bundle RCM automation; the services heritage shows in 60-65% gross margin; $3.5M at 30% growth with 11 FTEs is a services firm with software, and the \"UiPath rebrand\" origin means the IP depth is unproven. Only investable as institution-specific learning on non-Epic systems.",
+   "financialProfile": "$3.5M +30%, GM 60-65%, ~4% margin, bootstrapped; below floor, services-weighted",
+   "sectorFit": "Category tailwind, contested position",
+   "dealDynamics": "Bootstrapped, open to majority; Portland ME; prior Elsewhere look",
+   "read": "Only investable as institution-specific learning on non-Epic systems",
+   "unverified": []
+  },
+  {
+   "id": "caplena",
+   "name": "Caplena",
+   "rank": 21,
+   "score": 50,
+   "week": "8/14",
+   "hq": "Zurich, CH",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 60,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 35,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 70,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 25,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 60,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: inbound. B: Ro40 12, burning, below floor. D: LLMs commoditize the core (red).",
+   "archetype": "Business app, burning, at floor",
+   "founderTransition": "Open to majority",
+   "checkAbsorbability": "$3.6M below floor",
+   "what": "Feedback intelligence: analyzes open-ended customer/employee feedback, expanding into collection vs Qualtrics",
+   "financials": "$3.6M ARR +35%, EBITDA -23% (burn $70K/mo), Ro40 12, raised $4.7M, ACV $30-50K",
+   "aiTailwinds": "Open-ended feedback analysis for CX and insights teams has real enterprise logos (Lufthansa, Ikea, Canon, GM) and majority inbound; expanding into collection to compete with Qualtrics end to end. Open to majority with the right partner.",
+   "aiHeadwinds": "The AI headwind is the business: LLMs now do open-end coding and theme extraction natively, and Qualtrics, Medallia and every survey tool ship it free. $3.6M growing 35% while burning $70k a month, Rule of 40 of 12. 85% Europe.",
+   "financialProfile": "$3.6M +35%, EBITDA -23%, Rule of 40 12; below floor and burning",
+   "sectorFit": "Core capability commoditizing fastest in pipeline",
+   "dealDynamics": "$5M primary, flexible on secondary, open to majority; $4.7M raised (Inveready 2024); Zurich",
+   "read": "The AI headwind IS the business. Pass unless win-rates vs native Qualtrics AI hold up",
+   "unverified": []
+  },
+  {
+   "id": "monjur",
+   "name": "Monjur",
+   "rank": 22,
+   "score": 49,
+   "week": "9/18",
+   "hq": "Dallas, TX",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 45,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 50,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 60,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 35,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 55,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: 1,100 customers through events, cold outbound and marketplaces; outbound-built growth is a rubric penalty. B: $5.9M above the floor growing 65%, but -30% EBITDA, LTV/CAC of 2.7, and a 33%-margin services line. C: Co-founder stepping back in April 2027 with secondary on the table and an original full-sale plan; genuine transition signal. D: Business applications, the weak vintage, and the core deliverable (maintained contract templates) is LLM-exposed; the deck itself lists ChatGPT and Claude as competitors. E: 49% minority now with a path to majority, F&F capital only, Dallas; workable but not the shape today.",
+   "archetype": "Partial 2 with a founder transition in motion, in the wrong sector",
+   "founderTransition": "Co-founder stepping back April 2027; secondary to buy out his stake; original target was a full sale at $10M ARR",
+   "checkAbsorbability": "$5.9M absorbs a cheque, but the structure on offer is 49% minority",
+   "what": "Attorney-drafted contracts-as-a-service for MSPs (MSA, service attachments, DPA) kept current as vendor terms and law change, plus an M&A product; the drafting firm also litigates. Flat-fee tiers, ~$5k ACV",
+   "financials": "~$5.9M ARR +65%, 1,100 MSP customers, 91% GRR, 101% NRR, LTV/CAC 2.7, 88% software GM, 33% legal-services GM, EBITDA -30% (burning ~$150k/month), ~$3M F&F SAFE 2025. Legal services $700k H1 2026",
+   "aiTailwinds": "Dallas, MSP buyer Elsewhere knows well, 1,100 customers, Pax8 and Sherweb marketplace distribution, co-founder stepping back April 2027 with the original plan being a full sale at $10M ARR. Path to majority is explicitly on the table",
+   "aiHeadwinds": "GTM is event marketing and cold outbound pivoting to paid media, which is sales-built, not pull. Business applications is Elsewhere's weak vintage. The deck names ChatGPT and Claude as competitors, and attorney-drafted template maintenance is squarely what LLMs commoditise. Burning $150k a month at a 2.7 LTV/CAC. The ask is a 49% minority now",
+   "financialProfile": "Above the floor and growing, but burning 30% with services at 33% GM mixed in",
+   "sectorFit": "LegalTech for MSPs (contracts-as-a-service); business applications, LLM-exposed",
+   "dealDynamics": "49% minority now with a path to majority; co-founder exiting; F&F SAFE only; Dallas",
+   "read": "Pitch-scored pass with a revisit trigger. The founder transition and the Dallas MSP base are attractive; the sector and the LLM exposure are not, and the growth is bought with outbound spend. Revisit if the ask becomes majority and the legal-services line is carved out",
+   "unverified": [
+    "1,100 customers",
+    "91% GRR / 101% NRR",
+    "$5.9M ARR +65%",
+    "Co-founder stake size and exit terms"
+   ]
+  },
+  {
+   "id": "gradient-cyber",
+   "name": "Gradient Cyber",
+   "rank": 23,
+   "score": 49,
+   "week": "9/25",
+   "hq": "Southlake, TX",
+   "state": "verified",
+   "verifiedDate": "2026-10-09",
+   "verifiedNote": "Independent verification pass 2026-10-09.",
+   "factors": {
+    "A": {
+     "score": 45,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 50,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 60,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 35,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 55,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: Channel-first is real (Ingram Micro, AVANT, Technologent announced) but 80 partners and 200 customers have no public support, the Gartner MDR Market Guide does not list them, and 13 Peer Insights reviews include 15% two-star ratings citing capabilities promised in sales that were not delivered. MDR is sold, not pulled. B: $7.2M is roughly corroborated by three independent estimators, which is better than most names on this board. But \"$15M raised\" counts a $10M revolving credit line and PPP loans as capital; documented equity is about $6.3M plus an undisclosed Series A. No Form D exists for any round. 70% gross margin on a 24/7 managed SOC requires offshore analyst labour and a thin resale line; demand the bridge. C: Exploring a slight majority recap with liquidity to early backers is on-pattern, and First Analysis at $3-10M, eighteen months in, will roll rather than block. But the CEO has only been in seat since April 2023 and the chairman's background is consumer direct-selling. D: The broken-ish leg. MDR is consolidating around platforms with 20-100x the scale, and the specific labour Gradient sells, tier-1 triage at 10 clients per analyst, is what Microsoft, CrowdStrike and the AI SOC startups are eliminating. Quorum AI launched in January 2026 (not September as pitched) and is table stakes, not a moat. White-label is not documented anywhere. E: Texas, majority on the table, stale seed holders, First Analysis likely rolling: the shape works. Held at 55 because there is no sub-scale MDR comp with a disclosed price, the large comps run 3-7x ARR for assets with analyst coverage Gradient lacks, and the recap has to retire a credit facility",
+   "archetype": "4 (seed-holder cleanup) in a services-heavy security category",
+   "founderTransition": "CEO since April 2023 after a leadership change; chairman is a direct-selling and consumer exec, not security; exploring majority. Open to the model, but the team installing an operator would be replacing a CEO who is only two years in",
+   "checkAbsorbability": "$7.2M absorbs a $20-50M cheque, part of which retires debt",
+   "what": "Managed extended detection and response for 200-5,000 seat companies: ingests EDR (SentinelOne, CrowdStrike, Defender), firewall (Fortinet, Palo Alto, Cisco) and M365/Entra/AWS/Azure telemetry into a 24/7 human-led SOC at roughly 10 clients per analyst. Re-platformed onto Quorum AI (OCSF normalisation, Sigma plus behavioural detection, analyst-validated SitReps), launched January 2026 and available February 2026",
+   "financials": "$7.2M ARR +38%, 88-90% GRR, 70% GM, CFBE (pitch). Third-party estimates $6.3-7.5M corroborate the ARR. \"$15M raised\" blends ~$6.3M of documented equity (seed 2017, early-stage 2018: First Analysis, Bull Creek, Oakwell) with a $10M RevTek revolving credit facility (March 2022) and PPP loans; the April 2025 Series A led by First Analysis is undisclosed in size. No Form D on EDGAR for any round. CEO changed from Steve Chappell to James Hamilton in April 2023",
+   "aiTailwinds": "Texas, channel-first, exploring a slight majority recap with liquidity to 2017-18 seed holders, which is the archetype-4 shape. ARR roughly corroborated. Mid-market companies that own security tools but cannot staff a SOC is a real and durable buyer. First Analysis is a small-check investor eighteen months in and will likely roll",
+   "aiHeadwinds": "MDR is the most crowded and fastest-consolidating category in security: Arctic Wolf ($4.3B mark, secondaries down 26%), Huntress ($250M+ ARR, +65%), Sophos/Secureworks $859M, Zscaler/Red Canary ~$675M, and no sub-scale MDR deal with a disclosed price exists to anchor a $20-50M entry. Tier-1 triage, which the 10:1 analyst ratio monetises, is being commoditised from above (Microsoft bundled Security Copilot agents into E5 in Nov 2025; CrowdStrike Charlotte in Falcon Complete) and below (Dropzone selling AI SOC to MSSPs; Exaforce, 7AI, Torq at $700M-1.2B). Gartner: AI will handle 90% of initial MDR findings by 2029 against 30% today. Quorum AI is a defensive necessity. Gartner Peer Insights 4.2 with 15% two-star reviews citing undelivered sales promises",
+   "financialProfile": "ARR corroborated but the capital stack is more levered than pitched; 70% GM on a managed SOC needs an analyst-cost bridge",
+   "sectorFit": "Mid-market MXDR; services-heavy, AI SOC commoditising tier-1 triage",
+   "dealDynamics": "Slight majority recap on the table, Texas, stale seed holders wanting liquidity, but a $10M credit facility to retire and no priced comp below $100M ARR",
+   "read": "Below the line on durability, not on shape. Everything about the deal structure fits: Texas, a slight majority recap, early backers wanting out, a corroborated ARR. What does not fit is the business. Human-led tier-1 triage is the thing AI SOC products from Microsoft, CrowdStrike and a dozen funded startups are built to eliminate, and every mid-market MDR that sold in the last two years did so at an undisclosed price, which usually means a small one. If the team wants to look anyway, ask for the gross-margin bridge (analyst cost, resold SentinelOne, infra), the current debt balance, and the price book, because the only public price is ~$37 per endpoint per month on AWS against a pitched $3-12",
+   "unverified": [
+    "~200 customers, 80 partners, 3 direct reps (no public support)",
+    "$3-12 per endpoint per month (AWS Marketplace lists ~$37 per endpoint per month)",
+    "88-90% GRR (15% two-star reviews on Gartner Peer Insights)",
+    "70% gross margin on a human-led SOC",
+    "Quorum AI \"GA September 2026\" (launched January, available February 2026)",
+    "White-label capability (not documented)",
+    "Headcount 65 with 14 in Bangladesh (estimators say 52-57; no Bangladesh presence visible)",
+    "\"$15M raised\" (documented equity ~$6.3M plus undisclosed Series A; $10M was a credit facility)"
+   ]
+  },
+  {
+   "id": "nvisionx",
+   "name": "NVISIONx",
+   "rank": 24,
+   "score": 49,
+   "week": "8/14",
+   "hq": "Santa Monica, CA",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 50,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 45,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 60,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 50,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 40,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: partner-heavy. B: 20% growth. E: SAFE cap = price anchor.",
+   "archetype": "SAFE cap = price anchor",
+   "founderTransition": "Open to majority",
+   "checkAbsorbability": "$4.5M borderline",
+   "what": "RexAI: data classification + records management to inventory and contextually classify every file/table; cuts toxic data",
+   "financials": "$4.5M ARR +20%, burning slightly, Ro40 <20, raised $6.2M (SAFE at $40M cap)",
+   "aiTailwinds": "Contextual data classification and records management (RexAI) that inventories every file and table is upstream of every AI governance and data-minimisation initiative; cutting toxic data is a CFO-legible outcome. $4.5M with partner-led distribution.",
+   "aiHeadwinds": "Microsoft Purview, Varonis, BigID and Securiti are giants on the same wedge; 20% growth and Rule of 40 under 20; a SAFE at a $40M cap is an external price anchor that poisons entry. Burning slightly.",
+   "financialProfile": "$4.5M +20%, slight burn, Rule of 40 <20; below floor, slow",
+   "sectorFit": "Right wedge, giant competitors",
+   "dealDynamics": "$6.2M raised including a SAFE at a $40M cap; Santa Monica; no majority signal",
+   "read": "Pass unless growth re-accelerates; SAFE cap poisons entry",
+   "unverified": []
+  },
+  {
+   "id": "thingsrecon",
+   "name": "ThingsRecon",
+   "rank": 25,
+   "score": 49,
+   "week": "8/28",
+   "hq": "Amsterdam, NL",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 45,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 30,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 60,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 45,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 65,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "B: $3M, no growth figure, 35% concentration (red).",
+   "archetype": "Below floor; 5-7 customers",
+   "founderTransition": "Unknown",
+   "checkAbsorbability": "$3M below floor",
+   "what": "External attack surface management (EASM) + 'Digital Proximity' supply-chain risk mapping (patent pending); claims 2-3x more asset discovery",
+   "financials": "$3M ARR (growth rate NOT given), approaching breakeven, bootstrapped, 16 FTEs; Omnicom = $1.04M (35% of ARR); 5-7 enterprise customers + 2 nations",
+   "aiTailwinds": "EASM plus \"Digital Proximity\" supply-chain mapping (patent pending) addresses third-party risk that AI-driven attackers exploit; two nation-state customers and BAE/Veracode/CrowdStrike partnerships; bootstrapped, 16 FTEs, approaching breakeven, Amsterdam.",
+   "aiHeadwinds": "SecurityScorecard ($378M), Bitsight ($416M), UpGuard and Black Kite own the category with 50-100x the capital; $3M ARR with Omnicom at 35% and no growth figure given; 5-7 enterprise customers; outbound today.",
+   "financialProfile": "$3M, growth not given, Omnicom 35% concentration, approaching breakeven; below floor",
+   "sectorFit": "Real problem, outgunned incumbents own the category",
+   "dealDynamics": "Bootstrapped, no timeline, wants a partner for US GTM; Amsterdam",
+   "read": "Too thin today: 5-7 customers and no growth figure. Ask for the growth number and logo pipeline; revisit at $5M+ with concentration diluted",
+   "unverified": []
+  },
+  {
+   "id": "codacy",
+   "name": "Codacy",
+   "rank": 26,
+   "score": 48,
+   "week": "8/14",
+   "hq": "Lisbon, PT",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 70,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 55,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 40,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 45,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 30,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: PLG, 900 customers, 2 AEs = genuine pull. C: founders 17%. E: VC cap table (red).",
+   "archetype": "VC-shaped; founders 17%",
+   "founderTransition": "n/a",
+   "checkAbsorbability": "$7M",
+   "what": "Code quality/security in dev workflow; AI Risk Hub (inventories AI tools/MCP servers) + Verity peer-programmer for coding agents",
+   "financials": "$7M ARR +30%, GRR 80s-90s, NRR 106-110, ~breakeven, Ro40 <30, raised $32M",
+   "aiTailwinds": "Code quality and security in the developer workflow with an AI Risk Hub (inventorying AI tools and MCP servers) and Verity as a peer programmer for coding agents is the right problem at the right time; PLG with 900 customers and only 2 AEs is genuine pull; 52% US revenue.",
+   "aiHeadwinds": "SonarQube ($457M), Snyk ($1B), CodeRabbit ($222M) and GitHub Copilot itself outgun it 30:1 on capital and ship AI code review natively; $32M raised with founders at 17% is a VC cap table that kills the recap math; 30% growth, Rule of 40 under 30.",
+   "financialProfile": "$7M +30%, GRR 80s-90s, NRR 106-110, near breakeven; in band but slow",
+   "sectorFit": "Right problem, outgunned 30:1 on capital",
+   "dealDynamics": "$32M VC ($15M Series B 2022), founders 17%, not actively raising; Lisbon",
+   "read": "Cap table kills the math. Pass politely, track Verity",
+   "unverified": []
+  },
+  {
+   "id": "data-sentinel",
+   "name": "Data Sentinel",
+   "rank": 27,
+   "score": 47,
+   "week": "9/4",
+   "hq": "Vaughan (Toronto), ON",
+   "state": "verified",
+   "verifiedDate": "2026-09-05",
+   "verifiedNote": "Verified 9/5: CTO misidentified in deck; no financing since 2021; Riyadh Air self-published only ('pilot underway' Feb-26); interceptor unshipped; related-party Delbridge",
+   "factors": {
+    "A": {
+     "score": 45,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 30,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 50,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 55,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 55,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: ~30 customers via lean direct team and Middle East/India/Australia partners; legacy SMB base churned ('hundreds' to ~30); 14 G2 reviews; not a pull-driven business B: $2.5M far below floor; 84% GRR; single customer 20% and described as a pilot in the company's own May-26 case study; five years on a $3M seed implies services subsidy C: Founders want primary plus secondary; exec churn (three revenue leaders since 2021); CTO misidentified in the deck (Kevin Downey is CTO, Kharkhourin is President/Board Chair); related-party Delbridge entities D: Data governance is consolidating with real acquirers, and the sovereign/regulated niche (KSA NDMO, Quebec Law 25, DOJ bulk-data rule, on-prem) is defensible; but the on-the-wire AI wedge is unshipped and already being bought by platforms (PANW/Portkey, Snowflake/Natoma, Cato/Aim) E: Stale small seed is a clean cleanup and Toronto is in-geo; but at $2.5M it is a tuck-in, not a platform, and related-party billing needs unwinding",
+   "archetype": "4-ish: stale seed cleanup, but sub-scale",
+   "founderTransition": "Unknown; deck facts wrong on CTO; exec churn",
+   "checkAbsorbability": "$2.5M, far below floor",
+   "what": "Unified data governance platform (discovery, classification, mapping, privacy, data quality) deployed inside the firewall; 'AI governance interceptor' is a roadmap narrative (shipped AI control is pre-ingestion dataset gating)",
+   "financials": "Pitch: ~$2.5M ARR to $3-3.5M YE, 84% GRR / 90%+ NRR, Riyadh Air $500K (20%), ~30 customers, aiming for profitability Q4, 28-30 FTEs, $3M seed 2021 (Brightspark). Public: no financing since 2021; Riyadh Air case study says 'pilot underway' Feb-26; site says 'hundreds of organizations'",
+   "aiTailwinds": "Unified data governance deployed inside the firewall for sovereign and regulated buyers (KSA NDMO, Quebec Law 25, DOJ bulk-data rule) is a defensible niche with real acquirers; Toronto is in-geo; stale $3M seed is a clean cleanup.",
+   "aiHeadwinds": "$2.5M is a third of what the fund can use; Riyadh Air (20% of ARR) is described as a \"pilot underway\" in the company's own May 2026 case study; the on-the-wire AI governance interceptor is unshipped and already being bundled by BigID, Securiti and Microsoft Purview; three revenue leaders since 2021; the deck misidentified its own CTO; related-party Delbridge billing.",
+   "financialProfile": "$2.5M to $3-3.5M YE, 84% GRR, 20% single-customer concentration; far below floor",
+   "sectorFit": "Security - data / AI governance",
+   "dealDynamics": "$3M Brightspark seed 2021, no financing since; wants primary plus secondary; Toronto",
+   "read": "Track only. The regulated-sovereign niche is real and the category has buyers, but the company is a third the size the fund can use and the pitch got its own CTO wrong. Question: the Riyadh Air contract (counterparty, term, subscription vs services) and who funded five years on $3M.",
+   "unverified": [
+    "Riyadh Air $500K ARR (case study says pilot)",
+    "~30 customers vs 'hundreds' on site",
+    "AI interceptor beta",
+    "84% GRR / 90% NRR",
+    "MSP/MSSP origin (not found)"
+   ]
+  },
+  {
+   "id": "schoolday",
+   "name": "SchoolDay (Project Signal)",
+   "rank": 28,
+   "score": 46,
+   "week": "Nick 9/2",
+   "hq": "Alameda/remote, CA (ex-GG4L)",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 60,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 50,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 50,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 35,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 35,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: network reach. D: ClassLink has the feature, budgets contracting. E: Macquarie strategic auction (red).",
+   "archetype": "Strategic auction (Macquarie); edtech app",
+   "founderTransition": "Unknown",
+   "checkAbsorbability": "~$6-7M",
+   "what": "K-12 rostering/SSO/data-exchange platform (Clever/ClassLink category) with reversible PII tokenization layer; 15-yr lineage EduTone > GG4L > SchoolDay (Apr-25)",
+   "financials": "Implied ~$6-7M ARR (from $10M+ FY27E forecast at 50%+), profitability undisclosed, ~60-75 FTEs; $18M 2024 round led by CEO's own Croix Ventures + family offices",
+   "aiTailwinds": "K-12 rostering and data exchange with reversible PII tokenisation addresses a real student-privacy mandate (state laws, FERPA, vendor contracts); 15-year lineage and network reach across districts and edtech vendors; a Clever-style network toll on vendors is the upside case.",
+   "aiHeadwinds": "ClassLink DataGuard already ships the masking feature and Clever could add it; K-12 budgets are contracting post-ESSER; the $18M 2024 round was led by the CEO's own Croix Ventures; Macquarie is running a strategic auction; profitability undisclosed. ClassLink and Clever own the category.",
+   "financialProfile": "Implied ~$6-7M ARR, profitability undisclosed, ~60-75 FTEs",
+   "sectorFit": "ClassLink has the feature, Clever could ship it; buyer budgets contracting; hard",
+   "dealDynamics": "Macquarie strategic auction; $18M 2024 round led by CEO-affiliated fund; teaser circulated via Nick 2 Sept",
+   "read": "Pass unless the data room shows vendors paying to integrate token-only at scale (a Clever-style network toll). One-pager sent to Nick 9/2",
+   "unverified": []
+  },
+  {
+   "id": "espresso-ai",
+   "name": "Espresso AI",
+   "rank": 29,
+   "score": 45,
+   "week": "Tommy 9/2 + 9/4",
+   "hq": "New York, NY",
+   "state": "verified",
+   "verifiedDate": "2026-09-07",
+   "verifiedNote": "Verification 9/7: enterprise logos unconfirmed; LLM agent private preview; Adaptive Compute GA Jun-26; ARR nowhere public; NFDG orphan stake; no priced exit comps.",
+   "factors": {
+    "A": {
+     "score": 60,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 40,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 55,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 30,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 40,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: PLG/content pull real; public logos SMB; enterprise logos no public trace; LLM agent private preview B: $4.5M unverified, below floor; 40% savings-share with self-computed baseline; Yuki same model C: CEO wants GTM help and likes OA model; minority only, not a transplant D: Snowflake Adaptive Compute GA Jun-16-26 substitutes routing/sizing; savings claims drifting 80/70/50% E: Minority ask, no round since May-24, NFDG orphan stake small; SELECT/DoiT undisclosed, no priced comps",
+   "archetype": "Partial 4 (orphan VC stake) but VC-shaped, minority-only; sub-scale",
+   "founderTransition": "CEO wants GTM help, not a new CEO; ex-Google/DeepMind founding trio",
+   "checkAbsorbability": "$4.5M (unverified) below floor; minority ask; no path to a $20M+ check",
+   "what": "Snowflake/Databricks cost layer: predictive autoscaler + query-routing proxy (GA), LLM SQL rewriting (private preview); 40% of realized savings on AWS Marketplace",
+   "financials": "~$4.5M ARR +250%, near breakeven, ~zero churn (all per CEO, nothing public); raised $11M May-24 (FirstMark pre-seed, NFDG seed), no round since; NFDG no longer investing",
+   "aiTailwinds": "Text-to-SQL and agents generate more and sloppier SQL and warehouse thrash, which raises the value of a cost layer; CEO explicitly wants GTM help and likes the OA model; the orphaned NFDG stake is a cleanup opportunity. Databricks still lacks automatic warehouse sizing and cross-warehouse routing, so that half of the market is healthier.",
+   "aiHeadwinds": "Snowflake Adaptive Compute went GA 16 June 2026 on all three clouds and does the auto-sizing and routing Espresso charges 40% of savings for; the LLM query-rewrite agent is still private preview; savings claims drifted 80% to 70% to 50%; Yuki launched Jan 2026 with the identical percent-of-savings model; the only niche exit (SELECT to DoiT) was undisclosed. Enterprise logos in the pitch have no public trace.",
+   "financialProfile": "$4.5M unverified, below floor; ARR is 40% of self-computed savings",
+   "sectorFit": "Snowflake/Databricks cost optimization; core mechanism now native",
+   "dealDynamics": "Minority only; orphaned NFDG stake; no round since May 2024; NYC",
+   "read": "Pass for Fund III. Take the OA call only if it is cheap; ask for (1) contracts for the four enterprise logos, (2) ARR split autoscaler vs proxy vs LLM agent, (3) cohort churn and savings per customer before and after Jun-16-26 Adaptive Compute GA.",
+   "unverified": [
+    "$4.5M ARR / 250% growth / breakeven / zero churn",
+    "Urban Outfitters, Taskrabbit, WMG, Vivid Seats as customers",
+    "headcount (10-19 by source)",
+    "head of sales title"
+   ]
+  },
+  {
+   "id": "cloudmersive",
+   "name": "Cloudmersive",
+   "rank": 30,
+   "score": 44,
+   "week": "Tommy 9/2",
+   "hq": "Pleasanton, CA",
+   "state": "verified",
+   "verifiedDate": "2026-09-04",
+   "verifiedNote": "Independent research pass completed in session (Sept 2026)",
+   "factors": {
+    "A": {
+     "score": 60,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 30,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 35,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 50,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 45,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: NuGet 1.1M downloads is real developer pull, but 0 G2 reviews, 1.8/5 SourceForge, negligible GitHub. B: $4M ARR NOT FOUND (Growjo $1.3M, Datanyze $2.3M), 0% headcount growth, founder's own company listed as customer + testimonial (red). C: CEO was full-time PM at MuleSoft/Meta 2017-24 per his CV; family-staffed; no urgency. D: AWS GuardDuty/Azure Defender commoditize scanning; Encodian sold to Circeus Jul-26 on agent thesis (positive comp). E: bootstrapped, no process, Bay Area; no SOC 2/ISO for a malware vendor; wants debt not a partner.",
+   "archetype": "Not a clean archetype; solo/family-run side venture until 2024",
+   "founderTransition": "Unknown; ran as side venture 2017-24 per public record",
+   "checkAbsorbability": "$1.3-2.3M est., far below floor",
+   "what": "Utility APIs and Power Platform connectors: malware/URL scanning, data validation (email/phone/address), document conversion/protection; MCP server live; new analytics platform",
+   "financials": "Pitch: ~$4M ARR +35%, GM ~80%, 1-3% churn, FCF to owner. Public: Growjo $1.3M / Datanyze $2.3M; 0% headcount growth; ~14 staff largely family; site says 1,100 customers (not 1,200)",
+   "aiTailwinds": "Utility APIs and Power Platform connectors (malware scanning, validation, conversion) are the kind of building blocks agents call; MCP server is live; NuGet 1.1M downloads is real developer pull; Encodian sold to Circeus in July 2026 on an agent thesis, which is a positive comp. FCF to owner.",
+   "aiHeadwinds": "AWS GuardDuty and Azure Defender commoditise scanning; $4M ARR is not found anywhere public (Growjo $1.3M, Datanyze $2.3M); 0% headcount growth; family-staffed with a CEO who was a full-time PM elsewhere 2017-24; no SOC 2 or ISO for a malware vendor; founder's own company listed as a customer.",
+   "financialProfile": "~$4M claimed, $1.3-2.3M by trackers; GM ~80%; revenue not corroborated",
+   "sectorFit": "Utility APIs commoditizing; Encodian exit is a real comp",
+   "dealDynamics": "Bootstrapped, no process, wants debt not a partner; Bay Area",
+   "read": "Was 61 on the pitch; 44 after verification. Not archetype 2: part-time founder, family team, no certs, revenue not corroborated. Pass unless the demo produces audited numbers and the missing logos",
+   "unverified": []
+  },
+  {
+   "id": "cytidel",
+   "name": "Cytidel",
+   "rank": 31,
+   "score": 44,
+   "week": "10/2",
+   "hq": "Castlebar, Ireland",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 40,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 45,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 50,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 50,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 35,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: ~20 customers through direct outbound in the UK; no pull evidence. B: ~$3M below the floor; strong ACV, three-year terms and margin, near breakeven. C: Wants a US GTM partner but is raising a venture round. D: Threat-led prioritisation is a real niche complementary to the scanners, but VulnCheck and Recorded Future sit above and the platforms could absorb it. E: $10-20M raise is VC-shaped; Ireland in box.",
+   "archetype": "None yet; too early",
+   "founderTransition": "Wants US GTM help beyond capital; no transition signal; raising",
+   "checkAbsorbability": "$3M cannot price a $20-50M cheque",
+   "what": "Exposure intelligence combining vulnerability and threat-actor intelligence with continuous monitoring of suppliers and software supply chain; narrows backlogs to the ~1% being actively exploited and routes alerts to owners. Three-year contracts priced by organisation size",
+   "financials": "Approaching $3M ARR +100%, ~20 customers, $100K+ ACV, \"100% retention\", 90-95% GM, near breakeven, $3.57M raised ($2M seed 2025). Product launched ~2 years ago",
+   "aiTailwinds": "High ACV, three-year contracts, near breakeven, complementary to Tenable and Qualys rather than competing. Ireland is in the box. Wants an investor with US GTM help beyond capital. BackBox is a customer",
+   "aiHeadwinds": "$3M is below the floor. Direct outbound, UK-focused, GTM team launched this year, 3-6 month cycles. Raising $10-20M, which is a venture round. VulnCheck ($45M) and Recorded Future (Mastercard) above; Tenable and Qualys could build the threat-led layer natively",
+   "financialProfile": "Below the floor on a two-year-old product",
+   "sectorFit": "Exposure intelligence / threat-led vulnerability prioritisation; sub-scale, raising",
+   "dealDynamics": "Raising $10-20M primary; likely minority; Ireland in box",
+   "read": "Pitch-scored pass on scale. Good unit economics for the size (ACV, contract length, margin) and the right geography. Revisit at $5M+ if the raise does not happen or lands as a majority",
+   "unverified": [
+    "~$3M ARR +100%",
+    "100% retention",
+    "~20 customers",
+    "Raise structure"
+   ]
+  },
+  {
+   "id": "syteca",
+   "name": "Syteca",
+   "rank": 32,
+   "score": 43,
+   "week": "10/9",
+   "hq": "Waltham, MA (engineering in Kyiv and Dnipro)",
+   "state": "verified",
+   "verifiedDate": "2026-10-09",
+   "verifiedNote": "Independent verification pass 2026-10-09.",
+   "factors": {
+    "A": {
+     "score": 45,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 45,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 50,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 45,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 30,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: 1,500 customers is a company claim with no third-party support. The enterprise logos (UPS, Visa, Samsung, Panasonic, Payoneer, Deloitte) are a logo wall with no case study, quote or press behind any of them; the thirteen published case studies are Israeli and EMEA mid-market, and the GCC \"bank\" deployment is five concurrent sessions. Zero new reviews in ten months on G2 or Capterra. B: $5M is corroborated by ZoomInfo at $5.2M, which puts it at the floor. Growth, retention, margin and profitability are all undisclosed. $57k revenue per head across 87 people is only sustainable because the cost base is Ukrainian, and a US GTM build imports headcount at three to five times that cost. C: The ask is right: glass ceiling, external capital, US partner. But the founder story the pitch tells is incomplete. Ekran was incubated inside Apriorit; founder Dennis Turpitka died in January 2022; Shomonko, an Apriorit board member since 2014, took over. The cap table probably includes an estate. D: Security, with a real displacement window from the CyberArk sale and a defensible niche in Linux, VDI and on-prem session recording. Marked down for Microsoft Purview forensic evidence and Entra PIM eroding the Windows case, a crowded EPM field for the new modules, and absence from the PAM Magic Quadrant. E: The deciding factor. Bootstrapped is good. Everything else is not: Kyiv and Dnipro engineering as a Diia City resident, mobilisation deferrals capped around 50% with rules tightened twice in 2026, no disclosed continuity plan, a Cyprus entity the pitch did not mention, a deceased founder's stake, and a direct overlap with ActivTrak, an Elsewhere portfolio company. Wallix at ~4x revenue caps the EV near $20M",
+   "archetype": "2 on paper (bootstrapped niche leader wanting a GTM partner), undermined by geography and the ActivTrak conflict",
+   "founderTransition": "Head of sales says glass ceiling, wants external capital and a US GTM partner. CEO location unknown (pitch says Portugal/Boston; no source supports Portugal). Original founder died 2022; \"equity split between co-founders\" is incomplete",
+   "checkAbsorbability": "$5M at Wallix's ~4x revenue is roughly $20M of EV, the bottom of the range, before any Ukraine discount",
+   "what": "Single-agent \"inside security\" platform (formerly Ekran System, rebranded 2024): privileged access management, password vault, session recording and user activity monitoring, ITDR, plus Windows-only privilege elevation (v7.27, September 2026) and endpoint risk compliance (v7.28, October 2026). On-prem, Azure, AWS or SaaS",
+   "financials": "~$5M ARR, +30% historically, slower this year (pitch). ZoomInfo estimates $5.2M. Retention, gross margin and profitability not disclosed. $57k revenue per head across 87 staff, which only works at Ukrainian cost. Bootstrapped; sole outside capital is a $20K MACH37 accelerator cheque in 2017. Co-founder and original CEO Dennis Turpitka (also founder of Apriorit, the Dnipro outsourcer Ekran was incubated inside) died in January 2022; Oleg Shomonko became CEO",
+   "aiTailwinds": "Bootstrapped with 1,500 claimed customers in 70+ countries and a genuine EMEA, Israel and GCC footprint. Head of sales says they have hit a glass ceiling and want a US GTM partner, which is the right ask. CyberArk's $25B sale to Palo Alto (closed Feb 2026) creates mid-market displacement demand, and Syteca is already marketing to it. Defensible ground in Linux, VDI, Citrix, on-prem and air-gapped session recording for regulated non-US buyers. KuppingerCole PAM Leadership Compass 2026",
+   "aiHeadwinds": "Engineering, support and marketing sit in Kyiv and Dnipro as a Diia City resident; Ukrainian mobilisation caps deferrals at roughly half of military-age staff and the rules tightened in June and September 2026; Dnipro is front-adjacent; no continuity or relocation plan is public. Microsoft Purview forensic evidence (screen capture) and Entra PIM erode the Windows/M365 use case; the new PEDM and ERCC modules are weeks old, Windows-only, and enter a crowded field. Not in the Gartner PAM Magic Quadrant. Zero new G2 or Capterra reviews in ten months. US positioning is employee monitoring, which collides directly with ActivTrak, where Elsewhere led the Series A. Wallix, the cleanest public comp, trades at ~4x revenue",
+   "financialProfile": "At the floor on a third-party estimate, no retention or margin data, economics that only hold at Ukrainian cost",
+   "sectorFit": "PAM and user activity monitoring; Ukrainian engineering base; direct overlap with Elsewhere portfolio company ActivTrak",
+   "dealDynamics": "Bootstrapped and asking for a US partner, which is on-pattern; but the cap table likely includes a deceased founder's estate and possibly Apriorit, and the engineering base is in an active war zone with mobilisation caps",
+   "read": "Pass as a platform deal; evaluate only as a bolt-on, if at all. The shape is right and the ask is right, but the engineering is in Kyiv and Dnipro under mobilisation caps with no disclosed continuity plan, and that is not a risk a $20-50M majority cheque can price. Separately, the US positioning is employee monitoring, which is ActivTrak's market, and Elsewhere led ActivTrak's Series A. Flag that conflict to Nick before anything else. If someone still wants to look, the PAM and Linux session-recording layer plus EMEA/Israel/GCC distribution could be a bolt-on for ActivTrak, and the diligence asks are: headcount by country, reservation status, IP ownership chain (Syteca Inc. versus the Ukrainian entity versus Cyprus), and who holds Turpitka's shares",
+   "unverified": [
+    "1,500 customers (company claim only)",
+    "UPS, Visa, Samsung, Panasonic, Payoneer, Deloitte as customers (logo wall; no case study, quote or press for any)",
+    "30% historical growth, retention, gross margin, profitability (all undisclosed)",
+    "\"Deployed on top of CyberArk/BeyondTrust/Delinea/Wallix\" (no source; company positions as a replacement)",
+    "CEO based in Portugal (no source)",
+    "\"Equity split between co-founders\" (original founder died 2022; estate and Apriorit stake unknown)",
+    "CONFLICT: US employee-monitoring positioning overlaps ActivTrak, where Elsewhere led the Series A",
+    "CONTINUITY: no public headcount-by-country, reservation status, or IP ownership chain"
+   ]
+  },
+  {
+   "id": "tidal-cyber",
+   "name": "Tidal Cyber",
+   "rank": 33,
+   "score": 42,
+   "week": "8/21, resurfaced 9/25",
+   "hq": "Washington, DC",
+   "state": "verified",
+   "verifiedDate": "2026-09-12",
+   "verifiedNote": "Independent verification pass 2026-09-12. All five new names had at least one contradicted claim.",
+   "factors": {
+    "A": {
+     "score": 50,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 40,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 45,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 35,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 40,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: A free Community Edition since 2022 is a genuine PLG vehicle, and the Carahsoft federal distribution deal (Aug 2026) is real and well matched to the founders. But the free user base has never been published in four years, which is what a company does when the number is not impressive. All five customer logos are unverifiable, Binary Defense is a co-marketing webinar partner rather than a customer (Tidal is absent from its partner page), and the GuidePoint channel partnership appears nowhere; the partners page lists only Chertoff Group and Legato. B: $5M ARR sits at the floor, but growth is decelerating hard and the company published the evidence itself: 115% in 2025, 80% in this pitch, and a $5M to $7M target for 2026 which is 40%. The same release promised improved capital efficiency, the standard growth-to-burn-control signal. Mid-60s gross margin likely reflects third-party LLM inference COGS that scale with usage. C: Rick Gordon is the strongest founder in this batch (ran MITRE's threat-informed defense programmes, founded MACH37 which launched Huntress, two prior exits). Struse and Duff are equally credentialed. But they are asking for minority, not a transplant. D: The MITRE position is hard to replicate and strengthening (Struse joined the ATT&CK Advisory Council in March 2026, Cat Self hired from MITRE in February). Against that: Microsoft Sentinel, CrowdStrike Falcon NG-SIEM and Cisco XDR all ship ATT&CK coverage mapping natively and free; CrowdStrike bought XM Cyber's attack-path IP outright in July 2026 to fold into Falcon; and Nagomi raised $30M from TCV, CrowdStrike Falcon Fund and Okta Ventures on the identical thesis and publishes named customers where Tidal publishes none. The pitch names DIY with Claude or ChatGPT as a competitor, which is an honest flag. E: Minority ask, roughly 13 months after the Series A. The cap table genuinely needs cleanup (18+ holders including Techstars, Lockheed Martin Ventures, CIT), which is on-pattern, but the most logical acquirers are building or buying the capability rather than buying the company.",
+   "archetype": "Partial 4 (messy 18-holder cap table wanting cleanup) but minority-only and VC-shaped",
+   "founderTransition": "Exceptional ex-MITRE founding team with prior exits; seeking minority with secondary, no handover signal",
+   "checkAbsorbability": "$5M at the floor; minority ask means a $20-50M check has nowhere to go",
+   "what": "Threat-informed defense platform mapping a customer security stack against MITRE ATT&CK to show coverage, gaps and tool overlap, plus NARC AI which extracts ATT&CK-mapped adversary procedures from unstructured threat intelligence",
+   "financials": "Updated 9/25: ~$6M ARR +80%, targeting $7M EOY; 90% GRR, 110-120% NRR; burning $300k/month; mid-60s GM attributed to per-tenant HIG rollout costs. Acquired a detection-engineering automation company/ruleset (cash + equity). Raise pushed to Q1 once past $7M. Series A was $10M (Sept 2025, Bright Pixel), not $16M; headcount 39-45 across estimators, not 60",
+   "aiTailwinds": "Authentic and strengthening MITRE ATT&CK pedigree, three ex-MITRE founders, Struse on the ATT&CK Advisory Council. Procedure-level extraction is the layer ATT&CK documents least well. Carahsoft federal channel is real. AI-generated threat intel volume makes structured extraction more necessary",
+   "aiHeadwinds": "Microsoft Sentinel, CrowdStrike Falcon NG-SIEM and Cisco XDR all ship ATT&CK coverage mapping natively and free, which anchors the price at zero. CrowdStrike bought XM Cyber attack-path IP in July 2026. Nagomi has $30M from TCV, CrowdStrike Falcon Fund and Okta Ventures on the same thesis with named customers. The mapping layer sits over a free public framework",
+   "financialProfile": "At the floor with growth halving twice in 18 months, on a $300k monthly burn",
+   "sectorFit": "Proven sector, but the platform vendors are shipping the feature free and buying the IP",
+   "dealDynamics": "Minority ask 13 months after a $10M Series A; genuinely messy cap table; acquirers building rather than buying",
+   "read": "Pass as shaped, revisit if the ask changes. The team and the ATT&CK dataset are real assets and the federal channel is credible, but a minority cheque into a decelerating business whose feature ships free from Microsoft and CrowdStrike is not a Fund III deal. Revisit trigger: they come back wanting majority, or the Carahsoft federal pipeline converts into a step-change in ARR.",
+   "unverified": [
+    "GuidePoint Security as channel partner (absent from the partners page)",
+    "$5M ARR, 90% GRR, 100%+ NRR, $300k/month burn, mid-60s gross margin",
+    "Community Edition user base size (never published in four years)",
+    "Headcount 60 (estimators converge on 39-45)",
+    "$16M Series A (company and lead investor both say $10M)",
+    "56 customers; Citi, Deloitte, EY and Binary Defense logos (HIG now corroborated by the tracker)"
+   ]
+  },
+  {
+   "id": "talon",
+   "name": "TALON",
+   "rank": 34,
+   "score": 42,
+   "week": "9/4",
+   "hq": "Portsmouth, NH",
+   "state": "verified",
+   "verifiedDate": "2026-09-05",
+   "verifiedNote": "Verified 9/5: entity/funding confirmed; competitor attributions in deck wrong (Bluebook=Valenz, Turquoise independent, $40M Series C Mar-26); absent from 2026 Inc 5000; Marpai going-concern; regulatory burden being reduced not increased",
+   "factors": {
+    "A": {
+     "score": 55,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 55,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 30,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 40,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 30,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: Channel-built through TPAs and clearinghouses (HealthAxis, Smart Data Solutions, Blackhawk), 4-person sales team, ~15 named partners, no logos on homepage; not inbound pull B: In band at $12M if real, but no public corroboration, missing from the 2026 Inc 5000, CRO and COO hired 2022 gone from leadership page, marquee client Marpai has going-concern doubt; SAFE dilutes C: Founder walked away from 8 LOIs (7 majority) in Jan-Feb 2026 to keep control and now wants 33% minority with $25M of the $30M as secondary; wants capital, not a partner D: Regulatory tailwind is overstated: the Dec-25 proposed rule reduces plan burden and there have been no plan-side fines in four years; MRF data is free; Turquoise ($95M raised, not Valence-acquired), Zelis (bought Medxoom, TALON's exact buyer segment), Valenz (bought Healthcare Bluebook) and HealthEdge's native tool are absorbing the category; UAPA pivot moves into repricing where Zelis/MultiPlan face antitrust suits E: Minority-only at a 7x anchor with 83% secondary, after rejecting majority offers; the deck also has its competitor attributions swapped (Bluebook is Valenz, Turquoise is independent); buyers exist but the structure is off-pattern",
+   "archetype": "None: founder-control minority with a liquidity motive",
+   "founderTransition": "Explicitly no: rejected control offers",
+   "checkAbsorbability": "$12M absorbs the check; the structure does not",
+   "what": "Consumer price-transparency tool sold to TPAs, regional plans and self-insured employers per member per month; pivoting to UAPA repricing (weighted-average commercial rates) via clearinghouse and TPA integrations",
+   "financials": "Pitch: $12M ARR +45-50%, cash-flow positive 6-10% monthly, Ro40 ~60, 80-85 clients, 48 FTEs, $9.5M raised (family office/F&F) + $2.3M SAFE. Public: Inc 5000 #289 (2025) and #369 (2024) confirm strong growth off a tiny base; ABSENT from the 2026 list despite claimed growth; third-party estimates stale and low; featured client Marpai in going-concern",
+   "aiTailwinds": "Consumer price transparency sold per member per month to TPAs and regional plans has a federal mandate behind it; $12M ARR, cash-flow positive, Inc 5000 2024 and 2025; pivot to UAPA repricing via clearinghouse integrations widens the wallet; healthcare IT with a bench operator is an Elsewhere archetype.",
+   "aiHeadwinds": "Founder rejected 7 of 8 LOIs (all majority) in early 2026 and now wants 33% minority at ~7x with $25M of $30M as secondary: capital, not a partner. Regulatory tailwind is overstated (no plan-side fines in four years; Dec 2025 proposed rule reduces plan burden; MRF data is free). Absent from the 2026 Inc 5000; CRO and COO hired in 2022 are gone; Marpai has a going-concern note; deck swaps competitor attributions (Bluebook is Valenz, Turquoise is independent).",
+   "financialProfile": "$12M +45-50% claimed, cash-flow positive; absent from 2026 Inc 5000; no public corroboration",
+   "sectorFit": "Healthcare IT - price transparency / repricing",
+   "dealDynamics": "33% minority at ~7x ARR, 83% of proceeds secondary, after rejecting seven majority offers; New Hampshire",
+   "read": "Pass on structure regardless of the numbers. A founder who turned down seven majority offers and wants 7x for a third of the company with the money going to early holders is the opposite of the Elsewhere pattern, and the category tailwind he cites is weaker than pitched. Question, if any: why is TALON missing from the 2026 Inc 5000 with claimed 45-50% growth.",
+   "unverified": [
+    "80-85 clients",
+    "$12M ARR +45-50%",
+    "cash-flow positive",
+    "Rule of 40 ~60",
+    "8 LOIs and their values"
+   ]
+  },
+  {
+   "id": "dataforge",
+   "name": "DataForge",
+   "rank": 35,
+   "score": 41,
+   "week": "10/9",
+   "hq": "Chicago, IL",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 30,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 20,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 65,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 40,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 50,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: Founder-led through a PE network, two net-new logos in a year. B: $1.5M with two customers over half of revenue; both explicit rubric penalties. C: Wants a 60% buyout and installed sales leadership, which is the model. D: Data transformation tooling sits under Databricks and against dbt/Matillion/Coalesce. E: Cap-table cleanup (ROBS) and majority available, but sub-scale.",
+   "archetype": "4 in miniature",
+   "founderTransition": "Open to 60% buyout and wants GTM leadership installed; the right posture at the wrong size",
+   "checkAbsorbability": "$1.5M cannot price a cheque",
+   "what": "Standardised data ingestion, transformation and orchestration framework on Databricks sold as a product with services bundled; targets PE-backed buy-and-build aggregators",
+   "financials": "$1.5M ARR +200% (expansion-led, 2 net-new logos in a year), 9 customers, 2 logos likely >50% of revenue, CFBE, $5.1M raised ($4M founder self-funding, $650k SAFE, $450k family revolver). 3 FTEs plus 2 contractors",
+   "aiTailwinds": "Open to a ~60% growth buyout to clean up a ROBS retirement-fund ownership structure; founder wants sales leadership and a partner manager. PE-portco ICP is a buyer Elsewhere understands",
+   "aiHeadwinds": "$1.5M ARR, 3 employees, two customers over half of revenue, founder-network sales only. Matillion, dbt and Coalesce above; Databricks ships more natively every quarter",
+   "financialProfile": "Far below the floor with >50% concentration",
+   "sectorFit": "Data architecture on Databricks; sub-scale, concentrated",
+   "dealDynamics": "60% buyout on offer; cap table needs cleanup; too small",
+   "read": "Pitch-scored pass on size; keep warm as the tracker suggests. If this reaches $3M+ with a third anchor customer, the posture is exactly right",
+   "unverified": [
+    "$1.5M ARR",
+    "Concentration (likely >50% in two logos)",
+    "ROBS structure details"
+   ]
+  },
+  {
+   "id": "spektrum-labs",
+   "name": "Spektrum Labs",
+   "rank": 36,
+   "score": 40,
+   "week": "9/11",
+   "hq": "Carmel, IN",
+   "state": "verified",
+   "verifiedDate": "2026-09-12",
+   "verifiedNote": "Independent verification pass 2026-09-12. All five new names had at least one contradicted claim.",
+   "factors": {
+    "A": {
+     "score": 35,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 25,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 55,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 45,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 40,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: The 100+ customer claim does not survive the public timeline. The product shipped free at the October 2025 launch with paid tiers still unfinalised, the flagship Sophos programme reached broad availability only mid-2026, and in July 2026 they were activating their first ten channel partners. $0.5M ARR over 100+ customers implies roughly $5k ACV, so the count is most likely MSP-managed end customers, free signups, or portfolio companies under one parent contract. Five of the seven named partners (Impellix, GuidePoint, Booz Allen, Baker Tilly, and the Thoma Bravo / General Atlantic / Atlas portcos) have no public trace, in a company that press-releases every other partnership it has. B: $0.5M ARR in 2025 going to $5-10M by year end needs $375k to $800k of net new ARR every month through a channel that was activating its first ten partners in July. Far below the floor now, and the ramp is not credible. 66% gross margin points to integration labour. C: The strongest factor. Founders state openness to a recap and claim ~80% ownership, and J.J. Thompson has a prior exit (Rook Security to Sophos, 2019). Two cautions: the pitch names the wrong founder (Rob Driscoll is co-founder for business development; Thompson is founder and CEO), and ~80% ownership after $10M+ of convertible notes is not plausible as stated. D: Cybersecurity is a proven sector and 17 granted patents with 52+ applications is genuine IP. But greenfield is contradicted: Travelers bought Corvus for $435M, Munich Re agreed to buy At-Bay in August 2026, and carriers are acquiring telemetry-driven underwriting rather than licensing it. Rubrik, Veeam, Cohesity and Commvault now ship backup immutability and recovery validation natively; Vanta and Drata own continuous control monitoring; the BAS vendors own control validation. E: $7-10M now then $20-30M in Q1 2027 is venture sequencing, not a recap, and the notes convert on any recap. The one genuine positive is the exit path: Travelers/Corvus at $435M is a real priced comp and carriers are actively buying in this space.",
+   "archetype": "None cleanly. Recap-friendly posture, but pre-scale and on a venture funding path",
+   "founderTransition": "Founders state openness to a recap; prior exit to Sophos. Pitch misidentifies the founder, and ~80% ownership is implausible post-notes",
+   "checkAbsorbability": "$0.5M ARR cannot price a $20-50M majority cheque; the near-term ask is $7-10M",
+   "what": "Continuous cyber-resilience validation. Connects to the security stack, verifies controls and configurations against SOC 2, NIST CSF and CIS, tests backup immutability and recoverability, and mints cryptographic time-stamped evidence (Cyber Resilience Tokens) intended for insurance claims and audit",
+   "financials": "$0.5M ARR in 2025, claiming $5-10M by EOY 2026; 66% gross margin; anecdotally no churn; CFBE by year end. $10M seed led by Danu Venture Group, structure inconsistent across sources (convertible note in 2025 converting in a Feb 2026 Series Seed); second investor Nue Capital not disclosed in the pitch",
+   "aiTailwinds": "Real and hard-to-copy IP: 17 granted patents, 52+ applications. Cyber insurance is genuinely moving toward telemetry-based underwriting, and carriers are paying for it (Travelers/Corvus $435M, Munich Re/At-Bay Aug 2026). Sophos and NetDiligence relationships are real. AI-era audit evidence is a growing need",
+   "aiHeadwinds": "Greenfield claim is contradicted: CB Insights lists Corvus, Resilience, Cysurance and Maxxsure as direct comps. Carriers are buying this capability rather than licensing it, which removes the buyer and creates the competitor. Backup vendors ship immutability validation natively; Vanta and Drata own continuous control monitoring; SafeBreach, AttackIQ, Pentera and Picus own control validation",
+   "financialProfile": "Pre-scale at $0.5M with a 10-20x ramp claim that the public timeline contradicts",
+   "sectorFit": "Proven sector and real patents, but four mature categories are converging on the same square",
+   "dealDynamics": "Venture sequencing not a recap; convertible notes convert on any deal; true as-converted ownership unclear",
+   "read": "Pass for Fund III now, but the only name here worth a diary note. Two gating items decide it: produce the twenty executed carrier acceptance agreements, and produce a signed-contract schedule with ARR per contract and the free-versus-paid split. Revisit in 12 months if ARR is genuinely past $5M. Establish immediately whether the wrong-founder error came from the company or the intermediary.",
+   "unverified": [
+    "100+ customers (public timeline argues against it; implied ACV ~$5k)",
+    "Acceptance by 20+ top cyber insurance carriers - the whole differentiation, asserted once in the company own July 2026 press release and confirmed by no carrier",
+    "Five of seven named partners: Impellix, GuidePoint, Booz Allen, Baker Tilly, and the Thoma Bravo / General Atlantic / Atlas portcos",
+    "$5-10M ARR by EOY 2026 from $0.5M",
+    "Founder ~80% ownership after $10M+ of convertible notes",
+    "Founder identity: the pitch names Rob Driscoll; J.J. Thompson is founder and CEO"
+   ]
+  },
+  {
+   "id": "dataweavers",
+   "name": "Dataweavers",
+   "rank": 37,
+   "score": 40,
+   "week": "9/25",
+   "hq": "Brisbane, Australia",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 50,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 50,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 35,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 45,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 20,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: Channel-led enterprise with real logos but no customer count. B: $6.5M with 100% GRR and 115% NRR, offset by $200k monthly burn and six months of runway. C: Raising a Series B; no transition. D: Narrow DXP-operations niche under native vendor hosting. E: VC round, existing investors holding, Australia outside the box.",
+   "archetype": "None; VC-shaped",
+   "founderTransition": "Raising; wants to make the US the centre of operations; no handover signal",
+   "checkAbsorbability": "Structure is a Series B, not a recap",
+   "what": "Azure-native platform that deploys, runs and monitors enterprise DXP stacks (Sitecore, Contentstack, Optimizely) end-to-end, single-tenant, replacing custom DevOps and SI-run operations; expanding into headless and agentic SRE",
+   "financials": "$6.5M ARR +50-60%, 100% GRR, 115% NRR, 75% GM, burning ~$200k/month with ~6 months runway, ~$7.5M raised (OIF, Five V, QIC). Raising a Series B of $20M minimum primary",
+   "aiTailwinds": "Strong retention and expansion, Toyota and globalpayments as logos, channel-led enterprise motion",
+   "aiHeadwinds": "Six months of runway and a $20M-minimum Series B with existing investors expected to hold is a venture round, not a recap. Australia is outside the NA/Israel/Europe box. Sitecore XM Cloud, Contentstack and Optimizely native hosting cover the CMS layer; the DXP niche is narrow. In 2023 the company only wanted Australian investors",
+   "financialProfile": "Above the floor with strong retention but burning $200k/month into a six-month runway",
+   "sectorFit": "Azure-native DXP operations platform; VC-shaped Series B, geography outside the box",
+   "dealDynamics": "Series B, $20M minimum primary, existing VCs holding; Australia",
+   "read": "Pitch-scored pass. Good retention numbers attached to the wrong deal shape and the wrong geography",
+   "unverified": [
+    "Customer count",
+    "$6.5M ARR",
+    "Runway"
+   ]
+  },
+  {
+   "id": "doverunner",
+   "name": "DoveRunner",
+   "rank": 38,
+   "score": 40,
+   "week": "7/31",
+   "hq": "Seoul, KR",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 60,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 30,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 40,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 45,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 25,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "B: -64% EBITDA. E: 60% investor-held, Korea.",
+   "archetype": "60% investor-held, Korea",
+   "founderTransition": "n/a",
+   "checkAbsorbability": "$5.8M",
+   "what": "Mobile app shielding/runtime protection + multi-DRM, forensic watermarking, anti-piracy for streaming",
+   "financials": "$5.8M ARR +40%, EBITDA -64% (25A) to -17% (26E), 97% GRR, raised $14M (60% investor-held)",
+   "aiTailwinds": "Mobile app shielding and multi-DRM with forensic watermarking are compliance-driven purchases for streaming and fintech; 97% GRR; AI-generated piracy and deepfake content raises demand for watermarking.",
+   "aiHeadwinds": "Two sub-scale products, neither leading its niche (Verimatrix, Guardsquare, Promon, Irdeto); EBITDA -64% in 2025 improving to -17%; 60% investor-held; Korea HQ outside the geography box.",
+   "financialProfile": "$5.8M +40%, EBITDA -64% (25A) to -17% (26E), 97% GRR; deep-red margins",
+   "sectorFit": "Two niches, neither leading",
+   "dealDynamics": "$14M raised, 60% investor-held; Seoul; VC-shaped",
+   "read": "Pass. Two subscale products, deep-red margins",
+   "unverified": []
+  },
+  {
+   "id": "xcitium",
+   "name": "Xcitium",
+   "rank": 39,
+   "score": 39,
+   "week": "8/28",
+   "hq": "Bloomfield, NJ",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 40,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 40,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 60,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 30,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 25,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "D: CrowdStrike category. E: Kroll strategic auction.",
+   "archetype": "Strategic auction (Kroll)",
+   "founderTransition": "Founder selling",
+   "checkAbsorbability": "$16M",
+   "what": "Zero-trust endpoint platform (ex-Comodo): EDR/XDR/CNAPP/ITSM in one console; kernel-level containment lets unknown files run but blocks actions until verified",
+   "financials": "~$16M ARR +10%, CFBE, Ro40 ~10, ~$25M founder self-funded, 3,000+ customers, 50 US FTEs + 150 intl contractors",
+   "aiTailwinds": "Zero-trust endpoint containment (unknown files run but are blocked from acting until verified) is a genuinely different architecture from detection-based EDR; 3,000+ customers; ~$16M ARR CFBE; founder self-funded ~$25M so there is no VC preference stack.",
+   "aiHeadwinds": "CrowdStrike and SentinelOne own the deepest-moat category in security and bundle MDR, XDR and ITSM; 10% growth, Rule of 40 ~10; 150 international contractors; Kroll is running a full strategic sale, so Elsewhere would be bidding in an auction against strategics.",
+   "financialProfile": "~$16M +10%, CFBE, Rule of 40 ~10; in band, flat",
+   "sectorFit": "Sub-scale challenger in the deepest-moat incumbent category",
+   "dealDynamics": "Kroll strategic auction seeking a buyer; founder-funded; New Jersey",
+   "read": "Pass for the fund; only relevant as a strategic bolt-on question for a portfolio platform (which is EP's own framing)",
+   "unverified": []
+  },
+  {
+   "id": "lightly",
+   "name": "Lightly",
+   "rank": 40,
+   "score": 38,
+   "week": "10/2",
+   "hq": "Zurich, Switzerland",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 45,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 25,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 40,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 45,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 35,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: Founder-led with marquee logos but ~15 customers and one US AE. B: ~$1M product ARR with 70% services. C: Raising, no transition. D: Real physical-AI tailwind, crowded and better-funded field. E: $15M venture round; Switzerland in box.",
+   "archetype": "None",
+   "founderTransition": "Raising; wants US sales hires; no handover signal",
+   "checkAbsorbability": "~$1M product ARR cannot price a cheque",
+   "what": "Data-centric platform (Lightly Studio) for computer vision and physical AI that identifies which images and frames are worth labelling and training on, paired with a tech-enabled annotation services team",
+   "financials": "~$3M revenue +100% (70% recurring services / 30% product ARR), ~15 customers, product ACV $50-200K, services projects to 7 figures, slightly profitable, ~$4M raised. Raising ~$15M primary plus secondary",
+   "aiTailwinds": "Google DeepMind, Google Cloud, Rheinmetall, John Deere, Bosch as customers; physical-AI demand is real; near breakeven; Switzerland in the box",
+   "aiHeadwinds": "Product ARR is roughly $1M; the rest is services. Voxel51, Encord, Scale and Roboflow are better funded. Raising $15M is a venture round. Founder-led sales with one US AE",
+   "financialProfile": "Far below the floor on product ARR; mostly services",
+   "sectorFit": "Computer-vision data curation; services-heavy, raising",
+   "dealDynamics": "$15M primary plus secondary; VC-shaped",
+   "read": "Pitch-scored pass. Off-spec on services mix and scale, as the tracker itself notes",
+   "unverified": [
+    "Revenue mix",
+    "Customer count",
+    "Year-end $5-10M forecast"
+   ]
+  },
+  {
+   "id": "avesha",
+   "name": "Avesha",
+   "rank": 41,
+   "score": 38,
+   "week": "9/4",
+   "hq": "Chelmsford, MA (Bangalore eng.)",
+   "state": "verified",
+   "verifiedDate": "2026-09-05",
+   "verifiedNote": "Verified 9/5: co-founder Cheng Wu is the Taiwania GP (lead investor); $6.2M ARR listed Jun-24 contradicts $2.5M today; headcount down ~40%; India revenue likely intercompany; no trace of the strategic process",
+   "factors": {
+    "A": {
+     "score": 40,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 20,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 55,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 45,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 30,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: 15 customers, mostly mid-market on Smart Scaler/KubeSlice not GPU; direct and partner-led; OSS community shrinking (contributors -29%, stars -43%) B: $2.5M on $21-25M raised plus probable debt; growth claim contradicted by a $6.2M 2024 tracker figure; headcount cut ~40%; 67% India revenue on at most two identified Indian customers or intercompany billing C: Founder is a serial exiter (ArrowPoint to Cisco, Azuki to Ericsson) and open to liquidity; but the 34% lead investor is co-founder Cheng Wu's own fund, so governance is not arm's length D: GPU orchestration is hot and commoditizing at once: NVIDIA open-sourced Run:ai, Kubernetes DRA is GA, Cast AI has $850M valuation and 2,100 customers; StormForge sold to CloudBolt as a tuck-in; paying logos are mostly non-GPU E: Two competing strategic offers mid-process with outcome due 9/4, founder-affiliated lead VC wanting out, venture debt with likely change-of-control terms: an auction with a conflicted seller",
+   "archetype": "None: VC-backed restructuring in a strategic process",
+   "founderTransition": "Open to liquidity; conflicted cap table",
+   "checkAbsorbability": "$2.5M, far below floor",
+   "what": "Multi-cluster Kubernetes and GPU orchestration (KubeSlice OSS, Elastic GPU Service, Smart Scaler) across cloud, on-prem and edge; 9+ SKUs for a 24-person team",
+   "financials": "Pitch: $2.5M ARR +120%, GM 85%, approaching CFBE, 15 customers, 33% US / 67% India, $25M raised ($15M Series A 2023 Taiwania). Public: trackers show $21.2M raised + undisclosed Nov-24 insider round + likely Eastward venture debt; GetLatka listed $6.2M ARR in Jun-24 (contradiction); headcount down ~40% since 2024; India sub revenue looks intercompany; KubeSlice CNCF health 41/100 and declining",
+   "aiTailwinds": "Multi-cluster Kubernetes and GPU orchestration across cloud, on-prem and edge is where AI infrastructure spend is going; founder is a serial exiter (ArrowPoint to Cisco, Azuki to Ericsson); KubeSlice open source exists.",
+   "aiHeadwinds": "Lead VC Taiwania's GP is co-founder Cheng Wu, so the cap table is not arm's length; $2.5M ARR against $21-25M raised and a $6.2M figure listed in 2024 that contradicts it; headcount down ~40%; OSS community shrinking; NVIDIA open-sourced Run:ai, Kubernetes DRA is GA, Cast AI has $850M valuation; two competing strategic offers mid-process; venture debt with likely change-of-control terms.",
+   "financialProfile": "$2.5M +120% claimed on $21-25M raised; contradicted by a $6.2M 2024 tracker figure; headcount cut",
+   "sectorFit": "IT infra - Kubernetes / GPU orchestration",
+   "dealDynamics": "Two strategic offers in process (outcome was due 4 Sept); founder-affiliated lead VC wanting out; Chelmsford MA / Bangalore",
+   "read": "Pass. The growth-equity ask reads as a stalking horse for a strategic sale that may already be decided, on a cap table where the lead VC is the co-founder. Question, only if the strategics fall through: the ARR bridge from $1M (2023) to the $6.2M tracker figure (2024) to $2.5M today.",
+   "unverified": [
+    "$2.5M ARR +120%",
+    "GM 85%",
+    "Rule of 40 ~110",
+    "NVIDIA Grace Hopper GTM (not found)",
+    "the two strategic offers"
+   ]
+  },
+  {
+   "id": "phin-security",
+   "name": "Phin Security",
+   "rank": 42,
+   "score": 37,
+   "week": "8/28",
+   "hq": "Newark, DE",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 40,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 45,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 40,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 40,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 20,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: outbound-built. E: Series A minority = the anti-pattern.",
+   "archetype": "Series A minority = exact anti-pattern",
+   "founderTransition": "Wants VC round",
+   "checkAbsorbability": "$5M",
+   "what": "Security awareness training + phishing simulation built for MSPs; adding email security; per-user monthly billing, no commitments",
+   "financials": "~$5M ARR +50%, EBITDA -28% (burn $115K/mo), Ro40 22, raised $12M ($6M seed 2026), 600-700 MSPs, 90%+ GRR",
+   "aiTailwinds": "Security awareness training built for MSPs with per-user monthly billing and no commitments is a frictionless channel product; 600-700 MSPs; 90%+ GRR; adding email security to the suite. Direct comp knowledge for any future Breach Secure Now deal.",
+   "aiHeadwinds": "Outbound-built since September 2025 (11 reps, 80% of pipeline), which is the opposite of pull; SAT content commoditising with KnowBe4, Kaseya Bullphish and Breach Secure Now; burning $115k a month; raising a $15-20M Series A and prefers minority, which is the anti-pattern.",
+   "financialProfile": "~$5M +50%, EBITDA -28%, Rule of 40 22, 90%+ GRR; burning",
+   "sectorFit": "MSP channel real; category content commoditizing",
+   "dealDynamics": "$12M raised ($6M seed 2026); raising $15-20M Series A, minority preferred; Delaware",
+   "read": "Pass on structure; NB direct comp to Breach Secure Now - if EP ever does BSN, Phin is the growth-asset tuck-in to know",
+   "unverified": []
+  },
+  {
+   "id": "threater",
+   "name": "ThreatER",
+   "rank": 43,
+   "score": 36,
+   "week": "9/11",
+   "hq": "Tysons, VA",
+   "state": "verified",
+   "verifiedDate": "2026-09-12",
+   "verifiedNote": "Independent verification pass 2026-09-12. All five new names had at least one contradicted claim.",
+   "factors": {
+    "A": {
+     "score": 40,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 35,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 45,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 30,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 30,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: Channel-led through Carahsoft, Climb, GuidePoint and Optiv is the right shape, but the growth is not there. The company published 350+ customers in September 2024 against ~400 today, which is roughly 50 net adds in two years and corroborates the 10% growth rather than the 30% aspiration. AIG is not a channel partner: qualifying CyberEdge policyholders receive a complimentary Enforce subscription and a free appliance, so free seats are likely inflating the customer count and depressing ARR per customer. No public customer logos or case studies exist. B: ~$5M ARR sits at the floor, but 10% growth on 89% GRR means essentially all growth is new logos into a leaky bucket. Total raised is $21.4M on PitchBook, not the ~$29M claimed, and the most recent capital was secured growth debt from CIBC with LAGO Evergreen also a creditor. Revenue quality is the issue: demand the paying-versus-free customer split before believing the ARR. C: No transition signal. Not raising until Q1 2027. The GTM gap is one a security or MSP bench could fill, which is the one positive. D: This is the broken leg. Blocking known-bad IPs and domains is being bundled free or near-free by Cloudflare Gateway, Cisco Umbrella, Microsoft Defender and Entra, CrowdStrike, Palo Alto and every next-gen firewall. ThreatER's own August 2026 launch integrates into Microsoft Defender for Endpoint and Entra ID, which concedes that Microsoft owns the control plane and can absorb this into a SKU mid-market buyers already pay for. The differentiation metric is also misquoted: the deck says 30M versus 300K indicators, the company own marketing says 150M versus 150,000, and the comparison is against a firewall ACL table, a constraint no modern competitor actually has. E: Secured debt sitting ahead of roughly $21M of preferred on ~$5M of ARR means a $20-50M cheque is largely a creditor and preference takeout rather than growth capital. HYAS is the honest comparable: it raised $16M+ and was dismembered and sold in two undisclosed-price pieces in December 2025, and ThreatER bought one of those pieces while carrying debt.",
+   "archetype": "None. Aged asset with a debt-heavy stack and a commoditising core",
+   "founderTransition": "No transition signal; CEO in place; not raising until Q1 2027",
+   "checkAbsorbability": "A $20-50M cheque would mostly retire secured debt and preference, not fund growth",
+   "what": "Preemptive network threat enforcement: blocks known-bad IPs and domains at the network edge before they reach the network, across appliance, virtual, cloud and as-a-service form factors. Extended into protective DNS via the HYAS Protect asset purchase in December 2025",
+   "financials": "~$5M ARR growing ~10%, 89% GRR, 95% NRR, burning ~$100k/month (none public). Total raised is $21.4M per PitchBook, not ~$29M; the most recent capital was an undisclosed CIBC growth-debt facility announced September 2024, not $2.8M in October",
+   "aiTailwinds": "Threat-intel enforcement volume genuinely rises as AI-generated attack infrastructure scales. Multi-form-factor deployment and the 30-50% firewall traffic offload is a defensible economic argument. Carahsoft, Climb, GuidePoint and Optiv are real channels",
+   "aiHeadwinds": "Cloudflare Gateway, Cisco Umbrella, Microsoft Defender and Entra, CrowdStrike, Palo Alto and every NGFW bundle this natively, which prices the floor at zero. ThreatER own new product integrates into Microsoft Defender and Entra, conceding the control plane. HYAS, the only true comparable, was broken up and sold in two undisclosed-price pieces after raising $16M+",
+   "financialProfile": "At the floor, 10% growth on 89% GRR, with senior secured debt ahead of ~$21M of preferred",
+   "sectorFit": "Proven sector, but the specific function is a free feature of stacks the buyer already owns",
+   "dealDynamics": "Debt-heavy stack, no process, not raising until Q1 2027; the category comp sold for parts",
+   "read": "Pass. The capital structure alone decides it: secured creditors and roughly $21M of preferred sitting on $5M of flat ARR means the cheque buys out the stack rather than the business. If anyone still wants to look, the one question is the paying-versus-free customer split, because the AIG giveaway may be holding up a meaningful share of the 400.",
+   "unverified": [
+    "$5M ARR, 89% GRR, 95% NRR, $100k/month burn",
+    "~400 customers (350+ was the published figure in Sept 2024, and AIG policyholders get free seats)",
+    "AIG as a channel partner (it is an insurance policyholder giveaway)",
+    "~$29M total raised (PitchBook documents $21.4M)",
+    "$2.8M mezzanine in October 2024 (announced September 2024, amount undisclosed)",
+    "30M versus 300K indicator claim (company own marketing says 150M versus 150,000)"
+   ]
+  },
+  {
+   "id": "ai-edge-labs",
+   "name": "AI Edge Labs",
+   "rank": 44,
+   "score": 36,
+   "week": "8/14",
+   "hq": "Wilmington, DE (Ukraine eng.)",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 30,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 20,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 50,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 55,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 25,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: CEO-led sales, 12-month cycles, 5 customers. B: $2M ARR, one pending contract would be 75% of ARR (red). C: founder-led pivot company. D: edge/air-gapped AI security is a real gap; Lakera exit prices scarcity. E: wants a $10-15M Series A - a VC deal (red).",
+   "archetype": "Series A ask; 5 customers",
+   "founderTransition": "n/a",
+   "checkAbsorbability": "$2M, far below floor",
+   "what": "Autonomous AI agents for runtime security at edge / air-gapped environments; on-device, offline",
+   "financials": "$2M ARR +100% (TBC), 5 customers, burn $120K/mo, raised $7.5M (prior business), pivot from Scalarr",
+   "aiTailwinds": "Autonomous AI agents for runtime security at the edge and in air-gapped environments is a real gap (OT, defense, sovereign); on-device and offline; Lakera's $300M sale to Check Point prices scarcity in AI security.",
+   "aiHeadwinds": "$2M ARR with 5 customers, CEO-led 12-month sales cycles, and one pending contract that would be 75% of ARR; burning $120k a month on a pivot from Scalarr; wants a $10-15M Series A. Too early for a growth-equity screen.",
+   "financialProfile": "$2M +100% (TBC), 5 customers, burn $120K/mo; far below floor with extreme concentration",
+   "sectorFit": "Interesting niche, unproven",
+   "dealDynamics": "Raising $10-15M Series A; $7.5M raised in the prior business; Tel Aviv/US",
+   "read": "Too early. Revisit at $5M+ ARR and 20+ customers",
+   "unverified": []
+  },
+  {
+   "id": "arnica",
+   "name": "Arnica",
+   "rank": 45,
+   "score": 34,
+   "week": "Tommy 9/28",
+   "hq": "Atlanta, GA",
+   "state": "verified",
+   "verifiedDate": "2026-09-28",
+   "verifiedNote": "Independent verification pass 2026-09-28.",
+   "factors": {
+    "A": {
+     "score": 45,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 40,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 35,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 25,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 25,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: The pipelineless SCM-native deployment is a genuine differentiator and G2 reviewers confirm it works. But ~100 customers into $6.1M is roughly $61k ACV, which is mid-market, and the public logo set (Liongard, ITS Inc., Complete Genomics, Lemonade) corroborates that rather than the enterprise positioning. Finastra is the founder's former employer. LPL Financial, the only logo in the pitch, has no public trace anywhere. Eight G2 reviews and one Gartner Peer Insights review across a claimed 100 customers is a thin engagement footprint. B: Above the floor on paper but every figure is uncorroborated, and the two independent estimators put revenue at $2.2M and under $5M. Headcount is 23-30 across four sources against a claimed 65, a 2.5x error on the most verifiable number in the deck, with an undisclosed 23% decline. The 17-month runway and 65 headcount cannot both be true at $6.1M. 99.5% GRR alongside only 107% NRR is the odd pair: near-zero churn with seven points of expansion is weak for seat-priced developer tooling while AI multiplies code volume. C: Real technical credibility but no handover signal, an inflated prior title, and no founder exit. The ask is growth capital. D: The broken leg. GitHub unbundled Advanced Security in March 2025 and Microsoft extended Copilot Autofix to Azure DevOps in June 2026, which is exactly the integration Arnica sells on, shipped natively at platform pricing. Anthropic's Claude Security reached open beta on 30 April 2026. Endor Labs, Semgrep and Aikido are each 4-10x better capitalised on the same thesis and got there first. The deck naming Synopsys, which left the category in October 2024, shows the competitive view has not been refreshed in two years. E: Disqualifying as shaped. No priced Series A in five years and $21.1M raised; the 2024 round was an unannounced Seed 3. The institutions refusing secondary while insiders sell is adverse selection and kills the cleanup thesis outright. Every disclosed 2025 exit in the $180-700M range was for an AI-security asset (guardrails, prompt security, AI runtime), not for ASPM or SAST, where the strategics already own product",
+   "archetype": "None. Venture-shaped, no priced A, hostile competitive dynamics",
+   "founderTransition": "Capable AppSec operator (7 patents, Black Hat and DEF CON) but the Finastra CISO title is inflated; he led product and data security there, and the CISO role was at Kabbage. No prior founder exit. Seeking $20M of growth capital, not a partner",
+   "checkAbsorbability": "A $20-50M cheque lands on a stacked preference from $21.1M of seed capital that the holders have declined to clear",
+   "what": "Application security posture management: SAST, SCA with reachability, secrets detection, IaC scanning, container security and SBOM, hooked directly to the source-control system rather than the CI pipeline (\"pipelineless\") with findings pushed to developers in Slack and Teams. Founded on developer permissions and behaviour-based anomaly detection; the AI layer (\"Arnie AI\", AI SAST plus an Agentic Rules Enforcer that writes policy files for Claude, Copilot, Cursor and Gemini) launched November 2025",
+   "financials": "$6.1M ARR +60-70%, 99.5% GRR, 107% NRR, 84% gross margin, ~17 months runway (none public; Growjo estimates $2.2M, ZoomInfo under $5M). Total raised is $21.1M per PitchBook, not $18M; the pitch omits the documented 2021 pre-seed. Headcount is 23-30 across four sources, not 65, and declined ~23% YoY",
+   "aiTailwinds": "The \"pipelineless\" SCM-native architecture is a real differentiator independently corroborated by G2 reviewers: deploys across GitHub and Azure DevOps with no CI rework. AI coding agents genuinely do generate more code than human review can absorb. At ~27 people rather than 65 the business is far more capital-efficient than the deck implies and the path to profitability is more credible than the pitch itself argues",
+   "aiHeadwinds": "GitHub unbundled Advanced Security in March 2025, secret scanning is free on public repos, Copilot Autofix ships AI remediation natively, and Microsoft extended Autofix to Azure DevOps in June 2026, which is precisely the two-SCM coverage Arnica sells on. Anthropic shipped Claude Security to open beta on 30 April 2026 with full-codebase agentic scanning and patch generation. Endor Labs raised $93M in April 2025 on the identical secure-AI-generated-code pitch, seven months before Arnie AI shipped; Semgrep raised $100M; Aikido hit a $1B valuation in January 2026 with the same developer-first positioning and 100,000+ teams. Three of the five named competitors are PE-owned platforms with balance sheets, and the deck still names Synopsys, which exited AppSec in October 2024 when it sold to Clearlake and Francisco Partners for $2.1B",
+   "financialProfile": "Above the floor on an unverified number, with a 2.5x headcount error and an undisclosed 23% headcount decline",
+   "sectorFit": "Application security / ASPM; platform vendors shipping the core free",
+   "dealDynamics": "No priced Series A has ever happened; the 2024 round is classified Seed 3 by PitchBook and Pre-Series A by its own investor, and was never announced. Existing institutional investors decline to sell secondary while founders, angels and employees do. $21.1M raised against $6.1M ARR means the preference stack may exceed the equity value",
+   "read": "Pass. The deal disclosure decides it: \"existing institutional investors have no appetite for secondary\" means the holders a cleanup thesis has to clear have already declined the price, and you would take control alongside them with their preferences intact. Underneath that, the durability picture is the worst in this batch, because Microsoft now ships the integration advantage natively into both source-control systems Arnica depends on and Anthropic ships full-codebase agentic scanning. Revisit trigger: a priced round at a clearing price, or the institutions agreeing to transact",
+   "unverified": [
+    "$6.1M ARR, 60-70% growth, 99.5% GRR, 107% NRR, 84% gross margin, 17 months runway",
+    "LPL Financial as a customer (the only logo in the pitch; no public trace anywhere)",
+    "The $3.5M internal SAFE in 2025 (no press, no Form D, no database record)",
+    "Headcount 65 and \"100% US\" (four sources say 23-30, down ~23% YoY; founders and lead investor are Israeli)",
+    "\"Last priced round 2024\" (PitchBook classifies it Seed 3, the investor calls it Pre-Series A, and it was never announced)",
+    "$18M raised (actual $21.1M, rising to ~$24.6M if the SAFE is real)",
+    "\"CISO at Finastra\" (he led product and data security; the CISO role was at Kabbage)"
+   ]
+  },
+  {
+   "id": "blacklight-ai",
+   "name": "Blacklight AI",
+   "rank": 46,
+   "score": 33,
+   "week": "10/2",
+   "hq": "London, UK",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 45,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 30,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 30,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 40,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 20,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: Direct and channel with big-four resellers, 20+ customers, no count of substance. B: ARR undisclosed; 12 FTEs and 20 customers suggest well below the floor. C: Raising $30-50M; no transition. D: SMB SIEM against Microsoft and Google bundling and funded AI SOC entrants. E: Growth round, VC-shaped.",
+   "archetype": "None",
+   "founderTransition": "Raising; no handover",
+   "checkAbsorbability": "Cannot assess without ARR",
+   "what": "AI-native security operations platform consolidating security data for monitoring, detection, automated investigation and incident reporting, plus automated DFIR; deploys in 60-90 minutes",
+   "financials": "ARR \"of scale\" and undisclosed, +30-40%, 20+ customers, 12 FTEs, 70-75% GM, \"quite lean\" burn, $6M raised. Historically one churn. Exploring a $30-50M raise",
+   "aiTailwinds": "Accenture, PwC and Deloitte as resell partners; fast deployment and low cost against Splunk, Sentinel and Google SecOps for SMB teams",
+   "aiHeadwinds": "ARR not disclosed, 12 people, 20 customers. Exploring a $30-50M raise, which is a growth round. Microsoft Sentinel and Google SecOps bundle down-market; AI SOC startups are heavily funded",
+   "financialProfile": "Undisclosed ARR; 12 FTEs and 20 customers imply small",
+   "sectorFit": "AI-native SecOps for SMB; raising $30-50M",
+   "dealDynamics": "$30-50M raise; VC-shaped",
+   "read": "Pitch-scored pass. Nothing to score until there is a number; the raise size says venture",
+   "unverified": [
+    "ARR (undisclosed)",
+    "20+ customers",
+    "Burn"
+   ]
+  },
+  {
+   "id": "mirror-security",
+   "name": "Mirror Security",
+   "rank": 47,
+   "score": 33,
+   "week": "10/9",
+   "hq": "Dublin, Ireland",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 35,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 25,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 35,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 50,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 20,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: Seven customers through infra partners; one customer is half the revenue. B: $2.1M below the floor with >25% concentration. C: Raising seed; no transition. D: FHE for AI is durable in principle but niche and better-funded elsewhere. E: $10-15M seed, VC-shaped.",
+   "archetype": "None",
+   "founderTransition": "Raising; wants a US investor to move operations; no handover",
+   "checkAbsorbability": "$2.1M cannot price a cheque",
+   "what": "Fully homomorphic encryption so AI models compute on encrypted prompts, code and context without decrypting, delivered through an Encrypted Token Factory; usage-priced per encrypted token plus GPU hours",
+   "financials": "$2.1M ARR +100%, 7 customers, largest contract ~$1.05M (50% of ARR), previously CFBE at $1.2M now in light burn, $3M raised ($2.5M pre-seed Dec 2025). Raising $10-15M seed",
+   "aiTailwinds": "Real cryptography with partner distribution through AI infrastructure providers (Nebius, Core42, Akamai, Teradata); regulated and sovereign buyers",
+   "aiHeadwinds": "Seven customers with one at 50% of ARR. Raising a $10-15M seed. Zama, Duality and Enveil are better funded. FHE performance overhead limits the use cases",
+   "financialProfile": "Far below the floor with 50% concentration",
+   "sectorFit": "Homomorphic encryption for AI; seed-stage",
+   "dealDynamics": "Seed round, primary only; VC-shaped",
+   "read": "Pitch-scored pass. Interesting technology at seed stage; not an Elsewhere deal",
+   "unverified": [
+    "$2.1M ARR",
+    "Retention",
+    "Customer concentration"
+   ]
+  },
+  {
+   "id": "poly-api",
+   "name": "Poly API",
+   "rank": 48,
+   "score": 33,
+   "week": "9/11",
+   "hq": "Erie/Broomfield, CO",
+   "state": "verified",
+   "verifiedDate": "2026-09-12",
+   "verifiedNote": "Independent verification pass 2026-09-12. All five new names had at least one contradicted claim.",
+   "factors": {
+    "A": {
+     "score": 45,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 25,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 40,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 30,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 25,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: The referral motion through vertical SaaS vendors is a real pull mechanism and the 2023 AHLA Technology Acceleration Award with Oracle Hospitality is a genuine credential. But two of the four marquee logos do not hold: Adyen is listed by PolyAPI itself as a Platform Partner, not a customer, and Radisson appears nowhere on the site or in any press (Radisson's public API partner is Amadeus). The verifiable case studies are single-property and SMB accounts. The CEO said 10 enterprise customers in production; the pitch says 21. B: The weakest financial profile in the batch. $2M software ARR is well below the floor, and $2.5M of services means 56% of revenue is services. The 86% gross margin cannot coexist with that mix; blended is realistically 60-65%, so the 86% is a software-only number presented as company-wide. The Rule of 40 of 162 mixes software-line growth with total-revenue EBITDA. Funding is overstated: one Form D exists, fully sold at $5,139,999 in June 2024, against a claimed $8.5M. C: Founder is raising a Series A for growth capital, not a partner. MuleSoft, Oracle and Google pedigree is real and verified. No transition signal. D: Integration middleware is business applications, Elsewhere's weakest vintage, and the core capability is exactly what AI coding agents and MCP commoditise. MuleSoft shipped Agent Fabric with native MCP in September 2025 and Workato shipped Workato One with MCP in March 2025, both a year ahead; n8n raised $180M at $2.5B for developer-code-first automation. PolyAPI's platform page does not mention MCP or agents at all, and its AI story is that it uses Codex, Claude and Cursor to write integrations faster, which is a tool the customer's own team also has. E: A live $10M Series A with four funds in technical diligence is the textbook disqualifier: VC-shaped, minority-only, with external price anchors forming. No disclosed price exists for a sub-$10M-revenue integration asset to anchor a recap.",
+   "archetype": "None. Live venture round in the weakest portfolio sector",
+   "founderTransition": "Raising a Series A for growth capital; no handover signal; genuine MuleSoft and Oracle pedigree",
+   "checkAbsorbability": "$2M software ARR cannot price a $20-50M cheque; the ask is a $10M minority round",
+   "what": "Self-described modern enterprise middleware: an API catalog plus generated typed SDKs over a Kubernetes/Knative serverless runtime, so integration logic is written in native TypeScript, Java, Python or C-sharp and consumed as local function calls, paired with a captive fixed-bid implementation practice",
+   "financials": "~$2M ARR +186% plus ~$2.5M annualised services, NDR 191%, 86% gross margin, EBITDA -24% (none public). One SEC Form D on record, fully sold at $5,139,999 in June 2024, against a claimed $8.5M raised; seed co-led by DIG Ventures and Next Frontier Capital, not DIG alone",
+   "aiTailwinds": "Coherent and genuinely differentiated thesis: native code instead of low-code, consumed as typed local functions. Real hospitality vertical depth with Oracle Hospitality, hapi and Adyen as platform partners, and a 2023 AHLA award with Oracle. Founder and investors both carry MuleSoft lineage",
+   "aiHeadwinds": "MCP plus coding agents do most of what the product does, for free. MuleSoft Agent Fabric (Sept 2025) and Workato One (Mar 2025) shipped native MCP a year ahead; n8n has $180M at $2.5B on the same developer-first positioning. PolyAPI does not mention MCP anywhere. The same AI that makes its services team faster makes the customer in-house team faster and compresses the implementation fees that are most of the revenue",
+   "financialProfile": "Well below the floor, majority services, with gross margin and Rule of 40 computed on inconsistent bases",
+   "sectorFit": "Business applications, the weakest Elsewhere vintage, with the core function being commoditised",
+   "dealDynamics": "Live $10M Series A with four funds in diligence; external price anchors forming; minority only",
+   "read": "Pass. Nothing here fits: sub-scale, services-majority revenue, a live competitive venture round, and a category where MCP and coding agents are eating the value. The pattern across the deck also matters more than any single item: funding rounded up 65%, a partner promoted to customer, a customer that does not exist, headcount matching no source, and margin computed on whichever base flatters.",
+   "unverified": [
+    "$8.5M raised (one Form D on record, $5.14M, fully sold)",
+    "Adyen as a customer (PolyAPI lists it as a Platform Partner)",
+    "Radisson as a customer (no trace anywhere; Radisson uses Amadeus)",
+    "21 customers (CEO publicly said 10 in production)",
+    "86% gross margin against a 56% services mix, and Rule of 40 of 162",
+    "Headcount 22 (own team page shows 28, PitchBook shows 19)",
+    "The $10M Series A and the four funds in technical diligence (no Form D since July 2024)"
+   ]
+  },
+  {
+   "id": "myota",
+   "name": "Myota",
+   "rank": 49,
+   "score": 29,
+   "week": "Tommy 9/28",
+   "hq": "Blue Bell, PA",
+   "state": "verified",
+   "verifiedDate": "2026-09-28",
+   "verifiedNote": "Independent verification pass 2026-09-28.",
+   "factors": {
+    "A": {
+     "score": 25,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 20,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 40,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 30,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 30,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: No demonstrable pull at all. Two named customers in the company's history, one from 2023, no logo wall, no customer count, no case studies. \"Daystore\" does not appear to exist as a company. Akamai is contradicted as a partner: Akamai published a customer story about Myota, so Myota is Akamai's customer. Veeam is a compatibility certification hundreds of vendors hold. B: The central claim fails. $9M ARR on 18-21 people is $430-500k per employee, better than Rubrik manages at scale while Rubrik is still unprofitable, and it is flatly inconsistent with raising $2.25M from two investors partly for executive salaries and a revolver paydown. Six Form Ds decline to state a revenue range. No Inc 5000 listing, no federal contract awards, no revenue statement ever issued. There is also no SBIR, AFWERX or DIU money: the non-dilutive government pillar does not exist. C: Undisclosed CEO churn, a chairman in the operating seat, four titles for one executive, and a team page with no CEO on it. \"Tilted towards majority\" is the one positive. D: The category survived, which helps, but Myota did not move up with it and is absent from the February 2026 Gartner Market Guide. The three named competitors have consolidated into platforms that ship this natively, and the object-storage layer beneath is commoditising. Calamu, the same architecture with far better backing, is still at Series A scale. E: The cap-table shape is on-pattern (46 investors from 2018, an SPV feeder, passive holders wanting liquidity, a tilt to majority), but there is no banker, no process, and critically no cyberstorage M&A at a disclosed price anywhere to underwrite an exit against",
+   "archetype": "Partial 4 on cap-table shape only. Otherwise none",
+   "founderTransition": "Unsettled and obscured by the pitch. There is a CEO, Jim Walker, who signs the SEC filings; the pitch names Gumbs as President without mentioning him. Gumbs carries four different titles across Myota's own properties and the team page lists no CEO at all. An undisclosed CEO transition happened between 2021 and 2023, visible only in Form Ds",
+   "checkAbsorbability": "Cannot price a $20-50M cheque against a revenue figure contradicted by the company's own filings",
+   "what": "bucketZero cyberstorage: files are chunked, each chunk AES-256 encrypted with a one-time key, Reed-Solomon erasure coded into shards and dispersed across cloud and on-prem locations, with the chunk IDs and keys protected by Shamir Secret Sharing. Two granted US patents (11,281,790 and 12,072,994), sole inventor the co-founder",
+   "financials": "~$9M ARR +40%, profitable, Rule of 40 ~40 (nothing public, and contradicted by the financing record). ~$15.7M raised across six Rule 506(b) Form Ds; the \"$3M Series A in 2026\" is the fifth tranche of a Series A open since 2021. Tranches ran $5.8M, $1.0M, $2.25M, $1.55M, $3.0M. The 2024 filing earmarks ~$669k of a $2.5M raise for executive salaries and repaying a revolving credit line. Every Form D declines to disclose revenue. 18-21 FTEs",
+   "aiTailwinds": "The technology is genuinely novel and patented, combining erasure coding with Shamir Secret Sharing on the key path, so individual shards carry no usable information. Gartner published a full Cyberstorage Market Guide in February 2026, so the category graduated rather than being dropped. Veeam Ready - Object certification is real",
+   "aiHeadwinds": "Myota is not in the February 2026 Gartner Market Guide; Panzura, Superna and CTERA are, and Myota's only analyst credential is a 2022 Sample Vendor mention still on the site four years later. Cohesity plus Veritas is $1.5B ARR and 12,000 customers at a $7B valuation heading to IPO; Rubrik is a $22.7B public company growing 42%; all three named competitors ship immutable backup, air-gapped copies and rapid recovery natively. Object storage is commoditising underneath (Wasabi, Cloudian, MinIO, Scality, StorONE, Pure), leaving Myota a thin software layer between commodity storage and Veeam. Calamu, the closest architectural comp, is still stuck at Series A scale despite Insight Partners and Dell Technologies Capital backing, which says this architecture has not scaled for anyone",
+   "financialProfile": "The $9M ARR claim is unsupported anywhere and is contradicted by the company's own financing behaviour",
+   "sectorFit": "Cyberstorage; category alive but Myota is absent from it, and no priced exit comps exist",
+   "dealDynamics": "No banker (the February 2026 raise paid $0 in finders' fees), no process, no announced lead investor since 2021, 46 investors from the 2018 round plus an SPV feeder, and no cyberstorage M&A with a disclosed price to underwrite against",
+   "read": "Pass, and the reason is specific: a profitable $9M-ARR business growing 40% does not raise $2.25M from two investors partly to cover executive salaries and repay a revolver, then $1.55M from sixteen investors the following year. Those two stories cannot both be true, and six consecutive Form Ds declining to disclose a revenue range when the $5-25M box is free to tick is a choice. Working hypothesis is low single-digit millions, possibly bookings presented as ARR. CONFLICT NOTE: Jo Webber is a Myota director across every Form D from 2021 to 2026. Surface that relationship to Nick and Tommy before this goes any further rather than letting it read as a warm-intro credential",
+   "unverified": [
+    "~$9M ARR, profitable, 40% growth, Rule of 40 (contradicted by the financing record; six Form Ds decline to disclose revenue)",
+    "\"$3M Series A in 2026\" (it is the fifth tranche of a Series A open since 2021)",
+    "Government or DoD connections (no SBIR, STTR, AFWERX, DIU or federal award found)",
+    "\"Daystore\" as a partner (no such company identified)",
+    "Akamai as a partner (Myota is Akamai's customer; Akamai published the customer story)",
+    "Customer count and any logo wall (two named customers in company history)",
+    "The 50% storage cost saving (never substantiated; the patent's own maths shows n/t expansion, i.e. more bytes than a single copy, so it only holds against multi-copy backup)",
+    "CONFLICT: Jo Webber is a Myota director on every Form D from 2021 to 2026"
+   ]
+  },
+  {
+   "id": "vitria",
+   "name": "Vitria (VIA AIOps)",
+   "rank": 50,
+   "score": 27,
+   "week": "prior",
+   "hq": "Menlo Park, CA",
+   "state": "pitch",
+   "verifiedDate": "",
+   "verifiedNote": "",
+   "factors": {
+    "A": {
+     "score": 30,
+     "label": "Product pull, no sales machine"
+    },
+    "B": {
+     "score": 20,
+     "label": "Fund III financial fit"
+    },
+    "C": {
+     "score": 30,
+     "label": "Operator-transplant readiness"
+    },
+    "D": {
+     "score": 30,
+     "label": "Sector + AI-era durability"
+    },
+    "E": {
+     "score": 25,
+     "label": "Deal shape + exit path"
+    }
+   },
+   "factorReasoning": "A: No governed path; failed 55-buyer auction; wrong side of agentic wave.",
+   "archetype": "No governed path",
+   "founderTransition": "No board/succession",
+   "checkAbsorbability": "Unknown",
+   "what": "Telecom AIOps: event correlation + ontology Knowledge Plane for autonomous network resolution; legacy BusinessWare underneath",
+   "financials": "No disclosed revenue since 2006; PPP data implies ~30 US staff; est. $10-25M, mix unknown",
+   "aiTailwinds": "Telecom AIOps with an ontology-based knowledge plane is an attempt to ride autonomous network operations; a legacy BusinessWare installed base generates maintenance revenue; founder-retirement EBITDA buyout is the only frame.",
+   "aiHeadwinds": "No disclosed revenue since 2006; failed 55-buyer auction in 2006; wrong side of the agentic wave as the hyperscalers and Nokia/Ericsson ship AI network operations natively; est. $10-25M of unknown mix with ~30 US staff; no governed path to a transaction.",
+   "financialProfile": "No disclosed revenue since 2006; est. $10-25M, mix unknown",
+   "sectorFit": "Wrong side of the agentic wave; failed 55-buyer auction in 2006",
+   "dealDynamics": "No process; founder-controlled since 1994; Sunnyvale",
+   "read": "Pass for growth equity; only frame is founder-retirement EBITDA buyout",
+   "unverified": []
+  }
+ ]
+}

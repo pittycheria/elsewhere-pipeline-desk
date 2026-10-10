@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elsewhere Pipeline Desk</title>
+<meta name="description" content="Scored deal pipeline for Elsewhere Partners, with a Claude-powered analyst you can question about any score.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --paper:#f6f7f9; --surface:#ffffff; --surface-2:#eef1f5; --sunk:#e7ebf1;
+  --ink:#141a25; --ink-2:#4a5568; --ink-3:#76819a;
+  --rule:#d8dee8; --rule-soft:#e6eaf1;
+  --accent:#1f3864; --accent-2:#2f5596; --accent-ink:#ffffff; --accent-wash:#e8edf6;
+  --good:#2f7d4f; --good-wash:#e3f0e7; --warn:#966a10; --warn-wash:#f7edd8; --bad:#a83f37; --bad-wash:#f6e2e0;
+  --shadow:0 1px 2px rgba(20,26,37,.06), 0 8px 24px -12px rgba(20,26,37,.18);
+  --sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif:"IBM Plex Serif", ui-serif, Georgia, "Times New Roman", serif;
+  --mono:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --rail:340px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#0e1219; --surface:#161c26; --surface-2:#1d2531; --sunk:#0a0e14; --ink:#e7ecf4; --ink-2:#a9b4c6; --ink-3:#7c889d;
+  --rule:#2a3444; --rule-soft:#222b38; --accent:#8fb0e0; --accent-2:#a9c5ee; --accent-ink:#0e1219; --accent-wash:#1c2738;
+  --good:#6cc08b; --good-wash:#16281e; --warn:#d6ab55; --warn-wash:#2a2314; --bad:#e08a80; --bad-wash:#2d1a18;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6); } }
+:root[data-theme="dark"]{
+  --paper:#0e1219; --surface:#161c26; --surface-2:#1d2531; --sunk:#0a0e14; --ink:#e7ecf4; --ink-2:#a9b4c6; --ink-3:#7c889d;
+  --rule:#2a3444; --rule-soft:#222b38; --accent:#8fb0e0; --accent-2:#a9c5ee; --accent-ink:#0e1219; --accent-wash:#1c2738;
+  --good:#6cc08b; --good-wash:#16281e; --warn:#d6ab55; --warn-wash:#2a2314; --bad:#e08a80; --bad-wash:#2d1a18;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6); }
+*{box-sizing:border-box} html,body{height:100%}
+body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased}
+button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent-2); outline-offset:2px; border-radius:3px}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
+.top{position:sticky; top:0; z-index:40; display:flex; align-items:center; gap:14px; padding:12px 20px; background:var(--surface); border-bottom:1px solid var(--rule); flex-wrap:wrap}
+.mark{display:flex; align-items:baseline; gap:10px; min-width:0}
+.mark b{font-family:var(--serif); font-weight:600; font-size:19px; letter-spacing:-.01em; white-space:nowrap}
+.mark span{font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.06em; text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.top-actions{margin-left:auto; display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+.btn{display:inline-flex; align-items:center; gap:7px; background:var(--surface); color:var(--ink); border:1px solid var(--rule); padding:7px 12px; border-radius:6px; cursor:pointer; font-size:13px; font-weight:500; transition:background .12s ease, border-color .12s ease}
+.btn:hover{background:var(--surface-2); border-color:var(--ink-3)}
+.btn.primary{background:var(--accent); color:var(--accent-ink); border-color:var(--accent)}
+.btn.primary:hover{background:var(--accent-2); border-color:var(--accent-2)}
+.btn:disabled{opacity:.45; cursor:not-allowed} .btn.icon{padding:7px 9px}
+.status{display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.04em; text-transform:uppercase; padding:5px 10px; border:1px solid var(--rule); border-radius:999px; cursor:pointer; background:transparent}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ink-3);flex:none} .dot.on{background:var(--good)} .dot.warn{background:var(--warn)} .dot.busy{background:var(--accent-2); animation:pulse 1s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.toast{position:fixed; right:18px; bottom:18px; z-index:70; background:var(--surface); border:1px solid var(--rule); border-left:3px solid var(--good); border-radius:8px; padding:12px 16px; box-shadow:var(--shadow); max-width:420px; font-size:13.5px}
+.toast.err{border-left-color:var(--bad)} .toast b{display:block; margin-bottom:4px}
+.toast ul{margin:6px 0 0; padding-left:18px; font-size:12.5px; color:var(--ink-2)}
+.shell{display:grid; grid-template-columns:var(--rail) minmax(0,1fr); height:calc(100dvh - 57px)}
+.rail{border-right:1px solid var(--rule); background:var(--surface); display:flex; flex-direction:column; min-height:0}
+.rail-head{padding:12px 14px 10px; border-bottom:1px solid var(--rule-soft); display:flex; flex-direction:column; gap:9px}
+.search{width:100%; padding:8px 11px; border:1px solid var(--rule); border-radius:6px; background:var(--paper); font-size:13px} .search::placeholder{color:var(--ink-3)}
+.filters{display:flex; gap:5px; flex-wrap:wrap}
+.chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; padding:4px 8px; border-radius:4px; border:1px solid var(--rule); background:transparent; color:var(--ink-2); cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--accent-ink)}
+.list{overflow-y:auto; flex:1; min-height:0; padding:6px 0 20px}
+.band-label{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); padding:14px 14px 6px; display:flex; align-items:center; gap:8px} .band-label::after{content:""; flex:1; height:1px; background:var(--rule-soft)}
+.row{width:100%; text-align:left; background:transparent; border:0; border-left:3px solid transparent; padding:9px 14px 10px; cursor:pointer; display:grid; grid-template-columns:auto 1fr auto; gap:10px; align-items:center; border-bottom:1px solid var(--rule-soft)}
+.row:hover{background:var(--surface-2)} .row[aria-current="true"]{background:var(--accent-wash); border-left-color:var(--accent)}
+.rank{font-family:var(--mono); font-size:11px; color:var(--ink-3); width:20px; text-align:right; font-variant-numeric:tabular-nums}
+.row-main{min-width:0} .row-name{font-weight:600; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; letter-spacing:-.005em}
+.row-meta{font-family:var(--mono); font-size:10.5px; color:var(--ink-3); margin-top:2px; display:flex; gap:6px; align-items:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0}
+.tick{display:inline-block; width:5px; height:5px; border-radius:1px; background:var(--good); flex:none} .tick.auto{background:var(--accent-2)}
+.score{font-family:var(--mono); font-weight:600; font-size:15px; font-variant-numeric:tabular-nums; padding:3px 8px; border-radius:5px; min-width:38px; text-align:center}
+.s-chase{background:var(--good-wash); color:var(--good)} .s-interest{background:var(--good-wash); color:var(--good); opacity:.85} .s-cond{background:var(--warn-wash); color:var(--warn)} .s-pass{background:var(--bad-wash); color:var(--bad)}
+.detail{overflow-y:auto; min-height:0; display:flex; flex-direction:column}
+.pane{max-width:940px; width:100%; margin:0 auto; padding:26px 28px 40px}
+.co-head{display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap}
+.co-head h1{font-family:var(--serif); font-size:31px; font-weight:600; letter-spacing:-.015em; margin:0 0 6px; text-wrap:balance; line-height:1.15}
+.co-sub{font-family:var(--mono); font-size:11.5px; color:var(--ink-3); letter-spacing:.04em; text-transform:uppercase; display:flex; gap:12px; flex-wrap:wrap}
+.big-score{margin-left:auto; text-align:right; flex:none; font-family:var(--mono); line-height:1}
+.big-score b{font-size:44px; font-weight:600; font-variant-numeric:tabular-nums; letter-spacing:-.03em; display:block}
+.big-score em{font-style:normal; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); display:block; margin-top:7px}
+.badges{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.badge{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; padding:4px 8px; border-radius:4px; border:1px solid var(--rule); color:var(--ink-2)}
+.badge.ok{background:var(--good-wash); border-color:transparent; color:var(--good)} .badge.flag{background:var(--warn-wash); border-color:transparent; color:var(--warn)} .badge.auto{background:var(--accent-wash); border-color:transparent; color:var(--accent-2)}
+.sec{margin-top:30px} .sec > h2{font-family:var(--mono); font-size:10.5px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); margin:0 0 12px; display:flex; align-items:center; gap:10px} .sec > h2::after{content:""; flex:1; height:1px; background:var(--rule-soft)}
+.frow{display:grid; grid-template-columns:14px 1fr 34px; gap:12px; align-items:center; padding:9px 0; border-bottom:1px solid var(--rule-soft)} .frow:last-child{border-bottom:0}
+.fkey{font-family:var(--mono); font-weight:600; font-size:13px; color:var(--ink-2)} .flabel{font-size:12.5px; color:var(--ink-2); margin-bottom:5px}
+.fbar{position:relative; height:8px; background:var(--sunk); border-radius:2px; overflow:hidden} .fbar i{position:absolute; inset:0 auto 0 0; border-radius:2px; display:block}
+.fgrid{position:absolute; inset:0; pointer-events:none} .fgrid u{position:absolute; top:0; bottom:0; width:1px; background:var(--rule); opacity:.9; text-decoration:none}
+.fval{font-family:var(--mono); font-size:13px; font-weight:600; text-align:right; font-variant-numeric:tabular-nums}
+.axis{display:grid; grid-template-columns:14px 1fr 34px; gap:12px; margin-top:6px} .axis-in{position:relative; height:14px; font-family:var(--mono); font-size:9.5px; color:var(--ink-3)} .axis-in span{position:absolute; top:0; transform:translateX(-50%); white-space:nowrap}
+.cap-note{margin-top:12px; padding:9px 12px; border-radius:6px; background:var(--warn-wash); color:var(--warn); font-size:12.5px; border-left:3px solid var(--warn)}
+.reasoning{margin-top:16px; font-size:14px; color:var(--ink-2); line-height:1.62; background:var(--surface); border:1px solid var(--rule-soft); border-radius:8px; padding:14px 16px} .reasoning b{color:var(--ink); font-family:var(--mono); font-size:12.5px}
+.dossier{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1px; background:var(--rule-soft); border:1px solid var(--rule-soft); border-radius:8px; overflow:hidden}
+.cell{background:var(--surface); padding:14px 16px} .cell h3{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin:0 0 7px; font-weight:500} .cell p{margin:0; font-size:13.5px; line-height:1.6; color:var(--ink-2)} .cell.wide{grid-column:1/-1} .cell.tail h3{color:var(--good)} .cell.head h3{color:var(--bad)}
+.read-out{background:var(--accent-wash); border:1px solid transparent; border-left:3px solid var(--accent); border-radius:8px; padding:14px 16px; font-size:14.5px; line-height:1.6}
+.unver{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:6px} .unver li{font-size:13.5px; color:var(--ink-2); padding-left:18px; position:relative} .unver li::before{content:"?"; position:absolute; left:0; top:0; font-family:var(--mono); color:var(--warn); font-weight:600}
+.ask{margin-top:auto; border-top:1px solid var(--rule); background:var(--paper); position:sticky; bottom:0; padding-bottom:18px; box-shadow:0 -16px 28px -22px rgba(20,26,37,.55)}
+.ask-inner{max-width:940px; margin:0 auto; padding:0 28px}
+.thread{display:flex; flex-direction:column; gap:16px; padding:20px 0 14px} .turn{display:grid; grid-template-columns:56px 1fr; gap:14px; align-items:start}
+.who{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); padding-top:3px} .turn.me .bubble{font-weight:500; color:var(--ink)}
+.bubble{font-size:14.5px; line-height:1.65; color:var(--ink-2); min-width:0} .bubble p{margin:0 0 10px} .bubble p:last-child{margin-bottom:0} .bubble ul,.bubble ol{margin:0 0 10px; padding-left:20px} .bubble li{margin-bottom:4px} .bubble strong{color:var(--ink); font-weight:600} .bubble code{font-family:var(--mono); font-size:.9em; background:var(--surface-2); padding:1px 4px; border-radius:3px} .bubble a{color:var(--accent-2)}
+.tool-chip{display:inline-flex; align-items:center; gap:7px; font-family:var(--mono); font-size:11px; color:var(--ink-3); background:var(--surface-2); border-radius:999px; padding:4px 11px; margin-bottom:9px}
+.spin{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--ink-3);border-top-color:transparent;animation:sp .7s linear infinite} @keyframes sp{to{transform:rotate(360deg)}}
+.sources{margin-top:12px; padding-top:10px; border-top:1px solid var(--rule-soft)} .sources h4{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin:0 0 6px; font-weight:500} .sources ol{margin:0; padding-left:18px; font-size:12.5px; line-height:1.55} .sources a{color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(--rule)}
+.composer{display:flex; gap:9px; align-items:flex-end; background:var(--surface); border:1px solid var(--rule); border-radius:10px; padding:9px 9px 9px 13px; box-shadow:var(--shadow)}
+.composer textarea{flex:1; border:0; background:transparent; resize:none; font-size:14.5px; line-height:1.5; max-height:150px; min-height:24px; padding:5px 0} .composer textarea:focus{outline:none} .composer textarea::placeholder{color:var(--ink-3)}
+.ask-bar{display:flex; align-items:center; gap:10px; padding:9px 2px 0; flex-wrap:wrap}
+.toggle{display:inline-flex; align-items:center; gap:6px; font-size:12px; color:var(--ink-2); cursor:pointer; user-select:none} .toggle input{accent-color:var(--accent-2); width:14px; height:14px; margin:0}
+.scope{display:inline-flex; border:1px solid var(--rule); border-radius:6px; overflow:hidden} .scope button{background:transparent; border:0; padding:5px 11px; cursor:pointer; font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-2)} .scope button[aria-pressed="true"]{background:var(--accent); color:var(--accent-ink)}
+.hint{font-size:11.5px; color:var(--ink-3); margin-left:auto; font-family:var(--mono)}
+.starters{display:flex; gap:7px; flex-wrap:wrap; padding:2px 0 14px} .starters[hidden]{display:none}
+.starter{background:var(--surface); border:1px solid var(--rule); border-radius:999px; padding:6px 13px; font-size:12.5px; color:var(--ink-2); cursor:pointer; text-align:left} .starter:hover{border-color:var(--accent-2); color:var(--ink)}
+.err{background:var(--bad-wash); color:var(--bad); border-left:3px solid var(--bad); padding:11px 14px; border-radius:6px; font-size:13.5px; margin:10px 0}
+.scrim{position:fixed; inset:0; background:rgba(10,14,20,.55); z-index:60; display:flex; align-items:center; justify-content:center; padding:24px}
+.modal{background:var(--surface); border:1px solid var(--rule); border-radius:12px; max-width:760px; width:100%; max-height:86dvh; overflow-y:auto; box-shadow:var(--shadow)}
+.modal-head{position:sticky; top:0; background:var(--surface); border-bottom:1px solid var(--rule); padding:16px 22px; display:flex; align-items:center; gap:14px; z-index:1} .modal-head h2{font-family:var(--serif); font-size:20px; margin:0; font-weight:600}
+.modal-body{padding:20px 22px 26px; display:flex; flex-direction:column; gap:18px}
+.field{display:flex; flex-direction:column; gap:5px} .field label{font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3)} .field input{padding:9px 11px; border:1px solid var(--rule); border-radius:6px; background:var(--paper); font-size:13.5px; font-family:var(--mono)} .field small{font-size:12px; color:var(--ink-3); line-height:1.5}
+.rubric-f{border:1px solid var(--rule-soft); border-radius:8px; padding:14px 16px} .rubric-f h3{font-size:14.5px; margin:0 0 4px; font-weight:600} .rubric-f .w{font-family:var(--mono); font-size:10.5px; color:var(--ink-3); letter-spacing:.06em; text-transform:uppercase}
+.rubric-f dl{margin:10px 0 0; display:grid; grid-template-columns:auto 1fr; gap:6px 12px; font-size:13px; line-height:1.55} .rubric-f dt{font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; padding-top:3px} .rubric-f dt.up{color:var(--good)} .rubric-f dt.dn{color:var(--bad)} .rubric-f dd{margin:0; color:var(--ink-2)} .pov-text{font-size:13.5px; line-height:1.65; color:var(--ink-2)}
+@media (max-width:900px){ .shell{grid-template-columns:1fr; height:auto} .rail{border-right:0; border-bottom:1px solid var(--rule); max-height:44dvh} .detail{overflow:visible} .pane,.ask-inner{padding-left:18px; padding-right:18px} .ask{position:static} .big-score{margin-left:0} .co-head h1{font-size:26px} }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="mark"><b>Pipeline Desk</b><span id="sub">Elsewhere Partners</span></div>
+  <div class="top-actions">
+    <button class="status" id="board-status" type="button" title="Where the board is loaded from"><i class="dot" id="board-dot"></i><span id="board-text">loading</span></button>
+    <button class="btn" id="refresh" type="button" title="Crawl the IC tracker, score new companies, publish">Refresh from tracker</button>
+    <button class="status" id="conn" type="button" title="Configure the Claude connection"><i class="dot" id="conn-dot"></i><span id="conn-text">connecting</span></button>
+    <button class="btn" id="open-rubric" type="button">Rubric</button>
+    <button class="btn icon" id="theme" type="button" aria-label="Switch theme" title="Switch theme">◐</button>
+  </div>
+</header>
+<div class="shell">
+  <aside class="rail">
+    <div class="rail-head">
+      <input class="search" id="q" type="search" placeholder="Filter companies" aria-label="Filter companies">
+      <div class="filters" id="filters">
+        <button class="chip" data-band="all" aria-pressed="true" type="button">All</button>
+        <button class="chip" data-band="chase" aria-pressed="false" type="button">75+</button>
+        <button class="chip" data-band="interest" aria-pressed="false" type="button">65-74</button>
+        <button class="chip" data-band="cond" aria-pressed="false" type="button">55-64</button>
+        <button class="chip" data-band="pass" aria-pressed="false" type="button">Under 55</button>
+        <button class="chip" data-band="verified" aria-pressed="false" type="button">Verified</button>
+        <button class="chip" data-band="new" aria-pressed="false" type="button">New</button>
+      </div>
+    </div>
+    <div class="list" id="list" role="listbox" aria-label="Ranked companies"></div>
+  </aside>
+  <main class="detail" id="detail">
+    <div class="pane" id="pane"></div>
+    <div class="ask"><div class="ask-inner">
+      <div class="thread" id="thread"></div>
+      <div class="starters" id="starters"></div>
+      <div class="composer"><textarea id="input" rows="1" placeholder="Ask why this scored the way it did"></textarea><button class="btn primary" id="send" type="button">Ask</button></div>
+      <div class="ask-bar">
+        <div class="scope" role="group" aria-label="Question scope"><button id="scope-co" aria-pressed="true" type="button">This company</button><button id="scope-board" aria-pressed="false" type="button">Whole board</button></div>
+        <label class="toggle"><input type="checkbox" id="websearch"> Web search</label>
+        <span class="hint" id="modelhint"></span>
+      </div>
+    </div></div>
+  </main>
+</div>
+<script>
+/* Elsewhere Pipeline Desk. Static page; all Claude and Google calls go through the Worker. */
+const DEFAULT_PROXY = "https://elsewhere-pipeline-desk.pittycheria.workers.dev";   // set once after deploying the Worker, then commit
+
+const $ = (s, r) => (r || document).querySelector(s);
+const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+const LS = { get(k, d) { try { return localStorage.getItem(k) ?? d; } catch { return d; } }, set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
+let DATA = null, LISTED = [], current = null, band = "all", scope = "co", busy = false, refreshing = false, boardSource = "static";
+const threads = new Map();
+const cfg = () => ({ proxy: (LS.get("epd.proxy", DEFAULT_PROXY) || "").replace(/\/+$/, ""), code: LS.get("epd.code", "") || "", key: LS.get("epd.key", "") || "" });
+
+/* theme */
+const savedTheme = LS.get("epd.theme", ""); if (savedTheme) document.documentElement.setAttribute("data-theme", savedTheme);
+$("#theme").addEventListener("click", () => { const cur = document.documentElement.getAttribute("data-theme"); const isDark = cur ? cur === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; const next = isDark ? "light" : "dark"; document.documentElement.setAttribute("data-theme", next); LS.set("epd.theme", next); });
+
+/* helpers */
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const bandOf = (n) => (n >= 75 ? "chase" : n >= 65 ? "interest" : n >= 55 ? "cond" : "pass");
+const bandClass = (n) => ({ chase: "s-chase", interest: "s-interest", cond: "s-cond", pass: "s-pass" }[bandOf(n)]);
+const bandName = (n) => ({ chase: "Chase now", interest: "Real interest, one blocker", cond: "Conditional", pass: "Pass" }[bandOf(n)]);
+const factorColor = (v) => (v >= 65 ? "var(--good)" : v >= 45 ? "var(--warn)" : "var(--bad)");
+const isAuto = (c) => c.source === "tracker-refresh";
+function md(src) {
+  const lines = esc(src).split("\n"); let out = "", list = null;
+  const inline = (t) => t.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>').replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>").replace(/`([^`]+)`/g, "<code>$1</code>");
+  const closeList = () => { if (list) { out += "</" + list + ">"; list = null; } };
+  for (const raw of lines) { const line = raw.trim(); if (!line) { closeList(); continue; } let m;
+    if ((m = line.match(/^[-*•]\s+(.*)$/))) { if (list !== "ul") { closeList(); out += "<ul>"; list = "ul"; } out += "<li>" + inline(m[1]) + "</li>"; }
+    else if ((m = line.match(/^\d+[.)]\s+(.*)$/))) { if (list !== "ol") { closeList(); out += "<ol>"; list = "ol"; } out += "<li>" + inline(m[1]) + "</li>"; }
+    else { closeList(); out += "<p>" + inline(line) + "</p>"; } }
+  closeList(); return out;
+}
+function toast(html, isErr) { const t = document.createElement("div"); t.className = "toast" + (isErr ? " err" : ""); t.innerHTML = html; document.body.appendChild(t); setTimeout(() => t.remove(), isErr ? 12000 : 9000); }
+
+/* boot: live board from the Worker if configured, else the static file */
+async function loadBoard() {
+  const c = cfg();
+  if (c.proxy) {
+    try { const r = await fetch(c.proxy + "/api/board", { cache: "no-store" }); if (r.ok) { DATA = await r.json(); boardSource = "live"; return; } } catch {}
+  }
+  const r = await fetch("data/companies.json", { cache: "no-cache" });
+  if (!r.ok) throw new Error("HTTP " + r.status);
+  DATA = await r.json(); boardSource = "static";
+}
+function paintBoardStatus() {
+  const d = $("#board-dot"), t = $("#board-text");
+  if (refreshing) { d.className = "dot busy"; return; }
+  if (boardSource === "live") { d.className = "dot on"; const lr = DATA.lastRefresh; t.textContent = "live board" + (lr ? " · refreshed " + String(lr.at).slice(0, 10) : ""); }
+  else { d.className = "dot"; t.textContent = "static board · " + (DATA.updated || ""); }
+  $("#sub").textContent = "Elsewhere Partners · " + DATA.companies.length + " companies · rubric v3";
+  $("#q").placeholder = "Filter " + DATA.companies.length + " companies";
+}
+(async function boot() {
+  try { await loadBoard(); }
+  catch (e) { $("#pane").innerHTML = '<div class="err">Could not load the board. If you opened this file from disk, run a local server: <code>python3 -m http.server</code>.</div>'; return; }
+  DATA.companies.sort((a, b) => b.score - a.score); DATA.companies.forEach((c, i) => (c.rank = i + 1));
+  paintBoardStatus(); renderList(); select(DATA.companies[0].id); checkConn();
+})();
+$("#board-status").addEventListener("click", () => { if (boardSource === "live") toast("<b>Live board</b>Served by the Worker from Cloudflare KV. Refresh pulls the tracker and scores new names."); else toast("<b>Static board</b>Served from data/companies.json. Set the proxy URL in the connection panel to use the live board and the refresh button."); });
+
+/* rail */
+function matchBand(c) { if (band === "all") return true; if (band === "verified") return c.state === "verified"; if (band === "new") return isAuto(c); return bandOf(c.score) === band; }
+function renderList() {
+  const q = $("#q").value.trim().toLowerCase();
+  LISTED = DATA.companies.filter((c) => matchBand(c) && (!q || (c.name + " " + c.hq + " " + c.what + " " + c.sectorFit).toLowerCase().includes(q)));
+  const groups = [["chase", "Chase now · 75+"], ["interest", "Real interest · 65-74"], ["cond", "Conditional · 55-64"], ["pass", "Pass · under 55"]];
+  let html = "";
+  for (const [key, label] of groups) { const rows = LISTED.filter((c) => bandOf(c.score) === key); if (!rows.length) continue;
+    html += '<div class="band-label">' + esc(label) + "</div>";
+    for (const c of rows) html += '<button class="row" role="option" data-id="' + esc(c.id) + '" aria-current="' + (current === c.id) + '" type="button"><span class="rank">' + c.rank + '</span><span class="row-main"><span class="row-name">' + esc(c.name) + '</span><span class="row-meta">' + (c.state === "verified" ? '<i class="tick" title="Independently verified"></i>' : isAuto(c) ? '<i class="tick auto" title="Added by tracker refresh, pitch-scored"></i>' : "") + esc(c.week) + " · " + esc(c.hq) + '</span></span><span class="score ' + bandClass(c.score) + '">' + c.score + "</span></button>"; }
+  $("#list").innerHTML = html || '<div class="band-label">No matches</div>';
+}
+$("#q").addEventListener("input", renderList);
+$("#filters").addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (!b) return; band = b.dataset.band; $$("#filters .chip").forEach((c) => c.setAttribute("aria-pressed", String(c === b))); renderList(); });
+$("#list").addEventListener("click", (e) => { const row = e.target.closest(".row"); if (row) select(row.dataset.id); });
+
+/* detail */
+function co(id) { return DATA.companies.find((c) => c.id === id); }
+function select(id) { current = id; $$(".row").forEach((r) => r.setAttribute("aria-current", String(r.dataset.id === id))); renderDetail(); renderThread(); renderStarters();
+  const row = document.querySelector('.row[data-id="' + CSS.escape(id) + '"]'); if (row) row.scrollIntoView({ block: "nearest" });
+  $("#input").placeholder = "Ask why " + co(id).name + " scored " + co(id).score; $("#detail").scrollTop = 0; }
+function factorRow(k, f) { const v = Number(f.score) || 0; return '<div class="frow"><div class="fkey">' + k + '</div><div><div class="flabel">' + esc(f.label) + '</div><div class="fbar"><i style="width:' + v + "%;background:" + factorColor(v) + '"></i><div class="fgrid"><u style="left:30%"></u><u style="left:65%"></u></div></div></div><div class="fval" style="color:' + factorColor(v) + '">' + v + "</div></div>"; }
+function cell(title, body, cls) { return body ? '<div class="cell ' + (cls || "") + '"><h3>' + esc(title) + "</h3><p>" + esc(body) + "</p></div>" : ""; }
+function renderDetail() {
+  const c = co(current); const fs = ["A", "B", "C", "D", "E"].map((k) => Number(c.factors[k].score)); const capped = Math.min.apply(null, fs) <= 30; const rawAvg = Math.round(fs.reduce((a, b) => a + b, 0) / 5);
+  const reasoning = c.factorReasoning ? esc(c.factorReasoning).replace(/(^|\s)([A-E]):/g, "$1<b>$2:</b>") : "";
+  $("#pane").innerHTML =
+    '<div class="co-head"><div><h1>' + esc(c.name) + '</h1><div class="co-sub"><span>Rank ' + c.rank + " of " + DATA.companies.length + "</span><span>" + esc(c.hq) + "</span><span>" + esc(c.week) + '</span></div><div class="badges">' +
+      (c.state === "verified" ? '<span class="badge ok">Verified ' + esc(c.verifiedDate || "") + "</span>" : isAuto(c) ? '<span class="badge auto">Pitch-scored · tracker refresh ' + esc(c.addedAt || "") + "</span>" : '<span class="badge flag">Pitch-scored</span>') +
+      '<span class="badge">' + esc(bandName(c.score)) + "</span>" + (capped ? '<span class="badge flag">Capped at 65</span>' : "") + "</div></div>" +
+      '<div class="big-score"><b style="color:' + factorColor(c.score) + '">' + c.score + "</b><em>of 100</em></div></div>" +
+    '<section class="sec"><h2>Factor scores</h2><div class="factors">' + ["A", "B", "C", "D", "E"].map((k) => factorRow(k, c.factors[k])).join("") + "</div>" +
+      '<div class="axis"><div></div><div class="axis-in"><span style="left:0">0</span><span style="left:30%">30 cap</span><span style="left:65%">65</span><span style="left:100%">100</span></div><div></div></div>' +
+      (capped ? '<div class="cap-note">One factor is at or below 30, so the total is capped at 65. Straight average would be ' + rawAvg + ".</div>" : "") + (reasoning ? '<div class="reasoning">' + reasoning + "</div>" : "") + "</section>" +
+    '<section class="sec"><h2>Dossier</h2><div class="dossier">' + cell("What they do", c.what, "wide") + cell("Financials as given", c.financials, "wide") + cell("AI tailwinds", c.aiTailwinds, "tail") + cell("AI headwinds", c.aiHeadwinds, "head") + cell("Elsewhere archetype", c.archetype) + cell("Founder transition", c.founderTransition) + cell("Check absorbability", c.checkAbsorbability) + cell("Financial profile", c.financialProfile) + cell("Sector fit", c.sectorFit) + cell("Deal dynamics", c.dealDynamics) + "</div></section>" +
+    '<section class="sec"><h2>Read and next move</h2><div class="read-out">' + esc(c.read) + "</div></section>" +
+    (c.unverified && c.unverified.length ? '<section class="sec"><h2>Claims still unverified</h2><ul class="unver">' + c.unverified.map((u) => "<li>" + esc(u) + "</li>").join("") + "</ul></section>" : "") +
+    (c.verifiedNote ? '<section class="sec"><h2>Verification note</h2><div class="reasoning">' + esc(c.verifiedNote) + "</div></section>" : "");
+}
+
+/* refresh from tracker */
+$("#refresh").addEventListener("click", runRefresh);
+async function runRefresh() {
+  const c = cfg();
+  if (!c.proxy) { openSettings("Refresh needs the Worker. Set the proxy URL first."); return; }
+  if (refreshing) return;
+  refreshing = true; const btn = $("#refresh"); btn.disabled = true; const t = $("#board-text");
+  paintBoardStatus(); t.textContent = "updating · reading tracker";
+  const headers = { "content-type": "application/json" }; if (c.code) headers["X-Access-Code"] = c.code;
+  const call = async (body) => { const r = await fetch(c.proxy + "/api/refresh", { method: "POST", headers, body: JSON.stringify(body) }); const j = await r.json().catch(() => ({})); if (!r.ok) throw new Error(j.error || ("HTTP " + r.status)); return j; };
+  try {
+    let res = await call({ restart: true });
+    if (!res.done) {
+      const total = res.remaining; let scored = 0;
+      while (!res.done) {
+        t.textContent = "updating · scoring " + (scored + 1) + "-" + Math.min(scored + (res.next || []).length, total) + " of " + total + (res.next && res.next[0] ? " · " + res.next[0] : "");
+        res = await call({});
+        scored = total - res.remaining;
+      }
+    }
+    await loadBoard(); DATA.companies.sort((a, b) => b.score - a.score); DATA.companies.forEach((x, i) => (x.rank = i + 1));
+    renderList(); if (current && co(current)) renderDetail();
+    const added = res.added || []; const failed = res.failed || [];
+    toast("<b>Tracker refreshed</b>" + res.found + " company sections read. " + (added.length ? added.length + " new, pitch-scored:" : "Nothing new on the board.") +
+      (added.length ? "<ul>" + added.map((a) => "<li>" + esc(a.name) + " · " + a.score + "</li>").join("") + "</ul>" : "") +
+      (failed.length ? "<ul>" + failed.map((f) => "<li>Failed: " + esc(f.name) + " (" + esc(f.error) + ")</li>").join("") + "</ul>" : ""), failed.length > 0 && !added.length);
+    if (added.length) { band = "new"; $$("#filters .chip").forEach((x) => x.setAttribute("aria-pressed", String(x.dataset.band === "new"))); renderList(); const first = DATA.companies.find((x) => x.name === added[0].name); if (first) select(first.id); }
+  } catch (e) { toast("<b>Refresh failed</b>" + esc(e.message || String(e)), true); }
+  refreshing = false; btn.disabled = false; paintBoardStatus();
+}
+
+/* starters + scope */
+function renderStarters() { const c = co(current); const s = scope === "co"
+  ? ["Why did " + c.name + " score " + c.score + " and not higher?", "Which single factor would have to change to move this above 65?", "What would you ask on a first call?", "How does this compare to the top of the board?"]
+  : ["Why is the top of the board ranked the way it is?", "Which companies are closest to a 75 and what is blocking them?", "Where is the rubric being applied inconsistently?", "Which passes would you revisit in six months and on what trigger?"];
+  $("#starters").innerHTML = s.map((t) => '<button class="starter" type="button">' + esc(t) + "</button>").join(""); }
+$("#starters").addEventListener("click", (e) => { const b = e.target.closest(".starter"); if (!b || busy) return; $("#input").value = b.textContent; send(); });
+$("#scope-co").addEventListener("click", () => setScope("co")); $("#scope-board").addEventListener("click", () => setScope("board"));
+function setScope(s) { scope = s; $("#scope-co").setAttribute("aria-pressed", String(s === "co")); $("#scope-board").setAttribute("aria-pressed", String(s === "board")); renderStarters(); renderThread(); }
+
+/* prompt */
+function compactBoard() { return DATA.companies.map((c) => c.rank + ". " + c.name + " " + c.score + " [A" + c.factors.A.score + " B" + c.factors.B.score + " C" + c.factors.C.score + " D" + c.factors.D.score + " E" + c.factors.E.score + "] " + (c.state === "verified" ? "(verified) " : "(pitch-scored) ") + c.hq + " - " + c.read).join("\n"); }
+function rubricText() { return DATA.rubric.factors.map((f) => f.name + " (" + f.weight + ")\n  Earns points: " + f.earns + "\n  Loses points: " + f.loses).join("\n\n") + "\n\nRules: " + DATA.rubric.rules; }
+function systemPrompt() { const c = co(current);
+  let s = "You are the analyst behind the Elsewhere Partners pipeline scorecard. You explain and defend the scores in this board to the Elsewhere deal team. Be direct and concrete. No hedging, no em-dashes, no filler openers. Short paragraphs. Use the real numbers. If something in the record is a company claim rather than a verified fact, say so. Rows marked pitch-scored were scored from the deal team's tracker text only; rows marked verified had an independent research pass. If you do not know, say so and name what would settle it.\n\n=== ELSEWHERE INVESTMENT PHILOSOPHY ===\n" + DATA.pov + "\n\n=== SCORING RUBRIC v3 ===\n" + rubricText() + "\n\n=== CALIBRATION ANCHORS ===\n" + DATA.calibration + "\n\n=== FULL BOARD (" + DATA.companies.length + " companies) ===\n" + compactBoard() + "\n\n";
+  if (scope === "co" && c) s += "=== FOCUS COMPANY: FULL RECORD ===\n" + JSON.stringify(c, null, 1) + "\n\nThe user is looking at " + c.name + ". Answer about " + c.name + " unless they clearly ask about something else. Ground every claim in the record above.";
+  else s += "The user is asking across the whole board. Compare companies against each other and against the rubric.";
+  return s; }
+
+/* chat */
+const threadKey = () => (scope === "board" ? "__board" : current);
+function getThread() { const k = threadKey(); if (!threads.has(k)) threads.set(k, []); return threads.get(k); }
+function renderThread() { const t = getThread(); if (!t.length) { $("#thread").innerHTML = ""; $("#starters").hidden = false; return; } $("#starters").hidden = true;
+  $("#thread").innerHTML = t.map((m) => { if (m.role === "user") return '<div class="turn me"><div class="who">You</div><div class="bubble">' + md(m.content) + "</div></div>";
+    let body = ""; if (m.searching) body += '<div class="tool-chip"><i class="spin"></i>Searching the web' + (m.query ? ": " + esc(m.query) : "") + "</div>";
+    if (m.searched) body += '<div class="tool-chip">Searched the web · ' + m.searched + " result" + (m.searched === 1 ? "" : "s") + "</div>";
+    body += m.content ? md(m.content) : (m.pending ? '<div class="tool-chip"><i class="spin"></i>Thinking</div>' : ""); if (m.error) body += '<div class="err">' + esc(m.error) + "</div>";
+    if (m.sources && m.sources.length) body += '<div class="sources"><h4>Sources</h4><ol>' + m.sources.map((s) => '<li><a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.title || s.url) + "</a></li>").join("") + "</ol></div>";
+    return '<div class="turn"><div class="who">Claude</div><div class="bubble">' + body + "</div></div>"; }).join("");
+  $("#detail").scrollTop = $("#detail").scrollHeight; }
+const input = $("#input");
+input.addEventListener("input", () => { input.style.height = "auto"; input.style.height = Math.min(input.scrollHeight, 150) + "px"; });
+input.addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); } });
+$("#send").addEventListener("click", send);
+async function send() {
+  const text = input.value.trim(); if (!text || busy) return; const c = cfg();
+  if (!c.proxy && !c.key) { openSettings("Set up the Claude connection before asking a question."); return; }
+  const t = getThread(); t.push({ role: "user", content: text }); const reply = { role: "assistant", content: "", pending: true, sources: [] }; t.push(reply);
+  input.value = ""; input.style.height = "auto"; busy = true; $("#send").disabled = true; $("#send").textContent = "…"; renderThread();
+  const messages = t.filter((m) => m.role === "user" || (m.role === "assistant" && m.content)).map((m) => ({ role: m.role, content: m.content })); if (messages[messages.length - 1].role === "assistant") messages.pop();
+  try { const res = await callClaude({ system: systemPrompt(), messages, webSearch: $("#websearch").checked }, (evt) => { reply.pending = false;
+      if (evt.type === "text") reply.content += evt.text; if (evt.type === "search_start") { reply.searching = true; reply.query = evt.query; }
+      if (evt.type === "search_done") { reply.searching = false; reply.searched = (reply.searched || 0) + evt.results.length; for (const r of evt.results) if (!reply.sources.some((s) => s.url === r.url)) reply.sources.push(r); }
+      renderThread(); });
+    if (res && res.model) $("#modelhint").textContent = res.model;
+  } catch (e) { reply.pending = false; reply.error = e.message || String(e); }
+  reply.pending = false; reply.searching = false; busy = false; $("#send").disabled = false; $("#send").textContent = "Ask"; renderThread(); input.focus();
+}
+async function callClaude(body, onEvent) {
+  const c = cfg(); let url, headers;
+  if (c.proxy) { url = c.proxy + "/api/chat"; headers = { "content-type": "application/json" }; if (c.code) headers["X-Access-Code"] = c.code; }
+  else { url = "https://api.anthropic.com/v1/messages"; headers = { "content-type": "application/json", "x-api-key": c.key, "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" }; }
+  const payload = c.proxy ? body : { model: LS.get("epd.model", "claude-opus-5"), max_tokens: 2000, system: body.system, messages: body.messages, stream: true, ...(body.webSearch ? { tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 5 }] } : {}) };
+  const r = await fetch(url, { method: "POST", headers, body: JSON.stringify(payload) });
+  if (!r.ok) { let detail = ""; try { const j = await r.json(); detail = j.detail || (j.error && (j.error.message || j.error)) || ""; } catch { detail = await r.text().catch(() => ""); }
+    if (r.status === 401) throw new Error("Not authorised (401). Check the access code or API key in settings. " + String(detail).slice(0, 300));
+    if (r.status === 403) throw new Error("Blocked (403). The proxy does not allow this site's origin: " + location.origin);
+    if (r.status === 429) throw new Error("Rate limited (429). Wait a moment and ask again."); throw new Error("Request failed (" + r.status + "). " + String(detail).slice(0, 400)); }
+  const model = r.headers.get("x-model-used") || ""; const reader = r.body.getReader(); const dec = new TextDecoder(); let buf = ""; const partials = {};
+  while (true) { const { done, value } = await reader.read(); if (done) break; buf += dec.decode(value, { stream: true }); const chunks = buf.split("\n\n"); buf = chunks.pop();
+    for (const chunk of chunks) { const dataLine = chunk.split("\n").find((l) => l.startsWith("data:")); if (!dataLine) continue; let ev; try { ev = JSON.parse(dataLine.slice(5).trim()); } catch { continue; }
+      if (ev.type === "content_block_start") { const cb = ev.content_block || {}; if (cb.type === "server_tool_use") { partials[ev.index] = ""; onEvent({ type: "search_start", query: "" }); }
+        if (cb.type === "web_search_tool_result") { const arr = Array.isArray(cb.content) ? cb.content : []; onEvent({ type: "search_done", results: arr.filter((x) => x.type === "web_search_result").map((x) => ({ url: x.url, title: x.title })) }); } }
+      else if (ev.type === "content_block_delta") { const d = ev.delta || {}; if (d.type === "text_delta") onEvent({ type: "text", text: d.text });
+        if (d.type === "input_json_delta") { partials[ev.index] = (partials[ev.index] || "") + (d.partial_json || ""); const m = partials[ev.index].match(/"query"\s*:\s*"([^"]*)/); if (m) onEvent({ type: "search_start", query: m[1] }); } }
+      else if (ev.type === "error") throw new Error((ev.error && ev.error.message) || "Stream error"); } }
+  return { model };
+}
+
+/* connection + modals */
+async function checkConn() { const c = cfg(); const dot = $("#conn-dot"), txt = $("#conn-text");
+  if (!c.proxy && !c.key) { dot.className = "dot warn"; txt.textContent = "not connected"; $("#refresh").disabled = true; return; }
+  if (!c.proxy) { dot.className = "dot on"; txt.textContent = "direct key"; $("#modelhint").textContent = LS.get("epd.model", "claude-opus-5"); $("#refresh").disabled = true; return; }
+  dot.className = "dot"; txt.textContent = "checking";
+  try { const r = await fetch(c.proxy + "/api/health"); if (!r.ok) throw new Error(String(r.status)); const j = await r.json(); dot.className = "dot on"; txt.textContent = "opus ready"; $("#modelhint").textContent = j.model === "auto" ? "opus (auto)" : j.model;
+    $("#refresh").disabled = !(j.refresh && j.kv); $("#refresh").title = j.refresh && j.kv ? "Crawl the IC tracker, score new companies, publish" : "Refresh needs Google credentials and a KV binding on the Worker (see README)"; }
+  catch (e) { dot.className = "dot warn"; txt.textContent = "proxy unreachable"; $("#refresh").disabled = true; } }
+$("#conn").addEventListener("click", () => openSettings());
+function modal(title, bodyHtml, onMount) { const scrim = document.createElement("div"); scrim.className = "scrim";
+  scrim.innerHTML = '<div class="modal" role="dialog" aria-modal="true" aria-label="' + esc(title) + '"><div class="modal-head"><h2>' + esc(title) + '</h2><button class="btn" data-close type="button" style="margin-left:auto">Close</button></div><div class="modal-body">' + bodyHtml + "</div></div>";
+  document.body.appendChild(scrim); const close = () => scrim.remove(); scrim.addEventListener("click", (e) => { if (e.target === scrim || e.target.hasAttribute("data-close")) close(); });
+  document.addEventListener("keydown", function onEsc(e) { if (e.key === "Escape") { close(); document.removeEventListener("keydown", onEsc); } }); if (onMount) onMount(scrim, close); return scrim; }
+function openSettings(note) { const c = cfg();
+  modal("Claude connection", (note ? '<div class="err">' + esc(note) + "</div>" : "") +
+    '<div class="field"><label for="f-proxy">Proxy URL (recommended)</label><input id="f-proxy" type="url" placeholder="https://elsewhere-pipeline-desk.you.workers.dev" value="' + esc(c.proxy) + '"><small>The Cloudflare Worker that holds the API key, reads the tracker, and serves the live board. With this set, nobody using the page needs a key of their own.</small></div>' +
+    '<div class="field"><label for="f-code">Access code</label><input id="f-code" type="password" placeholder="matches ACCESS_CODE on the Worker" value="' + esc(c.code) + '"><small>Needed for questions and for refresh, so a leaked link cannot spend against the key. Reading the board needs no code.</small></div>' +
+    '<div class="field"><label for="f-key">Or: your own Anthropic API key</label><input id="f-key" type="password" placeholder="sk-ant-..." value="' + esc(c.key) + '"><small>Only used when no proxy URL is set. Stays in this browser. Refresh is unavailable in this mode.</small></div>' +
+    '<div class="field"><label for="f-model">Model (direct-key mode only)</label><input id="f-model" type="text" value="' + esc(LS.get("epd.model", "claude-opus-5")) + '"></div>' +
+    '<div style="display:flex;gap:9px"><button class="btn primary" id="f-save" type="button">Save</button><button class="btn" id="f-test" type="button">Test connection</button><span id="f-msg" style="align-self:center;font-size:13px;color:var(--ink-3)"></span></div>',
+    (scrim, close) => { $("#f-save", scrim).addEventListener("click", async () => { LS.set("epd.proxy", $("#f-proxy", scrim).value.trim().replace(/\/+$/, "")); LS.set("epd.code", $("#f-code", scrim).value.trim()); LS.set("epd.key", $("#f-key", scrim).value.trim()); LS.set("epd.model", $("#f-model", scrim).value.trim() || "claude-opus-5"); close(); await loadBoard().catch(() => {}); DATA.companies.sort((a, b) => b.score - a.score); DATA.companies.forEach((x, i) => (x.rank = i + 1)); paintBoardStatus(); renderList(); checkConn(); });
+      $("#f-test", scrim).addEventListener("click", async () => { const msg = $("#f-msg", scrim); const p = $("#f-proxy", scrim).value.trim().replace(/\/+$/, ""); if (!p) { msg.textContent = "No proxy URL."; return; } msg.textContent = "checking…";
+        try { const r = await fetch(p + "/api/health"); const j = await r.json(); msg.textContent = r.ok ? "Reachable. Model: " + j.model + (j.needsCode ? ". Access code required." : ".") + (j.refresh ? " Tracker refresh: ready." : " Tracker refresh: not configured.") + (j.kv ? "" : " No KV binding.") : "HTTP " + r.status; } catch (e) { msg.textContent = "Could not reach it."; } }); }); }
+$("#open-rubric").addEventListener("click", () => { const fs = DATA.rubric.factors.map((f) => '<div class="rubric-f"><h3>' + esc(f.name) + '</h3><span class="w">' + esc(f.weight) + ' of the score</span><dl><dt class="up">Earns</dt><dd>' + esc(f.earns) + '</dd><dt class="dn">Loses</dt><dd>' + esc(f.loses) + "</dd></dl></div>").join("");
+  modal("Rubric v3 and the philosophy behind it", '<div class="rubric-f"><h3>How the score is built</h3><p class="pov-text" style="margin:8px 0 0">' + esc(DATA.rubric.rules) + "</p></div>" + fs + '<div class="rubric-f"><h3>What Elsewhere actually buys</h3><p class="pov-text" style="margin:8px 0 0">' + esc(DATA.pov) + "</p></div>"); });
+document.addEventListener("keydown", (e) => { if (e.target.matches("input, textarea")) return; if (e.key !== "j" && e.key !== "k") return; const i = LISTED.findIndex((c) => c.id === current); const next = e.key === "j" ? Math.min(i + 1, LISTED.length - 1) : Math.max(i - 1, 0); if (LISTED[next]) select(LISTED[next].id); });
+</script>
+</body>
+</html>
