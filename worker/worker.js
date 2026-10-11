@@ -487,7 +487,7 @@ function authHeaders(env) {
 function allowedList(env) { return String(env.ALLOWED_ORIGINS || "*").split(",").map((s) => s.trim()).filter(Boolean); }
 function allowed(origin, env) { const l = allowedList(env); return l.includes("*") || !origin || l.includes(origin); }
 function corsHeaders(origin, env) { const l = allowedList(env); const allow = l.includes("*") ? (origin || "*") : (l.includes(origin) ? origin : l[0] || "");
-  return { "Access-Control-Allow-Origin": allow, "Access-Control-Allow-Methods": "POST, GET, OPTIONS", "Access-Control-Allow-Headers": "content-type, x-access-code", "Access-Control-Max-Age": "86400", "Vary": "Origin" }; }
+  return { "Access-Control-Allow-Origin": allow, "Access-Control-Allow-Methods": "POST, GET, OPTIONS", "Access-Control-Allow-Headers": "content-type, authorization, x-access-code", "Access-Control-Max-Age": "86400", "Vary": "Origin" }; }
 function json(o, status, cors) { return new Response(JSON.stringify(o), { status, headers: { ...cors, "content-type": "application/json" } }); }
 function timingSafeEqual(a, b) { if (a.length !== b.length) return false; let out = 0; for (let i = 0; i < a.length; i++) out |= a.charCodeAt(i) ^ b.charCodeAt(i); return out === 0; }
 

@@ -424,7 +424,7 @@ function openSettings(note) { const c = cfg(); const until = SESSION ? new Date(
     (scrim, close) => { $("#f-save", scrim).addEventListener("click", () => { LS.set("epd.proxy", $("#f-proxy", scrim).value.trim().replace(/\/+$/, "")); close(); boot(); });
       $("#f-out", scrim).addEventListener("click", () => { close(); signOut(); }); }); }
 $("#open-rubric").addEventListener("click", () => { const fs = DATA.rubric.factors.map((f) => '<div class="rubric-f"><h3>' + esc(f.name) + '</h3><span class="w">' + esc(f.weight) + ' of the score</span><dl><dt class="up">Earns</dt><dd>' + esc(f.earns) + '</dd><dt class="dn">Loses</dt><dd>' + esc(f.loses) + "</dd></dl></div>").join("");
-  modal("Rubric v3 and the philosophy behind it", '<div class="rubric-f"><h3>How the score is built</h3><p class="pov-text" style="margin:8px 0 0">' + esc(DATA.rubric.rules) + "</p></div>" + fs + '<div class="rubric-f"><h3>What Elsewhere actually buys</h3><p class="pov-text" style="margin:8px 0 0">' + esc(DATA.pov) + "</p></div>"); });
+  modal("Rubric v3 and the philosophy behind it", '<div class="rubric-f"><h3>How the score is built</h3><p class="pov-text" style="margin:8px 0 0">' + esc(DATA.rubric.rules) + "</p></div>" + fs); });
 document.addEventListener("keydown", (e) => { if (e.target.matches("input, textarea")) return; if (e.key !== "j" && e.key !== "k") return; const i = LISTED.findIndex((c) => c.id === current); const next = e.key === "j" ? Math.min(i + 1, LISTED.length - 1) : Math.max(i - 1, 0); if (LISTED[next]) select(LISTED[next].id); });
 </script>
 </body>
