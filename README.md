@@ -72,14 +72,21 @@ The doc is private, so the Worker reads it with a Google credential. Pick one.
 
 ### Option B: your own Google sign-in (use this if you can only view the doc)
 
-1. In Google Cloud Console create a project, enable the **Google Docs API**, configure the OAuth
-   consent screen (External, add yourself as a test user), then create an **OAuth client ID** of
-   type Desktop app. Note the client id and secret.
-2. Get a refresh token once. Easiest: https://developers.google.com/oauthplayground, gear icon →
-   "Use your own OAuth credentials", scope `https://www.googleapis.com/auth/documents.readonly`,
-   authorize with the Google account that can open the tracker, exchange the code, copy the
-   refresh token.
-3. ```
+1. In Google Cloud Console create a project and enable the **Google Docs API**
+   (APIs & Services → Library → search "Google Docs API" → Enable).
+2. APIs & Services → OAuth consent screen: User type **External**, fill app name and your email,
+   add scope `https://www.googleapis.com/auth/documents.readonly`, add yourself as a test user.
+   Then **publish the app to Production** (Publishing status → Publish). Leave it in Testing and
+   Google expires the refresh token after 7 days, which silently breaks the button.
+3. APIs & Services → Credentials → Create credentials → OAuth client ID → type **Web application**.
+   Under "Authorized redirect URIs" add exactly `https://developers.google.com/oauthplayground`.
+   Note the Client ID and Client Secret.
+4. Get a refresh token once at https://developers.google.com/oauthplayground : gear icon (top
+   right) → tick "Use your own OAuth credentials" → paste Client ID and Secret → in Step 1 paste
+   the scope `https://www.googleapis.com/auth/documents.readonly` → Authorize APIs → sign in with
+   the Google account that can open the tracker (expect an "unverified app" warning: Advanced →
+   Go to … → Allow) → Step 2: Exchange authorization code for tokens → copy the **Refresh token**.
+5. ```
    npx wrangler secret put GOOGLE_OAUTH_CLIENT_ID
    npx wrangler secret put GOOGLE_OAUTH_CLIENT_SECRET
    npx wrangler secret put GOOGLE_OAUTH_REFRESH_TOKEN
@@ -88,10 +95,31 @@ The doc is private, so the Worker reads it with a Google credential. Pick one.
 
 Either way, `/api/health` now reports `"refresh":true` and the button lights up.
 
+
+## 3b. Sign-in (emailed one-time code)
+
+Viewers sign in with their email address. The Worker emails a 6-digit code from your Gmail
+account, the viewer types it in, and the browser keeps a signed 30-day session. No passwords.
+
+1. Allow-list: `ALLOWED_EMAILS` in `wrangler.toml` (exact addresses and/or `@domains`).
+2. Sender: `MAIL_FROM` in `wrangler.toml` must be the Gmail account that granted consent.
+3. Enable the **Gmail API** on the Google Cloud project, then redo step 4 of Option B with TWO
+   scopes in the playground box, separated by a space:
+   `https://www.googleapis.com/auth/documents.readonly https://www.googleapis.com/auth/gmail.send`
+   and put the new refresh token on the Worker (`npx wrangler secret put GOOGLE_OAUTH_REFRESH_TOKEN`).
+4. `npx wrangler secret put SESSION_SECRET` with any long random string (it signs sessions;
+   changing it signs everyone out).
+5. `npx wrangler deploy`.
+
+Because the board is now behind sign-in, the public repo must not carry `data/companies.json`.
+Remove it (`git rm -r data`). To push a regenerated board into the Worker later:
+`curl -X POST -H "X-Access-Code: <code>" -H "content-type: application/json" --data-binary @companies.json https://<worker>/api/board/import`
+
+`/api/board/reset` now removes only the rows added by tracker refresh (your curated rows stay).
+
 ## 4. First refresh
 
-Open the page, click the connection pill, enter the access code, Save. Click **Refresh from
-tracker**. The first run seeds the live board from `data/companies.json`, reads the tracker, and
+Open the page, sign in with your email, click **Refresh from tracker**. The first run seeds the live board from `data/companies.json`, reads the tracker, and
 scores anything new. Later runs only score names that are not already on the board.
 
 To wipe the live board and reseed from the static file:

@@ -69,7 +69,8 @@ button,input,textarea,select{font:inherit;color:inherit}
 .tick{display:inline-block; width:5px; height:5px; border-radius:1px; background:var(--good); flex:none} .tick.auto{background:var(--accent-2)}
 .score{font-family:var(--mono); font-weight:600; font-size:15px; font-variant-numeric:tabular-nums; padding:3px 8px; border-radius:5px; min-width:38px; text-align:center}
 .s-chase{background:var(--good-wash); color:var(--good)} .s-interest{background:var(--good-wash); color:var(--good); opacity:.85} .s-cond{background:var(--warn-wash); color:var(--warn)} .s-pass{background:var(--bad-wash); color:var(--bad)}
-.detail{overflow-y:auto; min-height:0; display:flex; flex-direction:column}
+.detail{min-height:0; display:grid; grid-template-rows:minmax(0,1fr) auto}
+.pane-scroll{overflow-y:auto; min-height:0}
 .pane{max-width:940px; width:100%; margin:0 auto; padding:26px 28px 40px}
 .co-head{display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap}
 .co-head h1{font-family:var(--serif); font-size:31px; font-weight:600; letter-spacing:-.015em; margin:0 0 6px; text-wrap:balance; line-height:1.15}
@@ -93,9 +94,14 @@ button,input,textarea,select{font:inherit;color:inherit}
 .cell{background:var(--surface); padding:14px 16px} .cell h3{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin:0 0 7px; font-weight:500} .cell p{margin:0; font-size:13.5px; line-height:1.6; color:var(--ink-2)} .cell.wide{grid-column:1/-1} .cell.tail h3{color:var(--good)} .cell.head h3{color:var(--bad)}
 .read-out{background:var(--accent-wash); border:1px solid transparent; border-left:3px solid var(--accent); border-radius:8px; padding:14px 16px; font-size:14.5px; line-height:1.6}
 .unver{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:6px} .unver li{font-size:13.5px; color:var(--ink-2); padding-left:18px; position:relative} .unver li::before{content:"?"; position:absolute; left:0; top:0; font-family:var(--mono); color:var(--warn); font-weight:600}
-.ask{margin-top:auto; border-top:1px solid var(--rule); background:var(--paper); position:sticky; bottom:0; padding-bottom:18px; box-shadow:0 -16px 28px -22px rgba(20,26,37,.55)}
-.ask-inner{max-width:940px; margin:0 auto; padding:0 28px}
-.thread{display:flex; flex-direction:column; gap:16px; padding:20px 0 14px} .turn{display:grid; grid-template-columns:56px 1fr; gap:14px; align-items:start}
+.ask{border-top:1px solid var(--rule); background:var(--paper); padding-bottom:14px; box-shadow:0 -16px 28px -22px rgba(20,26,37,.55); display:flex; flex-direction:column; max-height:46dvh; min-height:0}
+.ask.collapsed{max-height:none} .ask.collapsed .thread,.ask.collapsed .starters{display:none}
+.ask-head{display:flex; align-items:center; gap:10px; padding:8px 0 0; font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3)}
+.ask-head .sp{flex:1} .ask-head button{background:transparent; border:1px solid var(--rule); border-radius:4px; color:var(--ink-2); font:inherit; padding:3px 8px; cursor:pointer} .ask-head button:hover{border-color:var(--accent-2); color:var(--ink)}
+.ask-inner{display:flex; flex-direction:column; min-height:0; flex:1}
+.thread{overflow-y:auto; min-height:0; flex:1}
+.ask-inner{max-width:940px; width:100%; margin:0 auto; padding:0 28px; box-sizing:border-box}
+.thread{display:flex; flex-direction:column; gap:16px; padding:14px 0 14px} .turn{display:grid; grid-template-columns:56px 1fr; gap:14px; align-items:start}
 .who{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); padding-top:3px} .turn.me .bubble{font-weight:500; color:var(--ink)}
 .bubble{font-size:14.5px; line-height:1.65; color:var(--ink-2); min-width:0} .bubble p{margin:0 0 10px} .bubble p:last-child{margin-bottom:0} .bubble ul,.bubble ol{margin:0 0 10px; padding-left:20px} .bubble li{margin-bottom:4px} .bubble strong{color:var(--ink); font-weight:600} .bubble code{font-family:var(--mono); font-size:.9em; background:var(--surface-2); padding:1px 4px; border-radius:3px} .bubble a{color:var(--accent-2)}
 .tool-chip{display:inline-flex; align-items:center; gap:7px; font-family:var(--mono); font-size:11px; color:var(--ink-3); background:var(--surface-2); border-radius:999px; padding:4px 11px; margin-bottom:9px}
@@ -117,10 +123,18 @@ button,input,textarea,select{font:inherit;color:inherit}
 .field{display:flex; flex-direction:column; gap:5px} .field label{font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3)} .field input{padding:9px 11px; border:1px solid var(--rule); border-radius:6px; background:var(--paper); font-size:13.5px; font-family:var(--mono)} .field small{font-size:12px; color:var(--ink-3); line-height:1.5}
 .rubric-f{border:1px solid var(--rule-soft); border-radius:8px; padding:14px 16px} .rubric-f h3{font-size:14.5px; margin:0 0 4px; font-weight:600} .rubric-f .w{font-family:var(--mono); font-size:10.5px; color:var(--ink-3); letter-spacing:.06em; text-transform:uppercase}
 .rubric-f dl{margin:10px 0 0; display:grid; grid-template-columns:auto 1fr; gap:6px 12px; font-size:13px; line-height:1.55} .rubric-f dt{font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; padding-top:3px} .rubric-f dt.up{color:var(--good)} .rubric-f dt.dn{color:var(--bad)} .rubric-f dd{margin:0; color:var(--ink-2)} .pov-text{font-size:13.5px; line-height:1.65; color:var(--ink-2)}
-@media (max-width:900px){ .shell{grid-template-columns:1fr; height:auto} .rail{border-right:0; border-bottom:1px solid var(--rule); max-height:44dvh} .detail{overflow:visible} .pane,.ask-inner{padding-left:18px; padding-right:18px} .ask{position:static} .big-score{margin-left:0} .co-head h1{font-size:26px} }
+@media (max-width:900px){ .shell{grid-template-columns:1fr; height:auto} .rail{border-right:0; border-bottom:1px solid var(--rule); max-height:44dvh} .detail{display:block} .pane-scroll{overflow:visible} .pane,.ask-inner{padding-left:18px; padding-right:18px} .ask{max-height:none} .thread{overflow:visible} .big-score{margin-left:0} .co-head h1{font-size:26px} }
+.gate{position:fixed; inset:0; z-index:80; background:var(--paper); display:flex; align-items:center; justify-content:center; padding:24px} .gate[hidden]{display:none}
+[hidden]{display:none !important}
+.gate-card{width:100%; max-width:420px; background:var(--surface); border:1px solid var(--rule); border-radius:12px; padding:28px 28px 24px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:16px}
+.gate-card h1{font-family:var(--serif); font-size:26px; margin:0; font-weight:600; letter-spacing:-.01em} .gate-card p{margin:0; font-size:13.5px; color:var(--ink-2); line-height:1.55}
+.gate-card .field input{font-family:var(--sans); font-size:15px; padding:11px 12px} .gate-card .field input.code{font-family:var(--mono); font-size:22px; letter-spacing:.35em; text-align:center}
+.gate-row{display:flex; gap:9px; align-items:center; flex-wrap:wrap} .gate-row .btn{padding:10px 16px; white-space:nowrap} .gate-row .gate-msg{flex-basis:100%} .gate-msg{font-size:12.5px; color:var(--ink-3); min-height:1.2em} .gate-msg.bad{color:var(--bad)}
+.gate-foot{font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); text-align:center}
 </style>
 </head>
 <body>
+<div class="gate" id="gate" hidden></div>
 <header class="top">
   <div class="mark"><b>Pipeline Desk</b><span id="sub">Elsewhere Partners</span></div>
   <div class="top-actions">
@@ -148,8 +162,9 @@ button,input,textarea,select{font:inherit;color:inherit}
     <div class="list" id="list" role="listbox" aria-label="Ranked companies"></div>
   </aside>
   <main class="detail" id="detail">
-    <div class="pane" id="pane"></div>
-    <div class="ask"><div class="ask-inner">
+    <div class="pane-scroll" id="pane-scroll"><div class="pane" id="pane"></div></div>
+    <div class="ask" id="ask"><div class="ask-inner">
+      <div class="ask-head"><span id="ask-title">Ask about this company</span><span class="sp"></span><button type="button" id="ask-clear" hidden>Clear</button><button type="button" id="ask-toggle" hidden>Hide conversation</button></div>
       <div class="thread" id="thread"></div>
       <div class="starters" id="starters"></div>
       <div class="composer"><textarea id="input" rows="1" placeholder="Ask why this scored the way it did"></textarea><button class="btn primary" id="send" type="button">Ask</button></div>
@@ -163,14 +178,20 @@ button,input,textarea,select{font:inherit;color:inherit}
 </div>
 <script>
 /* Elsewhere Pipeline Desk. Static page; all Claude and Google calls go through the Worker. */
-const DEFAULT_PROXY = "https://elsewhere-pipeline-desk.pittycheria.workers.dev";   // set once after deploying the Worker, then commit
+const DEFAULT_PROXY = "https://elsewhere-pipeline-desk.pittycheria.workers.dev";   // the Worker; change if it moves
 
 const $ = (s, r) => (r || document).querySelector(s);
 const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
 const LS = { get(k, d) { try { return localStorage.getItem(k) ?? d; } catch { return d; } }, set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
-let DATA = null, LISTED = [], current = null, band = "all", scope = "co", busy = false, refreshing = false, boardSource = "static";
+let DATA = null, LISTED = [], current = null, band = "all", scope = "co", busy = false, refreshing = false, boardSource = "live", SESSION = null;
 const threads = new Map();
-const cfg = () => ({ proxy: (LS.get("epd.proxy", DEFAULT_PROXY) || "").replace(/\/+$/, ""), code: LS.get("epd.code", "") || "", key: LS.get("epd.key", "") || "" });
+const cfg = () => ({ proxy: (LS.get("epd.proxy", DEFAULT_PROXY) || "").replace(/\/+$/, "") });
+/* session: an HMAC-signed token from the Worker after an emailed passcode; no passwords anywhere */
+function loadSession() { try { const s = JSON.parse(LS.get("epd.session", "null")); if (s && s.token && s.exp > Date.now()) SESSION = s; else SESSION = null; } catch { SESSION = null; } return SESSION; }
+function saveSession(s) { SESSION = s; LS.set("epd.session", s ? JSON.stringify(s) : ""); }
+function authHeaders(extra) { const h = { ...(extra || {}) }; if (SESSION && SESSION.token) h["Authorization"] = "Bearer " + SESSION.token; return h; }
+async function api(path, opts) { const c = cfg(); const o = { ...(opts || {}) }; o.headers = authHeaders(o.headers); const r = await fetch(c.proxy + path, o);
+  if (r.status === 401) { saveSession(null); showGate("Your session ended. Sign in again."); const e = new Error("Sign in required."); e.status = 401; throw e; } return r; }
 
 /* theme */
 const savedTheme = LS.get("epd.theme", ""); if (savedTheme) document.documentElement.setAttribute("data-theme", savedTheme);
@@ -189,7 +210,7 @@ function md(src) {
   const closeList = () => { if (list) { out += "</" + list + ">"; list = null; } };
   for (const raw of lines) { const line = raw.trim(); if (!line) { closeList(); continue; } let m;
     if ((m = line.match(/^[-*•]\s+(.*)$/))) { if (list !== "ul") { closeList(); out += "<ul>"; list = "ul"; } out += "<li>" + inline(m[1]) + "</li>"; }
-    else if ((m = line.match(/^\d+[.)]\s+(.*)$/))) { if (list !== "ol") { closeList(); out += "<ol>"; list = "ol"; } out += "<li>" + inline(m[1]) + "</li>"; }
+    else if ((m = line.match(/^(\d+)[.)]\s+(.*)$/))) { if (list !== "ol") { closeList(); out += '<ol start="' + Number(m[1]) + '">'; list = "ol"; } out += "<li>" + inline(m[2]) + "</li>"; }
     else { closeList(); out += "<p>" + inline(line) + "</p>"; } }
   closeList(); return out;
 }
@@ -197,29 +218,52 @@ function toast(html, isErr) { const t = document.createElement("div"); t.classNa
 
 /* boot: live board from the Worker if configured, else the static file */
 async function loadBoard() {
-  const c = cfg();
-  if (c.proxy) {
-    try { const r = await fetch(c.proxy + "/api/board", { cache: "no-store" }); if (r.ok) { DATA = await r.json(); boardSource = "live"; return; } } catch {}
-  }
-  const r = await fetch("data/companies.json", { cache: "no-cache" });
+  const r = await api("/api/board", { cache: "no-store" });
   if (!r.ok) throw new Error("HTTP " + r.status);
-  DATA = await r.json(); boardSource = "static";
+  DATA = await r.json(); boardSource = "live";
 }
 function paintBoardStatus() {
   const d = $("#board-dot"), t = $("#board-text");
   if (refreshing) { d.className = "dot busy"; return; }
-  if (boardSource === "live") { d.className = "dot on"; const lr = DATA.lastRefresh; t.textContent = "live board" + (lr ? " · refreshed " + String(lr.at).slice(0, 10) : ""); }
-  else { d.className = "dot"; t.textContent = "static board · " + (DATA.updated || ""); }
+  d.className = "dot on"; const lr = DATA.lastRefresh; t.textContent = "live board" + (lr ? " · refreshed " + String(lr.at).slice(0, 10) : "");
   $("#sub").textContent = "Elsewhere Partners · " + DATA.companies.length + " companies · rubric v3";
   $("#q").placeholder = "Filter " + DATA.companies.length + " companies";
 }
-(async function boot() {
+async function boot() {
+  if (!cfg().proxy) { $("#pane").innerHTML = '<div class="err">No Worker URL configured. Set DEFAULT_PROXY in index.html.</div>'; return; }
+  if (!loadSession()) { showGate(); return; }
   try { await loadBoard(); }
-  catch (e) { $("#pane").innerHTML = '<div class="err">Could not load the board. If you opened this file from disk, run a local server: <code>python3 -m http.server</code>.</div>'; return; }
+  catch (e) { if (e.status === 401) return; $("#pane").innerHTML = '<div class="err">Could not load the board: ' + esc(e.message) + "</div>"; return; }
   DATA.companies.sort((a, b) => b.score - a.score); DATA.companies.forEach((c, i) => (c.rank = i + 1));
   paintBoardStatus(); renderList(); select(DATA.companies[0].id); checkConn();
-})();
-$("#board-status").addEventListener("click", () => { if (boardSource === "live") toast("<b>Live board</b>Served by the Worker from Cloudflare KV. Refresh pulls the tracker and scores new names."); else toast("<b>Static board</b>Served from data/companies.json. Set the proxy URL in the connection panel to use the live board and the refresh button."); });
+}
+boot();
+
+/* sign-in gate */
+function showGate(note) { const g = $("#gate"); g.hidden = false; const c = cfg();
+  g.innerHTML = '<form class="gate-card" id="gate-form"><h1>Pipeline Desk</h1><p>Elsewhere Partners deal board. Enter your email and we will send a one-time sign-in code. No password.</p>' +
+    (note ? '<div class="err">' + esc(note) + "</div>" : "") +
+    '<div class="field" id="g-email-f"><label for="g-email">Email</label><input id="g-email" type="email" autocomplete="email" placeholder="you@elsewhere.partners" required autofocus></div>' +
+    '<div class="field" id="g-code-f" hidden><label for="g-code">Code from the email</label><input id="g-code" class="code" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="one-time-code" placeholder="000000"></div>' +
+    '<div class="gate-row"><button class="btn primary" id="g-go" type="submit">Send code</button><button class="btn" id="g-back" type="button" hidden>Different email</button><span class="gate-msg" id="g-msg"></span></div>' +
+    '<div class="gate-foot">Access is limited to the Elsewhere team</div></form>';
+  let step = "email", email = "";
+  const msg = (t, bad) => { const m = $("#g-msg", g); m.textContent = t || ""; m.className = "gate-msg" + (bad ? " bad" : ""); };
+  const toCode = () => { step = "code"; $("#g-email-f", g).hidden = true; $("#g-code-f", g).hidden = false; $("#g-back", g).hidden = false; $("#g-go", g).textContent = "Sign in"; msg("Code sent to " + email + ". Check spam if it is slow."); $("#g-code", g).focus(); };
+  $("#g-back", g).addEventListener("click", () => { step = "email"; $("#g-email-f", g).hidden = false; $("#g-code-f", g).hidden = true; $("#g-back", g).hidden = true; $("#g-go", g).textContent = "Send code"; msg(""); });
+  $("#gate-form", g).addEventListener("submit", async (e) => { e.preventDefault(); const btn = $("#g-go", g); btn.disabled = true;
+    try {
+      if (step === "email") { email = $("#g-email", g).value.trim().toLowerCase(); msg("Sending…");
+        const r = await fetch(c.proxy + "/api/auth/request", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ email }) }); const j = await r.json().catch(() => ({}));
+        if (!r.ok) throw new Error(j.error || ("HTTP " + r.status)); toCode(); }
+      else { const code = $("#g-code", g).value.replace(/\D/g, ""); if (code.length !== 6) throw new Error("Enter the 6-digit code."); msg("Checking…");
+        const r = await fetch(c.proxy + "/api/auth/verify", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ email, code }) }); const j = await r.json().catch(() => ({}));
+        if (!r.ok) throw new Error(j.error || ("HTTP " + r.status)); saveSession({ token: j.token, email: j.email, exp: j.exp }); g.hidden = true; g.innerHTML = ""; boot(); }
+    } catch (err) { msg(err.message || String(err), true); }
+    btn.disabled = false; });
+}
+function signOut() { saveSession(null); DATA = null; $("#pane").innerHTML = ""; $("#list").innerHTML = ""; showGate(); }
+$("#board-status").addEventListener("click", () => toast("<b>Live board</b>Served by the Worker from Cloudflare KV. Refresh pulls the tracker and scores anything not already on the board."));
 
 /* rail */
 function matchBand(c) { if (band === "all") return true; if (band === "verified") return c.state === "verified"; if (band === "new") return isAuto(c); return bandOf(c.score) === band; }
@@ -241,7 +285,7 @@ $("#list").addEventListener("click", (e) => { const row = e.target.closest(".row
 function co(id) { return DATA.companies.find((c) => c.id === id); }
 function select(id) { current = id; $$(".row").forEach((r) => r.setAttribute("aria-current", String(r.dataset.id === id))); renderDetail(); renderThread(); renderStarters();
   const row = document.querySelector('.row[data-id="' + CSS.escape(id) + '"]'); if (row) row.scrollIntoView({ block: "nearest" });
-  $("#input").placeholder = "Ask why " + co(id).name + " scored " + co(id).score; $("#detail").scrollTop = 0; }
+  $("#input").placeholder = "Ask why " + co(id).name + " scored " + co(id).score; $("#pane-scroll").scrollTop = 0; }
 function factorRow(k, f) { const v = Number(f.score) || 0; return '<div class="frow"><div class="fkey">' + k + '</div><div><div class="flabel">' + esc(f.label) + '</div><div class="fbar"><i style="width:' + v + "%;background:" + factorColor(v) + '"></i><div class="fgrid"><u style="left:30%"></u><u style="left:65%"></u></div></div></div><div class="fval" style="color:' + factorColor(v) + '">' + v + "</div></div>"; }
 function cell(title, body, cls) { return body ? '<div class="cell ' + (cls || "") + '"><h3>' + esc(title) + "</h3><p>" + esc(body) + "</p></div>" : ""; }
 function renderDetail() {
@@ -269,8 +313,10 @@ async function runRefresh() {
   if (refreshing) return;
   refreshing = true; const btn = $("#refresh"); btn.disabled = true; const t = $("#board-text");
   paintBoardStatus(); t.textContent = "updating · reading tracker";
-  const headers = { "content-type": "application/json" }; if (c.code) headers["X-Access-Code"] = c.code;
-  const call = async (body) => { const r = await fetch(c.proxy + "/api/refresh", { method: "POST", headers, body: JSON.stringify(body) }); const j = await r.json().catch(() => ({})); if (!r.ok) throw new Error(j.error || ("HTTP " + r.status)); return j; };
+  const headers = { "content-type": "application/json" };
+  const once = async (body) => { const r = await api("/api/refresh", { method: "POST", headers, body: JSON.stringify(body) }); const j = await r.json().catch(() => ({})); if (!r.ok) { const e = new Error(j.error || ("HTTP " + r.status)); e.status = r.status; throw e; } return j; };
+  // retry transient failures (network, 429, 5xx) with backoff so a long run survives a hiccup; give up on auth/config errors
+  const call = async (body) => { let last; for (let i = 0; i < 4; i++) { try { return await once(body); } catch (e) { last = e; if (e.status === 401 || e.status === 400) throw e; t.textContent = "updating · retrying (" + (i + 1) + "/4) · " + (e.message || "").slice(0, 60); await new Promise((r) => setTimeout(r, 5000 * (i + 1))); } } throw last; };
   try {
     let res = await call({ restart: true });
     if (!res.done) {
@@ -313,23 +359,27 @@ function systemPrompt() { const c = co(current);
 /* chat */
 const threadKey = () => (scope === "board" ? "__board" : current);
 function getThread() { const k = threadKey(); if (!threads.has(k)) threads.set(k, []); return threads.get(k); }
-function renderThread() { const t = getThread(); if (!t.length) { $("#thread").innerHTML = ""; $("#starters").hidden = false; return; } $("#starters").hidden = true;
+function renderThread() { const t = getThread(); const c = co(current); $("#ask-title").textContent = scope === "board" ? "Ask about the whole board" : (c ? "Ask about " + c.name : "Ask");
+  $("#ask-toggle").hidden = !t.length; $("#ask-clear").hidden = !t.length;
+  if (!t.length) { $("#thread").innerHTML = ""; $("#starters").hidden = false; $("#ask").classList.remove("collapsed"); return; } $("#starters").hidden = true;
   $("#thread").innerHTML = t.map((m) => { if (m.role === "user") return '<div class="turn me"><div class="who">You</div><div class="bubble">' + md(m.content) + "</div></div>";
     let body = ""; if (m.searching) body += '<div class="tool-chip"><i class="spin"></i>Searching the web' + (m.query ? ": " + esc(m.query) : "") + "</div>";
     if (m.searched) body += '<div class="tool-chip">Searched the web · ' + m.searched + " result" + (m.searched === 1 ? "" : "s") + "</div>";
     body += m.content ? md(m.content) : (m.pending ? '<div class="tool-chip"><i class="spin"></i>Thinking</div>' : ""); if (m.error) body += '<div class="err">' + esc(m.error) + "</div>";
     if (m.sources && m.sources.length) body += '<div class="sources"><h4>Sources</h4><ol>' + m.sources.map((s) => '<li><a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.title || s.url) + "</a></li>").join("") + "</ol></div>";
     return '<div class="turn"><div class="who">Claude</div><div class="bubble">' + body + "</div></div>"; }).join("");
-  $("#detail").scrollTop = $("#detail").scrollHeight; }
+  const th = $("#thread"); th.scrollTop = th.scrollHeight; }
+$("#ask-toggle").addEventListener("click", () => { const a = $("#ask"); a.classList.toggle("collapsed"); $("#ask-toggle").textContent = a.classList.contains("collapsed") ? "Show conversation" : "Hide conversation"; });
+$("#ask-clear").addEventListener("click", () => { threads.set(threadKey(), []); renderThread(); });
 const input = $("#input");
 input.addEventListener("input", () => { input.style.height = "auto"; input.style.height = Math.min(input.scrollHeight, 150) + "px"; });
 input.addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); } });
 $("#send").addEventListener("click", send);
 async function send() {
   const text = input.value.trim(); if (!text || busy) return; const c = cfg();
-  if (!c.proxy && !c.key) { openSettings("Set up the Claude connection before asking a question."); return; }
+  if (!SESSION) { showGate(); return; }
   const t = getThread(); t.push({ role: "user", content: text }); const reply = { role: "assistant", content: "", pending: true, sources: [] }; t.push(reply);
-  input.value = ""; input.style.height = "auto"; busy = true; $("#send").disabled = true; $("#send").textContent = "…"; renderThread();
+  input.value = ""; input.style.height = "auto"; busy = true; $("#send").disabled = true; $("#send").textContent = "…"; $("#ask").classList.remove("collapsed"); $("#ask-toggle").textContent = "Hide conversation"; renderThread();
   const messages = t.filter((m) => m.role === "user" || (m.role === "assistant" && m.content)).map((m) => ({ role: m.role, content: m.content })); if (messages[messages.length - 1].role === "assistant") messages.pop();
   try { const res = await callClaude({ system: systemPrompt(), messages, webSearch: $("#websearch").checked }, (evt) => { reply.pending = false;
       if (evt.type === "text") reply.content += evt.text; if (evt.type === "search_start") { reply.searching = true; reply.query = evt.query; }
@@ -340,14 +390,9 @@ async function send() {
   reply.pending = false; reply.searching = false; busy = false; $("#send").disabled = false; $("#send").textContent = "Ask"; renderThread(); input.focus();
 }
 async function callClaude(body, onEvent) {
-  const c = cfg(); let url, headers;
-  if (c.proxy) { url = c.proxy + "/api/chat"; headers = { "content-type": "application/json" }; if (c.code) headers["X-Access-Code"] = c.code; }
-  else { url = "https://api.anthropic.com/v1/messages"; headers = { "content-type": "application/json", "x-api-key": c.key, "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" }; }
-  const payload = c.proxy ? body : { model: LS.get("epd.model", "claude-opus-5"), max_tokens: 2000, system: body.system, messages: body.messages, stream: true, ...(body.webSearch ? { tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 5 }] } : {}) };
-  const r = await fetch(url, { method: "POST", headers, body: JSON.stringify(payload) });
+  const r = await api("/api/chat", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
   if (!r.ok) { let detail = ""; try { const j = await r.json(); detail = j.detail || (j.error && (j.error.message || j.error)) || ""; } catch { detail = await r.text().catch(() => ""); }
-    if (r.status === 401) throw new Error("Not authorised (401). Check the access code or API key in settings. " + String(detail).slice(0, 300));
-    if (r.status === 403) throw new Error("Blocked (403). The proxy does not allow this site's origin: " + location.origin);
+    if (r.status === 403) throw new Error("Blocked (403). The Worker does not allow this site's origin: " + location.origin);
     if (r.status === 429) throw new Error("Rate limited (429). Wait a moment and ask again."); throw new Error("Request failed (" + r.status + "). " + String(detail).slice(0, 400)); }
   const model = r.headers.get("x-model-used") || ""; const reader = r.body.getReader(); const dec = new TextDecoder(); let buf = ""; const partials = {};
   while (true) { const { done, value } = await reader.read(); if (done) break; buf += dec.decode(value, { stream: true }); const chunks = buf.split("\n\n"); buf = chunks.pop();
@@ -362,27 +407,22 @@ async function callClaude(body, onEvent) {
 
 /* connection + modals */
 async function checkConn() { const c = cfg(); const dot = $("#conn-dot"), txt = $("#conn-text");
-  if (!c.proxy && !c.key) { dot.className = "dot warn"; txt.textContent = "not connected"; $("#refresh").disabled = true; return; }
-  if (!c.proxy) { dot.className = "dot on"; txt.textContent = "direct key"; $("#modelhint").textContent = LS.get("epd.model", "claude-opus-5"); $("#refresh").disabled = true; return; }
   dot.className = "dot"; txt.textContent = "checking";
-  try { const r = await fetch(c.proxy + "/api/health"); if (!r.ok) throw new Error(String(r.status)); const j = await r.json(); dot.className = "dot on"; txt.textContent = "opus ready"; $("#modelhint").textContent = j.model === "auto" ? "opus (auto)" : j.model;
+  try { const r = await fetch(c.proxy + "/api/health"); if (!r.ok) throw new Error(String(r.status)); const j = await r.json(); dot.className = "dot on"; txt.textContent = (SESSION && SESSION.email ? SESSION.email.split("@")[0] + " · " : "") + "opus ready"; $("#modelhint").textContent = j.model === "auto" ? "opus (auto)" : j.model;
     $("#refresh").disabled = !(j.refresh && j.kv); $("#refresh").title = j.refresh && j.kv ? "Crawl the IC tracker, score new companies, publish" : "Refresh needs Google credentials and a KV binding on the Worker (see README)"; }
-  catch (e) { dot.className = "dot warn"; txt.textContent = "proxy unreachable"; $("#refresh").disabled = true; } }
+  catch (e) { dot.className = "dot warn"; txt.textContent = "worker unreachable"; $("#refresh").disabled = true; } }
 $("#conn").addEventListener("click", () => openSettings());
 function modal(title, bodyHtml, onMount) { const scrim = document.createElement("div"); scrim.className = "scrim";
   scrim.innerHTML = '<div class="modal" role="dialog" aria-modal="true" aria-label="' + esc(title) + '"><div class="modal-head"><h2>' + esc(title) + '</h2><button class="btn" data-close type="button" style="margin-left:auto">Close</button></div><div class="modal-body">' + bodyHtml + "</div></div>";
   document.body.appendChild(scrim); const close = () => scrim.remove(); scrim.addEventListener("click", (e) => { if (e.target === scrim || e.target.hasAttribute("data-close")) close(); });
   document.addEventListener("keydown", function onEsc(e) { if (e.key === "Escape") { close(); document.removeEventListener("keydown", onEsc); } }); if (onMount) onMount(scrim, close); return scrim; }
-function openSettings(note) { const c = cfg();
-  modal("Claude connection", (note ? '<div class="err">' + esc(note) + "</div>" : "") +
-    '<div class="field"><label for="f-proxy">Proxy URL (recommended)</label><input id="f-proxy" type="url" placeholder="https://elsewhere-pipeline-desk.you.workers.dev" value="' + esc(c.proxy) + '"><small>The Cloudflare Worker that holds the API key, reads the tracker, and serves the live board. With this set, nobody using the page needs a key of their own.</small></div>' +
-    '<div class="field"><label for="f-code">Access code</label><input id="f-code" type="password" placeholder="matches ACCESS_CODE on the Worker" value="' + esc(c.code) + '"><small>Needed for questions and for refresh, so a leaked link cannot spend against the key. Reading the board needs no code.</small></div>' +
-    '<div class="field"><label for="f-key">Or: your own Anthropic API key</label><input id="f-key" type="password" placeholder="sk-ant-..." value="' + esc(c.key) + '"><small>Only used when no proxy URL is set. Stays in this browser. Refresh is unavailable in this mode.</small></div>' +
-    '<div class="field"><label for="f-model">Model (direct-key mode only)</label><input id="f-model" type="text" value="' + esc(LS.get("epd.model", "claude-opus-5")) + '"></div>' +
-    '<div style="display:flex;gap:9px"><button class="btn primary" id="f-save" type="button">Save</button><button class="btn" id="f-test" type="button">Test connection</button><span id="f-msg" style="align-self:center;font-size:13px;color:var(--ink-3)"></span></div>',
-    (scrim, close) => { $("#f-save", scrim).addEventListener("click", async () => { LS.set("epd.proxy", $("#f-proxy", scrim).value.trim().replace(/\/+$/, "")); LS.set("epd.code", $("#f-code", scrim).value.trim()); LS.set("epd.key", $("#f-key", scrim).value.trim()); LS.set("epd.model", $("#f-model", scrim).value.trim() || "claude-opus-5"); close(); await loadBoard().catch(() => {}); DATA.companies.sort((a, b) => b.score - a.score); DATA.companies.forEach((x, i) => (x.rank = i + 1)); paintBoardStatus(); renderList(); checkConn(); });
-      $("#f-test", scrim).addEventListener("click", async () => { const msg = $("#f-msg", scrim); const p = $("#f-proxy", scrim).value.trim().replace(/\/+$/, ""); if (!p) { msg.textContent = "No proxy URL."; return; } msg.textContent = "checking…";
-        try { const r = await fetch(p + "/api/health"); const j = await r.json(); msg.textContent = r.ok ? "Reachable. Model: " + j.model + (j.needsCode ? ". Access code required." : ".") + (j.refresh ? " Tracker refresh: ready." : " Tracker refresh: not configured.") + (j.kv ? "" : " No KV binding.") : "HTTP " + r.status; } catch (e) { msg.textContent = "Could not reach it."; } }); }); }
+function openSettings(note) { const c = cfg(); const until = SESSION ? new Date(SESSION.exp).toLocaleDateString() : "";
+  modal("Account", (note ? '<div class="err">' + esc(note) + "</div>" : "") +
+    '<div class="field"><label>Signed in as</label><div style="font-size:14px">' + esc(SESSION ? SESSION.email : "not signed in") + (until ? ' <span style="color:var(--ink-3);font-size:12px">· session until ' + esc(until) + "</span>" : "") + '</div><small>Sign-in is by emailed one-time code. There is no password to save or forget. Clearing this browser\'s storage also signs you out.</small></div>' +
+    '<div class="field"><label for="f-proxy">Worker URL</label><input id="f-proxy" type="url" value="' + esc(c.proxy) + '"><small>The Cloudflare Worker that holds the API key, reads the tracker, serves the board and sends sign-in codes. Change only if the Worker moves.</small></div>' +
+    '<div style="display:flex;gap:9px"><button class="btn primary" id="f-save" type="button">Save</button><button class="btn" id="f-out" type="button">Sign out</button><span id="f-msg" style="align-self:center;font-size:13px;color:var(--ink-3)"></span></div>',
+    (scrim, close) => { $("#f-save", scrim).addEventListener("click", () => { LS.set("epd.proxy", $("#f-proxy", scrim).value.trim().replace(/\/+$/, "")); close(); boot(); });
+      $("#f-out", scrim).addEventListener("click", () => { close(); signOut(); }); }); }
 $("#open-rubric").addEventListener("click", () => { const fs = DATA.rubric.factors.map((f) => '<div class="rubric-f"><h3>' + esc(f.name) + '</h3><span class="w">' + esc(f.weight) + ' of the score</span><dl><dt class="up">Earns</dt><dd>' + esc(f.earns) + '</dd><dt class="dn">Loses</dt><dd>' + esc(f.loses) + "</dd></dl></div>").join("");
   modal("Rubric v3 and the philosophy behind it", '<div class="rubric-f"><h3>How the score is built</h3><p class="pov-text" style="margin:8px 0 0">' + esc(DATA.rubric.rules) + "</p></div>" + fs + '<div class="rubric-f"><h3>What Elsewhere actually buys</h3><p class="pov-text" style="margin:8px 0 0">' + esc(DATA.pov) + "</p></div>"); });
 document.addEventListener("keydown", (e) => { if (e.target.matches("input, textarea")) return; if (e.key !== "j" && e.key !== "k") return; const i = LISTED.findIndex((c) => c.id === current); const next = e.key === "j" ? Math.min(i + 1, LISTED.length - 1) : Math.max(i - 1, 0); if (LISTED[next]) select(LISTED[next].id); });

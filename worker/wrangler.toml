@@ -4,11 +4,16 @@ compatibility_date = "2026-01-01"
 
 [vars]
 # Your GitHub Pages origin (no path), plus localhost for testing.
-ALLOWED_ORIGINS = "https://YOURNAME.github.io,http://localhost:8000"
+ALLOWED_ORIGINS = "https://pittycheria.github.io,http://localhost:8000"
 # Where the Worker fetches the seed board the first time the live board is empty.
-PAGES_ORIGIN = "https://YOURNAME.github.io/elsewhere-pipeline-desk"
+PAGES_ORIGIN = "https://pittycheria.github.io/elsewhere-pipeline-desk"
 # The Elsewhere IC tracker (the long id in the docs.google.com URL).
 TRACKER_DOC_ID = "1ozn4owNZPjfr92x-NKvQKDx-AVFe4dkNFKZdlttP8iw"
+# Who may sign in: exact addresses and/or @domains, comma-separated.
+ALLOWED_EMAILS = "pittycheria@gmail.com,@elsewhere.partners,@elsewhere.partners.com"
+# Gmail account the sign-in codes are sent from (the account that granted gmail.send).
+MAIL_FROM = "pittycheria@gmail.com"
+SESSION_DAYS = "30"
 # Leave unset to auto-pick the newest Opus your key can call.
 # MODEL = "claude-opus-5"
 MAX_TOKENS = "2000"
@@ -21,7 +26,8 @@ id = "61f35e14de1b42dc81db1e43441f8b28"
 
 # Secrets (never in this file):
 #   npx wrangler secret put ANTHROPIC_API_KEY
-#   npx wrangler secret put ACCESS_CODE
+#   npx wrangler secret put SESSION_SECRET        # any long random string
+#   npx wrangler secret put ACCESS_CODE           # optional: admin override for curl
 #   and ONE of:
 #   npx wrangler secret put GOOGLE_SA_KEY                 # paste the whole service-account JSON
 #   npx wrangler secret put GOOGLE_OAUTH_CLIENT_ID
