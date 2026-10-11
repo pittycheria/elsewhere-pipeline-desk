@@ -56,7 +56,8 @@ button,input,textarea,select{font:inherit;color:inherit}
 .rail{border-right:1px solid var(--rule); background:var(--surface); display:flex; flex-direction:column; min-height:0}
 .rail-head{padding:12px 14px 10px; border-bottom:1px solid var(--rule-soft); display:flex; flex-direction:column; gap:9px}
 .search{width:100%; padding:8px 11px; border:1px solid var(--rule); border-radius:6px; background:var(--paper); font-size:13px} .search::placeholder{color:var(--ink-3)}
-.filters{display:flex; gap:5px; flex-wrap:wrap}
+.filters{display:flex; gap:5px; flex-wrap:wrap; align-items:center}
+.sortsw{display:inline-flex; border:1px solid var(--rule); border-radius:4px; overflow:hidden; margin-left:auto} .sortsw button{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; padding:4px 8px; border:0; background:transparent; color:var(--ink-2); cursor:pointer} .sortsw button[aria-pressed="true"]{background:var(--accent); color:var(--accent-ink)}
 .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; padding:4px 8px; border-radius:4px; border:1px solid var(--rule); background:transparent; color:var(--ink-2); cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--accent-ink)}
 .list{overflow-y:auto; flex:1; min-height:0; padding:6px 0 20px}
@@ -157,6 +158,7 @@ button,input,textarea,select{font:inherit;color:inherit}
         <button class="chip" data-band="pass" aria-pressed="false" type="button">Under 55</button>
         <button class="chip" data-band="verified" aria-pressed="false" type="button">Verified</button>
         <button class="chip" data-band="new" aria-pressed="false" type="button">New</button>
+        <div class="sortsw" role="group" aria-label="Sort order"><button id="sort-score" aria-pressed="true" type="button" title="Highest score first">Score</button><button id="sort-latest" aria-pressed="false" type="button" title="Most recent in the tracker first">Latest</button></div>
       </div>
     </div>
     <div class="list" id="list" role="listbox" aria-label="Ranked companies"></div>
@@ -183,7 +185,7 @@ const DEFAULT_PROXY = "https://elsewhere-pipeline-desk.pittycheria.workers.dev";
 const $ = (s, r) => (r || document).querySelector(s);
 const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
 const LS = { get(k, d) { try { return localStorage.getItem(k) ?? d; } catch { return d; } }, set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
-let DATA = null, LISTED = [], current = null, band = "all", scope = "co", busy = false, refreshing = false, boardSource = "live", SESSION = null;
+let DATA = null, LISTED = [], current = null, band = "all", scope = "co", busy = false, refreshing = false, boardSource = "live", SESSION = null, sortMode = LS.get("epd.sort", "score") || "score";
 const threads = new Map();
 const cfg = () => ({ proxy: (LS.get("epd.proxy", DEFAULT_PROXY) || "").replace(/\/+$/, "") });
 /* session: an HMAC-signed token from the Worker after an emailed passcode; no passwords anywhere */
@@ -235,7 +237,7 @@ async function boot() {
   try { await loadBoard(); }
   catch (e) { if (e.status === 401) return; $("#pane").innerHTML = '<div class="err">Could not load the board: ' + esc(e.message) + "</div>"; return; }
   DATA.companies.sort((a, b) => b.score - a.score); DATA.companies.forEach((c, i) => (c.rank = i + 1));
-  paintBoardStatus(); renderList(); select(DATA.companies[0].id); checkConn();
+  paintBoardStatus(); $("#sort-score").setAttribute("aria-pressed", String(sortMode === "score")); $("#sort-latest").setAttribute("aria-pressed", String(sortMode === "latest")); renderList(); select(LISTED[0] ? LISTED[0].id : DATA.companies[0].id); checkConn();
 }
 boot();
 
@@ -267,16 +269,29 @@ $("#board-status").addEventListener("click", () => toast("<b>Live board</b>Serve
 
 /* rail */
 function matchBand(c) { if (band === "all") return true; if (band === "verified") return c.state === "verified"; if (band === "new") return isAuto(c); return bandOf(c.score) === band; }
+const fmtWeek = (d) => { if (!d) return ""; const [y, m, dd] = d.split("-").map(Number); return new Date(Date.UTC(y, m - 1, dd)).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }); };
 function renderList() {
   const q = $("#q").value.trim().toLowerCase();
   LISTED = DATA.companies.filter((c) => matchBand(c) && (!q || (c.name + " " + c.hq + " " + c.what + " " + c.sectorFit).toLowerCase().includes(q)));
-  const groups = [["chase", "Chase now · 75+"], ["interest", "Real interest · 65-74"], ["cond", "Conditional · 55-64"], ["pass", "Pass · under 55"]];
   let html = "";
-  for (const [key, label] of groups) { const rows = LISTED.filter((c) => bandOf(c.score) === key); if (!rows.length) continue;
-    html += '<div class="band-label">' + esc(label) + "</div>";
-    for (const c of rows) html += '<button class="row" role="option" data-id="' + esc(c.id) + '" aria-current="' + (current === c.id) + '" type="button"><span class="rank">' + c.rank + '</span><span class="row-main"><span class="row-name">' + esc(c.name) + '</span><span class="row-meta">' + (c.state === "verified" ? '<i class="tick" title="Independently verified"></i>' : isAuto(c) ? '<i class="tick auto" title="Added by tracker refresh, pitch-scored"></i>' : "") + esc(c.week) + " · " + esc(c.hq) + '</span></span><span class="score ' + bandClass(c.score) + '">' + c.score + "</span></button>"; }
+  const row = (c) => '<button class="row" role="option" data-id="' + esc(c.id) + '" aria-current="' + (current === c.id) + '" type="button"><span class="rank">' + c.rank + '</span><span class="row-main"><span class="row-name">' + esc(c.name) + '</span><span class="row-meta">' + (c.state === "verified" ? '<i class="tick" title="Independently verified"></i>' : isAuto(c) ? '<i class="tick auto" title="Added by tracker refresh, pitch-scored"></i>' : "") + esc(c.week) + " · " + esc(c.hq) + '</span></span><span class="score ' + bandClass(c.score) + '">' + c.score + "</span></button>";
+  if (sortMode === "latest") {
+    // tracker order: most recent week first, then position within the doc; rows the tracker does not mention go last
+    const inDoc = LISTED.filter((c) => c.weekDate).sort((a, b) => (b.weekDate.localeCompare(a.weekDate)) || ((a.docOrder ?? 1e9) - (b.docOrder ?? 1e9)));
+    const notInDoc = LISTED.filter((c) => !c.weekDate).sort((a, b) => b.score - a.score);
+    let lastWeek = null;
+    for (const c of inDoc) { if (c.weekDate !== lastWeek) { lastWeek = c.weekDate; html += '<div class="band-label">Week of ' + esc(fmtWeek(c.weekDate)) + "</div>"; } html += row(c); }
+    if (notInDoc.length) { html += '<div class="band-label">Not in the tracker</div>'; for (const c of notInDoc) html += row(c); }
+    LISTED = inDoc.concat(notInDoc);
+  } else {
+    const groups = [["chase", "Chase now · 75+"], ["interest", "Real interest · 65-74"], ["cond", "Conditional · 55-64"], ["pass", "Pass · under 55"]];
+    for (const [key, label] of groups) { const rows = LISTED.filter((c) => bandOf(c.score) === key); if (!rows.length) continue;
+      html += '<div class="band-label">' + esc(label) + "</div>"; for (const c of rows) html += row(c); }
+  }
   $("#list").innerHTML = html || '<div class="band-label">No matches</div>';
 }
+function setSort(m) { sortMode = m; LS.set("epd.sort", m); $("#sort-score").setAttribute("aria-pressed", String(m === "score")); $("#sort-latest").setAttribute("aria-pressed", String(m === "latest")); renderList(); const row = current && document.querySelector('.row[data-id="' + CSS.escape(current) + '"]'); if (row) row.scrollIntoView({ block: "nearest" }); }
+$("#sort-score").addEventListener("click", () => setSort("score")); $("#sort-latest").addEventListener("click", () => setSort("latest"));
 $("#q").addEventListener("input", renderList);
 $("#filters").addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (!b) return; band = b.dataset.band; $$("#filters .chip").forEach((c) => c.setAttribute("aria-pressed", String(c === b))); renderList(); });
 $("#list").addEventListener("click", (e) => { const row = e.target.closest(".row"); if (row) select(row.dataset.id); });

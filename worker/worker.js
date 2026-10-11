@@ -189,8 +189,14 @@ async function refresh(request, env, ctx, cors) {
     let text;
     try { text = await fetchDocText(env); }
     catch (e) { return json({ error: "Could not read the tracker: " + e.message }, 502, cors); }
-    const all = splitCompanies(text);
+    const all = datify(splitCompanies(text));
     const blocks = applyCutoff(all, env.MIN_WEEK);
+    // record each company's tracker position and week-date (first = most recent mention) so the page can sort by latest
+    const posByName = new Map();
+    for (const b of all) { const k = norm(b.name); if (k && !posByName.has(k)) posByName.set(k, b); }
+    let moved = false;
+    for (const c of board.companies) { const b = posByName.get(norm(c.name)); if (b && (c.docOrder !== b.pos || c.weekDate !== b.date || c.trackerWeek !== b.week)) { c.docOrder = b.pos; c.weekDate = b.date; c.trackerWeek = b.week; moved = true; } }
+    if (moved) await env.BOARD.put("board", JSON.stringify(board));
     // self-heal: a refresh row with no factor scores is a failed score; drop it so it gets redone
     const before = board.companies.length;
     board.companies = board.companies.filter((c) => !(c.source === "tracker-refresh" && !(c.score > 0)));
@@ -329,7 +335,7 @@ async function scoreOnce(block, board, model, env, attempt) {
   for (const k in f) f[k].label = labels[k];
   const today = new Date().toISOString().slice(0, 10);
   return {
-    id: slug(block.name), name: block.name, rank: 0, score, week: block.week || "", hq: j.hq || "",
+    id: slug(block.name), name: block.name, rank: 0, score, week: block.week || "", hq: j.hq || "", docOrder: block.pos, weekDate: block.date || "", trackerWeek: block.week || "",
     state: "pitch", source: "tracker-refresh", addedAt: today, verifiedDate: "", verifiedNote: "",
     factors: f,
     factorReasoning: ["A", "B", "C", "D", "E"].map((k) => k + ": " + f[k].reason).join(" "),
@@ -394,28 +400,24 @@ function splitCompanies(text) {
    document order (the tracker runs newest-first or oldest-first; either works). Then keep
    only blocks on/after MIN_WEEK (YYYY-MM-DD). Blocks with no week heading are dropped when a
    cutoff is set, so nothing undated slips through. */
+/* Give every block a full ISO date from its M/D week heading, inferring the year from document
+   order (the tracker runs newest-first; oldest-first also works), plus its position in the doc. */
+function datify(blocks) {
+  const md = (w) => { const m = /^(\d{1,2})\/(\d{1,2})$/.exec(w || ""); return m ? [+m[1], +m[2]] : null; };
+  const key = (x) => x[0] * 100 + x[1];
+  const dated = blocks.map((b, i) => ({ b, i, md: md(b.week) }));
+  const withMd = dated.filter((x) => x.md);
+  if (!withMd.length) return blocks.map((b, i) => ({ ...b, pos: i, date: "" }));
+  const newestFirst = key(withMd[0].md) >= key(withMd[withMd.length - 1].md);
+  let off = 0, prev = null;
+  for (const x of withMd) { if (prev !== null) { if (newestFirst && key(x.md) > prev) off -= 1; if (!newestFirst && key(x.md) < prev) off += 1; } prev = key(x.md); x.off = off; }
+  const maxOff = Math.max(...withMd.map((x) => x.off)); const thisYear = new Date().getUTCFullYear();
+  return dated.map((x) => ({ ...x.b, pos: x.i, date: x.md ? new Date(Date.UTC(thisYear - (maxOff - x.off), x.md[0] - 1, x.md[1])).toISOString().slice(0, 10) : "" }));
+}
 function applyCutoff(blocks, minWeek) {
   if (!minWeek) return blocks;
   const min = new Date(minWeek + "T00:00:00Z"); if (isNaN(min)) return blocks;
-  const md = (w) => { const m = /^(\d{1,2})\/(\d{1,2})$/.exec(w || ""); return m ? [+m[1], +m[2]] : null; };
-  const dated = blocks.map((b) => ({ b, md: md(b.week) })).filter((x) => x.md);
-  if (!dated.length) return [];
-  const key = (x) => x.md[0] * 100 + x.md[1];
-  const newestFirst = key(dated[0]) >= key(dated[dated.length - 1]);
-  // relative year offsets along the document, then anchor the newest heading to this year
-  let off = 0, prev = null;
-  for (const x of dated) {
-    if (prev !== null) { if (newestFirst && key(x) > prev) off -= 1; if (!newestFirst && key(x) < prev) off += 1; }
-    prev = key(x); x.off = off;
-  }
-  const maxOff = Math.max(...dated.map((x) => x.off));
-  const thisYear = new Date().getUTCFullYear();
-  const out = [];
-  for (const x of dated) {
-    const d = new Date(Date.UTC(thisYear - (maxOff - x.off), x.md[0] - 1, x.md[1]));
-    if (d >= min) out.push({ ...x.b, date: d.toISOString().slice(0, 10) });
-  }
-  return out;
+  return blocks.filter((b) => b.date && new Date(b.date + "T00:00:00Z") >= min);
 }
 const norm = (s) => String(s || "").toLowerCase().replace(/\(.*?\)/g, "").replace(/[^a-z0-9]+/g, "").trim();
 const slug = (s) => String(s || "").toLowerCase().replace(/\(.*?\)/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60);
